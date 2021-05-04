@@ -20,7 +20,7 @@ dasl {
   Signature = ComponentName Inputs Outputs
 
   ConnectionSpecs = ConnectionSpec+
-  ConnectionSpec = ComponentName "[" Connection+ "]"
+  ConnectionSpec = ComponentName "[" Connection* "]"
   Connection = Sender "->" Receiver ReceiverRest*
   ReceiverRest = "," Receiver
   Receiver = ComponentName "." PortName
@@ -82,14 +82,14 @@ dasl {
     [[connection(${scopeGet ('current component')},${scopeGet ('connection')}).\n${sender}${receiver1}${receivers}]]
 
   Receiver [componentName dot portName] =
-    {{ scopeAdd ("pair", "p" + gen () ); }}
+    {{ scopeAdd ("pair", "pair" + gen () ); }}
     [[${console.log ('pc(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pp(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('receiver(' + scopeGet ('connection') + "," + scopeGet ('pair') + ').'),""}]]    
 
   ReceiverRest [comma receiver] =
     [[${receiver}]]
     
   Sender [componentName dot portName] =
-    {{ scopeAdd ("pair", "id" + gen () ); }}
+    {{ scopeAdd ("pair", "pair" + gen () ); }}
     [[${console.log ('pc(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pp(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('sender(' + scopeGet ('connection') + "," + scopeGet ('pair') + ').'),""}]]
 
 

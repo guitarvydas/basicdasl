@@ -17,8 +17,5 @@
   []
 === connections
 [subcomponent]
-  [
-    [.].(A) -> [.].(B)
-  ]
-
-
+  []
+  

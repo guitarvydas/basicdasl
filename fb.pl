@@ -2,13 +2,26 @@
 
 
 
+
+
 component("main",nil).
-connection(n0,"main").
+component("subcomponent",nil).
+connection("main",n0).
+connection("main",n3).
+contained("subcomponent","main").
 inputPort("main","in").
+inputPort("subcomponent","A").
 outputPort("main","out").
-pcomponent(id1,".").
-pcomponent(p2,".").
-port(id1,"in").
-pport(p2,"out").
-receiver(p2,n0).
-sender(id1,n0).
+outputPort("subcomponent","B").
+pc(pair1,".").
+pc(pair2,"subcomponent").
+pc(pair4,"subcomponent").
+pc(pair5,".").
+pp(pair1,"in").
+pp(pair2,"A").
+pp(pair4,"B").
+pp(pair5,"out").
+receiver(n0,pair2).
+receiver(n3,pair5).
+sender(n0,pair1).
+sender(n3,pair4).
