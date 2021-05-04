@@ -79,18 +79,18 @@ dasl {
     {{
       scopeAdd ("connection", "n" + gen ());
     }}
-    [[connection(${scopeGet ('connection')},${scopeGet ('current component')}).\n${sender}${receiver1}${receivers}]]
+    [[connection(${scopeGet ('current component')},${scopeGet ('connection')}).\n${sender}${receiver1}${receivers}]]
 
   Receiver [componentName dot portName] =
     {{ scopeAdd ("pair", "p" + gen () ); }}
-    [[${console.log ('pcomponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pport(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('receiver(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]    
+    [[${console.log ('pc(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pp(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('receiver(' + scopeGet ('connection') + "," + scopeGet ('pair') + ').'),""}]]    
 
   ReceiverRest [comma receiver] =
     [[${receiver}]]
     
   Sender [componentName dot portName] =
     {{ scopeAdd ("pair", "id" + gen () ); }}
-    [[${console.log ('pcomponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('port(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('sender(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]
+    [[${console.log ('pc(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pp(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('sender(' + scopeGet ('connection') + "," + scopeGet ('pair') + ').'),""}]]
 
 
   ComponentName [lb name rb] =[[${name}]]
