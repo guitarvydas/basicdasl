@@ -57,14 +57,14 @@ dasl {
     }}
     [[${console.log('component("' + name + '",nil).'),list}]]
   ComponentList [lb @name rb] =[[${name}]]
-  SignatureHeader [h name]= [[${h}${name}]]
-  ComponentHeader [h name]= [[${h}${name}]]
-  ConnectionHeader [h name]= [[${h}${name}]]
+  SignatureHeader [h name]= [[${name}]]
+  ComponentHeader [h name]= [[${name}]]
+  ConnectionHeader [h name]= [[${name}]]
 
   SignatureSpecs [@signatures] =[[${signatures}]]
   Signature [name inputs outputs] =
     {{ scopeAdd ('componentName', _name._glue ()) }}
-    [[${name}${inputs}${outputs}]]
+    [[${inputs}${outputs}]]
 
   ConnectionSpecs [@specs] =[[${specs}]]
   ConnectionSpec [name lb @connections rb] =
@@ -97,11 +97,11 @@ dasl {
   name [@cs] =[[${cs}]]
   legalChar [c] = [[${c}]]
   namechar [c] = [[${c}]]
-  Inputs [lt @inputs] =[[${lt}${inputs}]]
+  Inputs [lt @inputs] =[[${inputs}]]
   Input [portname] =[[inputPort("${portname}","${scopeGet ('componentName')}").\n]]
-  Outputs [gt @outputs] =[[${gt}${outputs}]]
+  Outputs [gt @outputs] =[[${outputs}]]
   Output [portname] =[[outputPort(\"${portname}\","${scopeGet ('componentName')}").\n]]
-  PortName_empty [lp rp] =[[${lp}${rp}]]
+  PortName_empty [lp rp] =[[]]
   PortName_nonEmpty [lp @name rp] =[[${name}]]
   nl [c] =[[${c}]]
   ws [c] =[[${c}]]
