@@ -4,20 +4,23 @@
 [component X] < (c) > (#)
 === components
 [main]
-  [ 
-    [subcomponent]
-    [subcomponent]
-  ]
+  [ [subcomponent] ]
+[subcomponent]
+  [ [component X] ]
+[component X]
+  []
 === connections
 [main]
   [
-    [.].(in) -> [1].(A), [2].(A)
-    [1].(#) -> [.].(out)
-    [2].(#) -> [.].(out)
+    [.].(in) -> [1].(A),[2].(A)
+    [1].(*#) -> [.].(out)
+    [2].(*#) -> [.].(out)
   ]
-
 [subcomponent]
   [
     [.].(A) -> [component X].(c)
     [component X].(#) -> [.].(*#)
   ]
+[component X]
+  []
+
