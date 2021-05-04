@@ -1,0 +1,14 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect rx="50" fill="#ffffff" stroke="#000" x="88" y="57" width="578" height="359" id="svg_1"/>
+  <ellipse fill="#56ffaa" stroke="#000000" cx="88.5" cy="223.5" id="svg_2" rx="36.5" ry="36.5" fill-opacity="0.51"/>
+  <ellipse fill="#ffffaa" stroke="#000" cx="665.5" cy="222.5" id="svg_3" rx="36.5" ry="36.5" fill-opacity="0.51"/>
+  <text fill="#000000" stroke="#000" x="342" y="100" id="svg_4" stroke-width="0" font-size="24" font-family="sans-serif" text-anchor="start" xml:space="preserve">main</text>
+  <text fill="#000000" stroke="#000000" fill-opacity="0.51" x="79" y="232" id="svg_5" stroke-width="0" font-size="24" font-family="sans-serif" text-anchor="start" xml:space="preserve">in</text>
+  <text fill="#000000" stroke="#000000" stroke-width="0" fill-opacity="0.51" x="650" y="228" id="svg_6" font-size="24" font-family="sans-serif" text-anchor="start" xml:space="preserve">out</text>
+  <line fill="none" stroke="#000000" fill-opacity="0.51" x1="120" y1="220" x2="641" y2="220" id="svg_7"/>
+ </g>
+</svg>

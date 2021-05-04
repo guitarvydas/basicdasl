@@ -1,0 +1,44 @@
+=== signatures
+[main] < (in) > (out)
+=== components
+[main]
+  [ [subcomponent] ]
+=== connections
+[main]
+  [
+    [.].(in) -> [subcomponent].(A)
+    [subcomponent].(B) -> [.].(out)
+  ]
+
+=== signatures
+[subcomponent] < (A) > (B)
+=== components
+[subcomponent]
+  [ [subsubcomponent] ]
+=== connections
+[subcomponent]
+  [
+    [.].(A) -> [.].(B)
+  ]
+
+
+=== signatures
+[subcomponent] < (A) > (*#)
+=== components
+[subcomponent]
+  [ [component3] ]
+=== connections
+[subcomponent]
+  [
+    [.].(A) -> [component3].(c)
+    [component3].(#) -> [.].(#)
+  ]
+
+
+=== signatures
+[component3] < (A) > (B)
+=== components
+[component3]
+  []
+
+

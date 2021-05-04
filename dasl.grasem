@@ -1,0 +1,109 @@
+dasl {
+  DaslSpecs = DaslSpec+
+
+  DaslSpec =
+    SignatureHeader  SignatureSpecs
+    ComponentHeader  ComponentSpecs
+    ConnectionHeader ConnectionSpecs
+
+  SignatureHeader = Splitter "signatures"
+  ComponentHeader = Splitter "components"
+  ConnectionHeader = Splitter "connections"
+  Splitter = "==="
+  
+
+  ComponentSpecs = ComponentSpec+
+  ComponentSpec = ComponentName ComponentList
+  ComponentList = "[" InnerComponentName* "]"
+
+  SignatureSpecs = Signature+
+  Signature = ComponentName Inputs Outputs
+
+  ConnectionSpecs = ConnectionSpec+
+  ConnectionSpec = ComponentName "[" Connection+ "]"
+  Connection = Sender "->" Receiver ReceiverRest*
+  ReceiverRest = "," Receiver
+  Receiver = ComponentName "." PortName
+  Sender = ComponentName "." PortName
+
+  InnerComponentName = "[" name "]"
+  ComponentName = "[" name "]"
+  name = namechar*
+  legalChar = ~nl ~ws ~delim any
+  namechar = " " | legalChar
+  Inputs = "<" Input*
+  Input = PortName
+  Outputs = ">" Output*
+  Output = PortName
+  PortName =   "(" ")" -- empty
+             | "(" name? ")" -- nonEmpty
+  nl = "\n"
+  ws = " "
+  delim = "[" | "]" | "(" | ")" | "<" | ">"
+}
+
+
+  DaslSpecs [@specs] = [[${specs}]]
+  
+  DaslSpec [sigh signatures comph components connh connections] =
+  {{ scopeAdd ('counter', 0); }}
+  [[${signatures}\n${components}\n${connections}]]
+  
+  ComponentSpecs [@specs] =[[${specs}]]
+  ComponentSpec [name list] =
+    {{
+      var nm = _name._glue ();
+      scopeAdd ("current component", nm);
+    }}
+    [[${console.log('component("' + name + '",nil).'),list}]]
+  ComponentList [lb @name rb] =[[${name}]]
+  SignatureHeader [h name]= [[${h}${name}]]
+  ComponentHeader [h name]= [[${h}${name}]]
+  ConnectionHeader [h name]= [[${h}${name}]]
+
+  SignatureSpecs [@signatures] =[[${signatures}]]
+  Signature [name inputs outputs] =
+    {{ scopeAdd ('componentName', _name._glue ()) }}
+    [[${name}${inputs}${outputs}]]
+
+  ConnectionSpecs [@specs] =[[${specs}]]
+  ConnectionSpec [name lb @connections rb] =
+    {{
+      var nm = _name._glue ();
+      scopeAdd ("current component", '"' + nm + '"');
+    }}
+    [[${connections}]]
+  Connection [sender arrow receiver1 @receivers] =
+    {{
+      scopeAdd ("connection", "id" + gen ());
+    }}
+    [[connection(${scopeGet ('connection')},${scopeGet ('current component')}).\n${sender}${receiver1}${receivers}]]
+
+  Receiver [componentName dot portName] =
+    {{ scopeAdd ("pair", "id" + gen () ); }}
+    [[${console.log ('pairComponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pairPort(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('receiver(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]    
+
+  ReceiverRest [comma receiver] =
+    [[${receiver}]]
+    
+  Sender [componentName dot portName] =
+    {{ scopeAdd ("pair", "id" + gen () ); }}
+    [[${console.log ('pairComponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pairPort(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('sender(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]
+
+
+  ComponentName [lb name rb] =[[${name}]]
+  InnerComponentName [lb name rb] = [[contained(\"${name}\",\"${scopeGet ('current component')}\").\n]]
+
+  name [@cs] =[[${cs}]]
+  legalChar [c] = [[${c}]]
+  namechar [c] = [[${c}]]
+  Inputs [lt @inputs] =[[${lt}${inputs}]]
+  Input [portname] =[[inputPort("${portname}","${scopeGet ('componentName')}").\n]]
+  Outputs [gt @outputs] =[[${gt}${outputs}]]
+  Output [portname] =[[outputPort(\"${portname}\","${scopeGet ('componentName')}").\n]]
+  PortName_empty [lp rp] =[[${lp}${rp}]]
+  PortName_nonEmpty [lp @name rp] =[[${name}]]
+  nl [c] =[[${c}]]
+  ws [c] =[[${c}]]
+  delim [c] =[[${c}]]
+

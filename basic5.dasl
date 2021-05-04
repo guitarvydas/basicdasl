@@ -1,0 +1,23 @@
+=== signatures
+[main] < (in) > (out)
+[subcomponent] < (A) > (*#)
+[component X] < (c) > (#)
+=== components
+[main]
+  [ 
+    [subcomponent]
+    [subcomponent]
+  ]
+=== connections
+[main]
+  [
+    [.].(in) -> [1].(A), [2].(A)
+    [1].(#) -> [.].(out)
+    [2].(#) -> [.].(out)
+  ]
+
+[subcomponent]
+  [
+    [.].(A) -> [component X].(c)
+    [component X].(#) -> [.].(*#)
+  ]

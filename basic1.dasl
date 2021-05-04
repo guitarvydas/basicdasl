@@ -1,0 +1,10 @@
+=== signatures
+[main] < (in) > (out)
+=== components
+[main]
+  []
+=== connections
+[main]
+  [
+    [.].(in) -> [.].(out)
+  ]
