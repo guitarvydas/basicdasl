@@ -19,7 +19,7 @@
 === connections
 [subcomponent]
   [
-    [.].(A) -> [.].(c)
+    [.].(A) -> [component X].(c)
     [component X].(#) -> [.].(*#)
   ]
 

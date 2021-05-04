@@ -7,10 +7,11 @@ conn(Component,[Sender|SendingPort],[ReceivingComponent|ReceivingPort]) :-
     pc(ReceiverPairID,ReceivingComponent),
     pp(ReceiverPairID,ReceivingPort).
 
-conn([Component,S,R]) :-
-    conn(Component,S,R).
+allReceivers(Component,S,R) :-
+    setof(Receivers,conn(Component,S,Receivers),R).
 
-allConn(Set) :-
-    setof(X,conn(X),Set).
+conn(Component,'-->'(S,RBag)):-
+    allReceivers(Component, S, RBag).
 
-    
+conn(':'(C,W)) :-
+    conn(C,W).
