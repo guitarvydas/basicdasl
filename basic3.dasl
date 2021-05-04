@@ -7,38 +7,26 @@
 [main]
   [
     [.].(in) -> [subcomponent].(A)
-    [subcomponent].(B) -> [.].(out)
+    [subcomponent].(*#) -> [.].(out)
   ]
-
-=== signatures
-[subcomponent] < (A) > (B)
-=== components
-[subcomponent]
-  [ [subsubcomponent] ]
-=== connections
-[subcomponent]
-  [
-    [.].(A) -> [.].(B)
-  ]
-
 
 === signatures
 [subcomponent] < (A) > (*#)
 === components
 [subcomponent]
-  [ [component3] ]
+  [ [component X] ]
 === connections
 [subcomponent]
   [
-    [.].(A) -> [component3].(c)
-    [component3].(#) -> [.].(#)
+    [.].(A) -> [component X].(c)
+    [component X].(#) -> [.].(*#)
   ]
 
-
 === signatures
-[component3] < (A) > (B)
+[component X] < (c) > (#)
 === components
-[component3]
+[component X]
   []
-
-
+=== connections
+[component X]
+  []

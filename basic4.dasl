@@ -6,41 +6,30 @@
 === connections
 [main]
   [
-    [.].(in) -> [subcomponent].(A)
-    [subcomponent].(B) -> [.].(out)
+    [.].(in) -> [1].(A),[2].(A)
+    [1].(*#) -> [.].(out)
+    [2].(*#) -> [.].(out)
   ]
-
-=== signatures
-[subcomponent] < (A) > (B)
-=== components
-[subcomponent]
-  [ [subsubcomponent] ]
-=== connections
-[subcomponent]
-  [
-    [.].(A) -> [.].(B)
-  ]
-
 
 === signatures
 [subcomponent] < (A) > (*#)
 === components
 [subcomponent]
-  [
-    [component X]
-    [component X]
-  ]
+  [ [component X] ]
 === connections
 [subcomponent]
   [
-    [.].(A) -> [component3].(c)
-    [component3].(#) -> [.].(#)
+    [.].(A) -> [.].(c)
+    [component X].(#) -> [.].(*#)
   ]
 
 
 === signatures
-[component X] < (A) > (B)
+[component X] < (c) > (#)
 === components
+[component X]
+  []
+=== connections
 [component X]
   []
 

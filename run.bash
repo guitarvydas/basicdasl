@@ -1,5 +1,5 @@
 #!/bin/bash
-target=basic2
+target=basic4
 set -e
 echo >_.pl
 ../grasem/run.bash dasl.grasem >_.js

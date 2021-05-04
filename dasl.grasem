@@ -94,7 +94,7 @@ dasl {
 
 
   ComponentName [lb name rb] =[[${name}]]
-  InnerComponentName [lb name rb] = [[contained(\"${name}\",\"${scopeGet ('current component')}\").\n]]
+  InnerComponentName [lb name rb] = [[contains(\"${scopeGet ('current component')}\",\"${name}\").\n]]
 
   name [@cs] =[[${cs}]]
   legalChar [c] = [[${c}]]
