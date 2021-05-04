@@ -43,12 +43,17 @@ dasl {
 }
 
 
-  DaslSpecs [@specs] = [[${specs}]]
+  DaslSpecs [@specs] = 
+    {{ scopeAdd ('counter', 0); }}
+    [[${specs}]]
   
   DaslSpec [sigh signatures comph components connh connections] =
-  {{ scopeAdd ('counter', 0); }}
   [[${signatures}\n${components}\n${connections}]]
   
+  SignatureHeader [h name]= [[]]
+  ComponentHeader [h name]= [[]]
+  ConnectionHeader [h name]= [[]]
+
   ComponentSpecs [@specs] =[[${specs}]]
   ComponentSpec [name list] =
     {{
@@ -57,11 +62,8 @@ dasl {
     }}
     [[${console.log('component("' + name + '",nil).'),list}]]
   ComponentList [lb @name rb] =[[${name}]]
-  SignatureHeader [h name]= [[${name}]]
-  ComponentHeader [h name]= [[${name}]]
-  ConnectionHeader [h name]= [[${name}]]
 
-  SignatureSpecs [@signatures] =[[${signatures}]]
+  SignatureSpecs [@signatures] = [[${signatures}]]
   Signature [name inputs outputs] =
     {{ scopeAdd ('componentName', _name._glue ()) }}
     [[${inputs}${outputs}]]
@@ -75,20 +77,20 @@ dasl {
     [[${connections}]]
   Connection [sender arrow receiver1 @receivers] =
     {{
-      scopeAdd ("connection", "id" + gen ());
+      scopeAdd ("connection", "n" + gen ());
     }}
     [[connection(${scopeGet ('connection')},${scopeGet ('current component')}).\n${sender}${receiver1}${receivers}]]
 
   Receiver [componentName dot portName] =
-    {{ scopeAdd ("pair", "id" + gen () ); }}
-    [[${console.log ('pairComponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pairPort(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('receiver(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]    
+    {{ scopeAdd ("pair", "p" + gen () ); }}
+    [[${console.log ('pcomponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pport(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('receiver(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]    
 
   ReceiverRest [comma receiver] =
     [[${receiver}]]
     
   Sender [componentName dot portName] =
     {{ scopeAdd ("pair", "id" + gen () ); }}
-    [[${console.log ('pairComponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('pairPort(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('sender(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]
+    [[${console.log ('pcomponent(' + scopeGet ('pair') + ',"' + componentName + '").'), console.log ('port(' + scopeGet ('pair') + ',"' + portName + '").'), console.log ('sender(' + scopeGet ('pair') + "," + scopeGet ('connection') + ').'),""}]]
 
 
   ComponentName [lb name rb] =[[${name}]]
@@ -98,9 +100,9 @@ dasl {
   legalChar [c] = [[${c}]]
   namechar [c] = [[${c}]]
   Inputs [lt @inputs] =[[${inputs}]]
-  Input [portname] =[[inputPort("${portname}","${scopeGet ('componentName')}").\n]]
+  Input [portname] =[[inputPort("${scopeGet ('componentName')}","${portname}").\n]]
   Outputs [gt @outputs] =[[${outputs}]]
-  Output [portname] =[[outputPort(\"${portname}\","${scopeGet ('componentName')}").\n]]
+  Output [portname] =[[outputPort("${scopeGet ('componentName')}","${portname}").\n]]
   PortName_empty [lp rp] =[[]]
   PortName_nonEmpty [lp @name rp] =[[${name}]]
   nl [c] =[[${c}]]

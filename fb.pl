@@ -3,12 +3,12 @@
 
 
 component("main",nil).
-connection(id0,"main").
-inputPort("in","main").
-outputPort("out","main").
-pairComponent(id1,".").
-pairComponent(id2,".").
-pairPort(id1,"in").
-pairPort(id2,"out").
-receiver(id2,id0).
-sender(id1,id0).
+connection(n0,"main").
+inputPort("main","in").
+outputPort("main","out").
+pcomponent(id1,".").
+pcomponent(p2,".").
+port(id1,"in").
+pport(p2,"out").
+receiver(p2,n0).
+sender(id1,n0).
