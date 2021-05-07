@@ -1,0 +1,20 @@
+inputs = namespace(port)
+outputs = namespace(port)
+input_events = event_queue
+output_events = event_queue
+children = namespace(component)
+connections = bag(connection)
+connection = {sender, bag(receiver)}
+port = name
+component = name
+sender = {component, port}
+receiver = {component, port}
+event_queue = queue(event)
+event = {tag, data}
+
+foreign type name
+
+queue
+namespace
+bag
+{ ... }

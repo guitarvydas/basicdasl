@@ -1,0 +1,20 @@
+type component
+type name
+
+proto Basic_kind {
+  attribute id : name
+  attribute inputs : [component]
+  attribute outputs : [component]
+}
+
+proto Composite_kind (Basic_kind) {
+  attribute children: 
+}
+
+proto Leaf_kind (Basic_kind) {
+}
+
+proto Basic_instance {
+  attribute input_queue : Event_queue
+  attribute output_queue : Event_queue
+}
