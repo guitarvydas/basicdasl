@@ -154,16 +154,48 @@ comp {
    { text="my runnable filled in with children" }
 
 ** arrows
-   
+*** "c" -> "m"
+*** "n" -> "f"
+*** "f" -> "o"
+*** "b" -> "p"
+*** "g" -> "h"
+*** "h" -> "r"
+*** "s" -> "j"
+*** "j" -> "t"
+*** "a" -> "u"
+*** "v" -> "l"
+*** "l" -> "d"
 * comp
-** circle "a"  
+** circle "a"
+   { color=green, text="my runnable filled in with children" }
 ** circle "b"
+   { color=green, text="my Comopsite Kind" }
 ** circle "c"
+   { color=green, text="connection" }
 ** circle "d"
-** comp "e"   
+   { color=yellow }
+** comp "e" 
+   { text="clone connection"}
 ** cyl "f"
-** comp "g"   
+   { text="runnable connection with holes"}
+** comp "g"
+   { text="fixup connection"}
 ** cyl "h"
+   { text="fixed up connection"}
 ** comp "i"   
+   { text="insert connection into runnable" }
 ** cyl "j"
+   { text="final runnable"}
+   
+
+** arrows
+   "c" -> "k"
+   "b" -> "l", "o"
+   "m" -> "f"
+   "f" -> "n"
+   "p" -> "h"
+   "h" -> "q"
+   "a" -> "r"
+   "s" -> "j"
+   "j" -> "d"
    
