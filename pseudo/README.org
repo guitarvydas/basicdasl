@@ -1,0 +1,111 @@
+* dev process
+** (1) started with data & types (kernel.drawio>>Data & Types)
+*** times
+**** started at 11am, May 7, 2021
+**** break 12:05pm
+**** resume 2:00pm
+**** break 2:30pm
+**** resume 5:00pm
+**** break 6:00pm     
+**** resume 10:50pm
+**** break :00pm     
+*** Template
+**** general
+***** a Template is like a class
+***** a Template specifies the structure of a Component, but doesn't create an instance
+***** a Template can be used more than once in a diagrams
+***** a Kind is akin to a Type (Class / whatever)
+***** I'm using a different name - kind - because the main operation is different than in OO
+***** we combine Templates using Composition instead of Inheritance
+**** Composite Template 
+***** A Composite is a Template that contains (is composed of) other Templates
+***** recursive     
+***** a Composite is a Basic Template with 2 additions
+***** children
+****** an ordered bag of other Templates 
+****** we might want to use the index as a name
+****** name is either 
+******* (a) Template name (if Template is used only once on a diagram), or,
+******* (b) an index into the ordered bag of children (of this Template)
+***** connections
+****** connections between child components (and/or self)
+****** connections can ONLY be made between direct children (and self)
+****** 1) sender       
+******* one sender per connection
+******* each sender specifies a connection to zero or more receivers
+******** each sender is joined to a bag of receivers
+******* multiple senders can appear to send to the same connection on a diagram
+******** connections can specify the same bag of receivers, but only one sender per connection
+******** this looks-like multiple senders sending to the same bag of receivers
+******* each sender has a name as above (i.e. Template name or index)
+****** 2) bag of receivers
+******* each receiver has a name as above (i.e. Template name or index)
+**** Leaf Template
+***** a Leaf is the "bottom" of the hierarchy of Templates
+***** a Leaf is the "termination case" for recursive construction of Templates    
+***** a Leaf is a "black box"
+***** a Leaf is (probably) implemented in some other language
+*** Runnable
+**** a Runnable is the extra stuff needed to instantiate a Template
+**** since Templates can be used more than once, each Runnable must be unique
+**** Runnable "points back" to Template for stuff that doesn't need to be copied
+**** to make a Composite Runnable unique
+***** need to copy Connections
+***** fixup all Runnable's Connections to refer to children in Runnable (instances of children)
+** Types
+*** enumerate all types
+*** types boil down to several possibilities:
+**** (a) a name
+***** a symbol
+***** probably implemented as a hashed string
+**** (b) a collection
+***** namespace
+***** bag
+***** queue
+**** (c) a tuple
+***** { ..., ..., ... }
+**** (d) any
+***** any of the above
+** (2) draw nested component diagram (kernel.drawio>>Nested Components)
+*** roughed-in (might change later)
+*** show inputs, outputs and processes
+**** 2 intermediate forms of data
+**** 3 processes
+** (3) re-draw (2) putting input and output ports on diagram  (kernel.drawio>>Add Ports to Nested Components)
+** (4) re-draw (3) as layers of black boxes
+*** blank out (delete) details
+*** each layer becomes a black box with input ports and output ports
+*** 3 layers (at this point)
+**** make runnable
+**** make runnable/step 2
+**** make runnable/step 3
+** (5) dig down into make runnable/step 3
+*** this looks "the most complicated", hence, "most risky"
+*** decompose (5)
+**** two parts
+***** create an empty runnable -> result (unfinished)
+***** deal with components
+****** instantiate each child from Template
+****** insert each child instance into Result -> "my runnable filled in with children"
+****** drawn as "create runnable children" process (kernel.drawio>>Round-in Processes)
+***** deal with connections
+****** clone each connection
+****** fixup cloned connection to refer to cloned children
+****** insert cloned connection into Result
+****** drawn as "clone and fixup connections" process (kernel.drawio>>Round-in Processes)
+***** drawn as "fill in empty runnable"  process (kernel.drawio>>Round-in Processes)
+****** annotate appropriate ports     
+****** annotate diagram with forall (inherited)
+****** final result "runnable" will be sent to output port
+    
+* diagrams to factbase
+** sight-reading
+*** I see a diagram
+**** write "diagram d1 nil" (where I invent the ID "d1")
+***** N.B. in the future, I'm going to need to qualify all id's relative to the diagrams that they are contained in
+****** don't worry about this now (qualification) - I can write a script later, when I need it
+*** I see two input ports on the diagram
+**** write "input d1 i1", "name i1 "my Composite Template", "implicit i1 nil", "external i1 nil"
+***** 4 facts that describe what I see
+**** write "input d1 i2", "name i2 "my runnable", "explicit i2 nil", "external i2 nil"
+***** 4 more facts

@@ -1,0 +1,169 @@
+* rectangle {
+** attributes
+   rounded
+   color gray
+   text "fill in empty runnable"
+** circle {
+***    text "my Composite Template"
+***    color green
+***    stroke-width 3
+***    }
+** circle {
+***    text "my runnable"
+***    color green
+***    stroke-width 1
+***    }
+** rectangle {
+*** attributes   
+    text "∀ children of my Composite Template"
+    color white
+    rounded
+*** cylinder {
+**** attributes
+        text "child"
+        color green
+        stroke-width 3
+*** rectangle {
+**** attributes
+         color green
+       }
+*** rectangle {
+**** attributes
+     color yellow
+*** rectangle {
+**** attributes
+     rounded
+     color white
+     text "create runnable children"
+**** rectangle {
+***** attributes
+      color green
+      text "my runnable"
+**** rectangle {
+     color green
+     text "child"
+**** rectangle {
+***** attributes
+     color green
+     text "my Composite Template"
+**** rectangle {
+***** attributes
+      color yellow
+
+comp {
+  "fill in empty runnable"
+  circle : {
+  }
+  circle : {
+  }
+  comp {
+  "∀ children of my Composite Template"
+  }
+  comp {
+  "∀ connections of my Composite Template"
+  }
+  circle : {
+  }
+}
+
+* comp
+  "fill in empty runnable"
+** circle "a"
+   { text="my Composite Template", color=green }
+** circle "b"
+   { text="my runnable", color=green }
+** comp "c"
+   { text="∀ children of my Composite Template" }
+*** rect "h" 
+    { color=blue, stroke-width=3, text="child" }
+*** rect "i" 
+    { color=green, stroke-width=1 }
+*** rect "j" 
+    { color=yellow, stroke-width=1 }
+*** comp "k" 
+    { color=white, stroke-width=1, text="create runnable children" }
+**** rect
+     { color=green, stroke-width=1, text="my runnable" }
+**** rect
+     { color=green, stroke-width=3, text="child" }
+**** rect
+     { color=green, stroke-width=3, text="my Composite Template" }
+**** rect
+     { color=yellow, stroke-width=1 }
+** cyl "d"
+   "my runnable filled with children"
+** comp "e"
+  { text="∀ connections of my Composite Template" }
+*** rect 
+    { color=blue, stroke-width=3, text="connection" }
+*** rect 
+    { color=green, stroke-width=1 }
+*** rect 
+    { color=yellow, stroke-width=1 }
+*** comp 
+    { color=white, stroke-width=1, text="fixup connections" }
+**** rect
+     { color=green, stroke-width=1, text="mu runnable" }
+**** rect
+     { color=green, stroke-width=3, text="connection" }
+**** rect
+     { color=green, stroke-width=3, text="my Composite Template" }
+**** rect
+     { color=yellow, stroke-width=1 }
+** cyl "f"
+   { text="runnable" }
+** circle "g"
+   { color=yellow }
+
+** arrows 
+*** "b" -> "i" 
+*** "i" -> "n"
+*** "q" -> "j"
+*** "j" -> "d"
+*** "d" -> "l"
+*** "l" -> "r"
+*** "u" -> "m"
+*** "m" -> "f"
+*** "f" -> "g"
+    
+* comp 
+   { text="∀ children of my Composite Template" }
+** circle "a"
+   { color=green, text="my runnable" }
+** circle "b"
+   { color=green, text="my Composite Template" }
+** circle "c"
+   { color=green, text="child" }
+** circle "d"
+   { color=yellow }
+** comp "e"
+   { text="make instance" }
+** cyl "f"
+   { text="child instance" }
+** comp "g"
+   { text="invent name" }
+** cyl "h"
+   { text="named child instance" }
+** comp "i"
+   { text="recursively instantiate" }
+** cyl "j"
+   { text="filled child instance" }
+** comp "k"
+   { text="insert child into children of my runnable" }
+** cyl "l"
+   { text="my runnable filled in with children" }
+
+** arrows
+   
+* comp
+** circle "a"  
+** circle "b"
+** circle "c"
+** circle "d"
+** comp "e"   
+** cyl "f"
+** comp "g"   
+** cyl "h"
+** comp "i"   
+** cyl "j"
+   

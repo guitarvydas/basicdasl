@@ -1,87 +1,20 @@
-recipe Composite-kind : instantiation {
+recipe instantiation < (template) > (runnable) {
 
-my-instance <= make-an-unitialized Composite_instance using my-Composite_kind
-initialize my-instance
->> my-instance
+  recipe make runnable < (template) > (runnable) {
+    contains [/step 2] < (empty runnable) > (runnable) {
+    sync make empty runnable from template => empty runnable
+    empty runnable -> [1].(1)
+    [1].(1) -> [.].(1)
 
-  recipe Composite-instance : initialize {
-
-    ∀ child-kind in my Composite-kind.children {
-      child-instance <= recursively make-and-initialize Composite-instance using child-kind
-      if child-kind is unique in connections of my-instance then
-	child.name = childkind.name
-      else
-	child.name = index of child in children
-      end if
-      insert i into children of my-instance
-    }
-    ∀ connection in self.Composite-kind.connections {
-      connection.fixup (self.Composite-kind, selfInstance)
-  }
-}
-
-recipe make runnable < (template) > (runnable) {
-  contains [/step 2] < (empty runnable) > (runnable)
-  exec make empty runnable from template => empty runnable
-  [.].(1) -> [1].(1)
-  [1].(1) -> [.].(1)
-
-  recipe /step 2 < (empty runnable) > (runnable) {
-    contains [/step 3] < (empty runnable) > (filled runnable)
-    exec /
-    [.]/step 3 < | make runnable > [.].(1)
-    recipe /step 3 < (filled runnable) > (filled runnable) {
+    recipe /step 2 < (empty runnable) > (runnable) {
+      contains [/step 3]  < (empty runnable) > (filled runnable) {
+      [.].(1) -> [1].(1)
+      [1].(1) -> filled runnable
+      sync make it runnable <= filled runnable -> [.].(1)
+      recipe /step 3  < (empty runnable) > (filled runnable) {
+	sync fill in empty runnable <= [.].(1) => [.].(1) 
+      }
     }
   }
-}
 
-recipe make runnable < (template) > (runnable) {
-  contains [/step 2] < (empty runnable) > (runnable) {
-  sync make empty runnable from template => empty runnable
-  empty runnable -> [1].(1)
-  [1].(1) -> [.].(1)
-
-  recipe /step 2 < (empty runnable) > (runnable) {
-    contains [/step 3]  < (empty runnable) > (filled runnable) {
-    [.].(1) -> [1].(1)
-    [1].(1) -> filled runnable
-    sync make it runnable <= filled runnable -> [.].(1)
-    recipe /step 3  < (empty runnable) > (filled runnable) {
-      sync fill in empty runnable <= [.].(1) => [.].(1) 
-    }
-  }
-}
-
-sync fill in empty runnable < (empty runnable) > (filled runnable) {
-    ∀ child-kind in my Composite-kind.children {
-      child-instance <= recursively make-and-initialize Composite-instance using child-kind
-      if child-kind is unique in connections of my-instance then
-	child.name = childkind.name
-      else
-	child.name = index of child in children
-      end if
-      insert i into children of my-instance
-    }
-    ∀ connection in self.Composite-kind.connections {
-      connection.fixup (self.Composite-kind, selfInstance)
-  }
-}
-
-
-
-recipe make runnable < (template) > (runnable) {
-  contains [/step 2] < (empty runnable) > (runnable) {
-  sync make empty runnable from template => empty runnable
-  empty runnable -> [1].(1)
-  [1].(1) -> [.].(1)
-
-  recipe /step 2 < (empty runnable) > (runnable) {
-    contains [/step 3]  < (empty runnable) > (filled runnable) {
-    [.].(1) -> [1].(1)
-    [1].(1) -> filled runnable
-    sync make it runnable <= filled runnable -> [.].(1)
-    recipe /step 3  < (empty runnable) > (filled runnable) {
-      sync fill in empty runnable <= [.].(1) => [.].(1) 
-    }
-  }
 }

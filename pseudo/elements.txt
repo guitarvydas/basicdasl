@@ -1,0 +1,11 @@
+diagram : keyword
+component : [name] or [.] (named component, self, resp.)
+port : (name) or () or ([0-9]+) or (* name)
+input ports list : < port*
+output ports list : > port*
+temporary : "string"
+component body : { ... }
+component body with internal connection : { /expression/ -> port ... }
+connection : EndPoint -> EndPoint+
+expression : EndPoint or name of port
+EndPoint : component . port

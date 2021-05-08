@@ -1,0 +1,37 @@
+rectangle r1
+rounded r1
+color r1 gray
+text t1 "fill in empty runnable"
+contains r1 t1
+
+circle c1
+text t2 "my Composite Template"
+contains c1 t2
+color c1 green
+stroke-width c1 3
+contains r1 c1
+
+circle c2
+text t3 "my runnable"
+contains c2 t3
+color c2 green
+stroke-width c2 1
+contains r1 c2
+
+rectangle r2
+rounded r2
+contains r1 r2
+rectangle r3
+rounded r3
+contains r2 r5
+rectangle r4
+rounded r4
+contains r1 r4
+rectangle r5
+rounded r5
+contains r4 r5
+
+rectangle r10
+
+
+
