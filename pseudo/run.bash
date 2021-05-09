@@ -5,7 +5,7 @@ echo >_.pl
 cat foreign.js _.js >_opml2fb.js
 node _opml2fb.js < diagrams.opml >> _.pl
 
-#sort _.pl > fb.pl
+sort _.pl > fb.pl
 #cat fb.pl
 cat _.pl
 

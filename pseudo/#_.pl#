@@ -1,0 +1,185 @@
+
+comp(id0, “A”).
+circle(id1, “a”).
+	color(id1, green).
+	strokeWidth(id1, 3).
+	str(tid2, “my Composite Template”).
+	text(id1, tid2).
+circle(id3, “b”).
+	color(id3, green).
+	strokeWidth(id3, 1).
+	str(tid4, “my runnable”).
+	text(id3, tid4).
+comp(id5, “c”).
+	str(tid6, ”∀ children of my Composite Template”).
+	text(id5, tid6).
+circle(id7, “a”).
+	color(id7, green).
+	str(tid8, “my runnable”).
+	text(id7, tid8).
+circle(id9, “b”).
+	color(id9, green).
+	str(tid10, “my Composite Template”).
+	text(id9, tid10).
+circle(id11, “c”).
+	color(id11, green).
+	str(tid12, “child”).
+	text(id11, tid12).
+circle(id13, “d”).
+	color(id13, yellow).
+comp(id14, “e”).
+	str(tid15, “make instance”).
+	text(id14, tid15).
+rect(id16, “m”).
+	color(id16, green).
+rect(id17, “n”).
+	color(id17, yellow).
+cylinder(id18, “f”).
+	str(tid19, “child instance”).
+	text(id18, tid19).
+comp(id20, “g”).
+	str(tid21, ”invent name”).
+	text(id20, tid21).
+rect(id22, “o”).
+	color(id22, green).
+rect(id23, “p”).
+	color(id23, green).
+rect(id24, “q”).
+	color(id24, yellow).
+cylinder(id25, “h”).
+	str(tid26, ”named child instance”).
+	text(id25, tid26).
+comp(id27, “i”).
+	str(tid28, “recursively instantiate”).
+	text(id27, tid28).
+rect(id29, “r”).
+	color(id29, green).
+rect(id30, “s”).
+	color(id30, yellow).
+cylinder(id31, “j”).
+	str(tid32, “filled child instance”).
+	text(id31, tid32).
+comp(id33, “k”).
+	str(tid34, ”insert child into children of my runnable”).
+	text(id33, tid34).
+rect(id35, “t”).
+	color(id35, green).
+rect(id36, “u”).
+	color(id36, green).
+rect(id37, “v”).
+	color(id37, yellow).
+cylinder(id38, “l”).
+	str(tid39, “my runnable filled in with children”).
+	text(id38, tid39).
+
+arrowBegin(id40, c).
+arrowEnd(id40, [m]).
+arrowBegin(id40, n).
+arrowEnd(id40, [f]).
+arrowBegin(id40, f).
+arrowEnd(id40, [o]).
+arrowBegin(id40, b).
+arrowEnd(id40, [p]).
+arrowBegin(id40, g).
+arrowEnd(id40, [h]).
+arrowBegin(id40, h).
+arrowEnd(id40, [r]).
+arrowBegin(id40, s).
+arrowEnd(id40, [j]).
+arrowBegin(id40, j).
+arrowEnd(id40, [t]).
+arrowBegin(id40, a).
+arrowEnd(id40, [u]).
+arrowBegin(id40, v).
+arrowEnd(id40, [l]).
+arrowBegin(id40, l).
+arrowEnd(id40, [d]).
+cylinder(id41, “d”).
+	str(tid42, “my runnable filled in with children”).
+	text(id41, tid42).
+comp(id43, “e”).
+	str(tid44, “∀ connections of my Composite Template”).
+	text(id43, tid44).
+circle(id45, “a”).
+	color(id45, green).
+	strokeWidth(id45, 1).
+circle(id46, “b”).
+	color(id46, green).
+	strokeWidth(id46, 1).
+circle(id47, “c”).
+	color(id47, green).
+	strokeWidth(id47, 1).
+comp(id48, “e”).
+	str(tid49, ”clone connection”).
+	text(id48, tid49).
+rect(id50, “k”).
+	color(id50, green).
+	strokeWidth(id50, 1).
+rect(id51, “l”).
+	color(id51, green).
+	strokeWidth(id51, 1).
+rect(id52, “m”).
+	color(id52, yellow).
+	strokeWidth(id52, 1).
+cylinder(id53, “f”).
+	str(tid54, “runnable connection with holes”).
+	text(id53, tid54).
+comp(id55, “g”).
+	str(tid56, “fixup connection”).
+	text(id55, tid56).
+rect(id57, “n”).
+	color(id57, green).
+	strokeWidth(id57, 1).
+rect(id58, “o”).
+	color(id58, green).
+	strokeWidth(id58, 1).
+rect(id59, “p”).
+	color(id59, yellow).
+	strokeWidth(id59, 1).
+cylinder(id60, “h”).
+	str(tid61, “fixed up connection”).
+	text(id60, tid61).
+comp(id62, “i”).
+	str(tid63, ”insert connection into runnable”).
+	text(id62, tid63).
+rect(id64, “q”).
+	color(id64, green).
+	strokeWidth(id64, 1).
+rect(id65, “r”).
+	color(id65, green).
+	strokeWidth(id65, 1).
+rect(id66, “s”).
+	color(id66, yellow).
+	strokeWidth(id66, 1).
+cylinder(id67, “j”).
+	str(tid68, “final runnable”).
+	text(id67, tid68).
+
+arrowBegin(id69, c).
+arrowEnd(id69, [k]).
+arrowBegin(id69, b).
+arrowEnd(id69, [l,o]).
+arrowBegin(id69, m).
+arrowEnd(id69, [f]).
+arrowBegin(id69, f).
+arrowEnd(id69, [n]).
+arrowBegin(id69, p).
+arrowEnd(id69, [h]).
+arrowBegin(id69, h).
+arrowEnd(id69, [g]).
+arrowBegin(id69, a).
+arrowEnd(id69, [r]).
+arrowBegin(id69, s).
+arrowEnd(id69, [l]).
+arrowBegin(id69, l).
+arrowEnd(id69, [d]).
+circle(id70, “d”).
+	color(id70, yellow).
+	strokeWidth(id70, 1).
+cylinder(id71, “f”).
+	str(tid72, “runnable”).
+	text(id71, tid72).
+circle(id73, “g”).
+	color(id73, yellow).
+	strokeWidth(id73, 1).
+

@@ -8,12 +8,25 @@ OPML2FB {
   endOPML = "</opml>" (newline | end)
 
   Outline = OutlineNoContent | OutlineWithContent
-  OutlineNoContent = "<outline" attr "/>"
-  OutlineWithContent = "<outline" attr ">" Outline* "</outline>"
+  OutlineNoContent = "<outline" item "/>"
+  OutlineWithContent = "<outline" item ">" Outline* "</outline>"
 
-  attr = colorAttr | circleAttr | genericAttr
-  circleAttr = "text=\"circle " stringTail
+  item = noise | graphicalObject | attribute 
+  graphicalObject = lineObject | arrowObject | circleObject | compObject | rectObject | cylinderObject
+  attribute = colorAttr | strokeWidthAttr | textAttr | genericAttr
+  
+  noise = "text=\"lines" stringTail
+
+  circleObject = "text=\"circle " stringTail
+  compObject = "text=\"comp " stringTail
+  rectObject = "text=\"rect " stringTail
+  cylinderObject = "text=\"cyl " stringTail
+  lineObject = "text=\"line " stringTail
+  arrowObject = "text=\"arrow " stringTail
+
   colorAttr = "text=\"color=" stringTail
+  strokeWidthAttr = "text=\"stroke-width=" stringTail
+  textAttr = "text=\"text=" stringTail
   genericAttr = "text=" string
   
   headChar = ~"</head>" any
@@ -39,19 +52,37 @@ OPML2FB {
 
   Outline [o] = [[${o}]]
   OutlineNoContent [begin t slashClose] = [[${t}\n]]
-  OutlineWithContent [begin t close @o slasho] = {{scopeAdd ("gobject", "id" + gen ())}} [[${t}\n${o}]]
+  OutlineWithContent [begin t close @o slasho] = {{scopeAdd ("gobject", "id" + gen ())}} [[${t}${o}]]
 
   headChar [c] = [[${c}]]
   opmlHeaderChar [c] = [[${c}]]
   xmlHeaderChar [c] = [[${c}]]
   newline [c] = [[${c}]]
 
-  attr [a] = [[${a}]]
-  circleAttr [teqc str] = [[circle(${scopeGet ("gobject")}, ${str}).]]
+  item [i] = [[${i}]]
+  graphicalObject [o] = [[${o.trim ()}\n]]
+  attribute [a] = [[${a.trim ()}\n]]
+
+  circleObject [teqc str] = [[circle(${scopeGet ("gobject")}, ${str}).]]
+  compObject [teqc str] = [[comp(${scopeGet ("gobject")}, ${str}).]]
+  rectObject [teqc str] = [[rect(${scopeGet ("gobject")}, ${str}).]]
+  cylinderObject [teqc str] = [[cylinder(${scopeGet ("gobject")}, ${str}).]]
+  lineObject [teqc str] = [[line(${scopeGet ("gobject")}, ${str}).]]
+  arrowObject [teqc str] =
+  [[
+arrowBegin(${scopeGet ("gobject")}, ${abegin (str)}).
+arrowEnd(${scopeGet ("gobject")}, ${aend (str)}).]]
+
   colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
+  strokeWidthAttr [teqc str] = [[strokeWidth(${scopeGet ("gobject")}, ${str}).]]
+  textAttr [teqc str] =
+    {{ scopeAdd("tobject", "tid" + gen ()) }}
+    [[str(${scopeGet ("tobject")}, ${changeUnicodeQuotes (str)}).\ntext(${scopeGet ("gobject")}, ${scopeGet ("tobject")}).]]
   genericAttr [teq str] = [[${teq}${str}]]
 
-  string [q1 @cs q2] = [[${q1}${cs}${q2}]]
-  stringTail [@cs q2] = [[${cs}${q2}]]
+  string [q1 @cs q2] = [[${q1}${changeUnicodeQuotes (cs)}${q2}]]
+  stringTail [@cs q2] = [[${changeUnicodeQuotes (cs)}${q2}]]
   notDQ [c] = [[${c}]]
   dq [c] = [[]]
+
+  noise [a b] = [[]]
