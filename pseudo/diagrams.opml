@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<opml version="1.0">
+	<head>
+		<title>Diagrams</title>
+		<expansionState>0,1,52,54,57,60,63,74,76,87,89,100,102</expansionState>
+	</head>
+	<body>
+		<outline text="comp &quot;top level”">
+			<outline text="circle “a”">
+				<outline text="color=green" />
+				<outline text="stroke-width=3" />
+				<outline text="text=“my Composite Template”" />
+			</outline>
+			<outline text="circle “b”">
+				<outline text="color=green" />
+				<outline text="stroke-width=1" />
+				<outline text="text=“my runnable”" />
+			</outline>
+			<outline text="comp “c” ”∀ children of my Composite Template&quot;">
+				<outline text="text=”∀ children of my Composite Template&quot;" />
+				<outline text="circle “a&quot;">
+					<outline text="color=green" />
+					<outline text="text=“my runnable”" />
+				</outline>
+				<outline text="circle “b&quot;">
+					<outline text="color=green" />
+					<outline text="text=“my Composite Template”" />
+				</outline>
+				<outline text="circle “c”">
+					<outline text="color=green" />
+					<outline text="text=“child”" />
+				</outline>
+				<outline text="circle “d&quot;">
+					<outline text="color=yellow" />
+				</outline>
+				<outline text="comp “e”">
+					<outline text="text=“make instance”" />
+				</outline>
+				<outline text="cyl “f”">
+					<outline text="text=“child instance”" />
+				</outline>
+				<outline text="comp “g”">
+					<outline text="text=&quot;invent name”" />
+				</outline>
+				<outline text="cyl “h&quot;">
+					<outline text="text=&quot;named child instance”" />
+				</outline>
+				<outline text="comp “i&quot;">
+					<outline text="text=“recursively instantiate”" />
+				</outline>
+				<outline text="cyl “j&quot;">
+					<outline text="text=“filled child instance”" />
+				</outline>
+				<outline text="comp “k&quot;">
+					<outline text="text=&quot;insert child into children of my runnable”" />
+				</outline>
+				<outline text="cyl “l&quot;">
+					<outline text="text=“my runnable filled in with children”" />
+				</outline>
+				<outline text="arrows">
+					<outline text="c -&gt; m" />
+					<outline text="n -&gt; f" />
+					<outline text="f -&gt; o" />
+					<outline text="b -&gt; p" />
+					<outline text="g -&gt; h" />
+					<outline text="h -&gt; r" />
+					<outline text="s -&gt; j" />
+					<outline text="j -&gt; t" />
+					<outline text="a -&gt; u" />
+					<outline text="v -&gt; l" />
+					<outline text="l -&gt; d" />
+					<outline text="(null)" />
+				</outline>
+			</outline>
+			<outline text="cyl “d”" />
+			<outline text="comp “e” “∀ connections of my Composite Template”">
+				<outline text="text=“∀ connections of my Composite Template”" />
+				<outline text="circle “a”">
+					<outline text="color=green" />
+					<outline text="stroke-width=1" />
+				</outline>
+				<outline text="circle “b&quot;">
+					<outline text="color=green" />
+					<outline text="stroke-width=1" />
+				</outline>
+				<outline text="circle “c”">
+					<outline text="color=green" />
+					<outline text="stroke-width=1" />
+				</outline>
+				<outline text="comp “e”">
+					<outline text="text=&quot;clone connection”" />
+					<outline text="port “a”">
+						<outline text="color=green" />
+						<outline text="stroke-width=1" />
+					</outline>
+					<outline text="port “b”">
+						<outline text="color=green" />
+						<outline text="stroke-width=1" />
+					</outline>
+					<outline text="port “c”">
+						<outline text="color=yellow" />
+						<outline text="stroke-width=1" />
+					</outline>
+				</outline>
+				<outline text="cyl “f”">
+					<outline text="text=“runnable connection with holes”" />
+				</outline>
+				<outline text="comp “g&quot;">
+					<outline text="text=“fixup connection”" />
+					<outline text="port “a”">
+						<outline text="color=green" />
+						<outline text="stroke-width=1" />
+					</outline>
+					<outline text="port “b”">
+						<outline text="color=green" />
+						<outline text="stroke-width=1" />
+					</outline>
+					<outline text="port “c”">
+						<outline text="color=yellow" />
+						<outline text="stroke-width=1" />
+					</outline>
+				</outline>
+				<outline text="cyl “h&quot;">
+					<outline text="text=“fixed up connection”" />
+				</outline>
+				<outline text="comp “i&quot;">
+					<outline text="text=&quot;insert connection into runnable”" />
+					<outline text="port “a”">
+						<outline text="color=green" />
+						<outline text="stroke-width=1" />
+					</outline>
+					<outline text="port “b”">
+						<outline text="color=green" />
+						<outline text="stroke-width=1" />
+					</outline>
+					<outline text="port “c”">
+						<outline text="color=yellow" />
+						<outline text="stroke-width=1" />
+					</outline>
+				</outline>
+				<outline text="cyl “j”">
+					<outline text="text=“final runnable”" />
+				</outline>
+				<outline text="arrows">
+					<outline text="c - k" />
+					<outline text="b - l, o" />
+					<outline text="m - f" />
+					<outline text="f - n" />
+					<outline text="p - h" />
+					<outline text="h - g" />
+					<outline text="a - r" />
+					<outline text="s - l" />
+					<outline text="l - d" />
+				</outline>
+			</outline>
+			<outline text="circle &quot;d&quot;">
+				<outline text="color=yellow" />
+				<outline text="stroke-width=1" />
+			</outline>
+			<outline text="cyl “f”" />
+			<outline text="circle “g”">
+				<outline text="color=yellow" />
+				<outline text="stroke-width=1" />
+			</outline>
+		</outline>
+	</body>
+</opml>

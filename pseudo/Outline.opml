@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<opml version="1.0">
+	<head>
+		<title>Outline</title>
+		<expansionState>0</expansionState>
+	</head>
+	<body>
+		<outline text="comp &quot;top level”">
+			<outline text="circle">
+				<outline text="color=green" />
+				<outline text="stroke-width=3" />
+				<outline text="text=“my Composite Template”" />
+			</outline>
+			<outline text="circle">
+				<outline text="color=green" />
+				<outline text="stroke-width=1" />
+				<outline text="text=“my runnable”" />
+			</outline>
+			<outline text="circle">
+				<outline text="color=yellow" />
+				<outline text="stroke-width=1" />
+			</outline>
+			<outline text="comp ”∀ children of my Composite Template&quot;">
+				<outline text="text=”∀ children of my Composite Template&quot;" />
+			</outline>
+			<outline text="comp “∀ connections of my Composite Template”">
+				<outline text="text=“∀ connections of my Composite Template”" />
+			</outline>
+			<outline text="cyl" />
+			<outline text="cyl" />
+		</outline>
+	</body>
+</opml>

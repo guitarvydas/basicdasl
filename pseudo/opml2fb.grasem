@@ -1,0 +1,57 @@
+OPML2FB {
+  OPML = xmlHeader opmlHeader head body Outline endBody endOPML
+  opmlHeader = "<opml" opmlHeaderChar* ">" newline
+  xmlHeader = "<?xml" xmlHeaderChar* "?>" newline
+  head = "<head>" headChar* "</head>" newline
+  body = "<body>" newline
+  endBody = "</body>" newline
+  endOPML = "</opml>" (newline | end)
+
+  Outline = OutlineNoContent | OutlineWithContent
+  OutlineNoContent = "<outline" attr "/>"
+  OutlineWithContent = "<outline" attr ">" Outline* "</outline>"
+
+  attr = colorAttr | circleAttr | genericAttr
+  circleAttr = "text=\"circle " stringTail
+  colorAttr = "text=\"color=" stringTail
+  genericAttr = "text=" string
+  
+  headChar = ~"</head>" any
+  opmlHeaderChar = ~">" any
+  xmlHeaderChar = ~"?>" any
+  newline = "\n"
+
+  string = dq notDQ* dq
+  stringTail = notDQ* dq
+  dq = "\""
+  notDQ = ~"\"" any
+}
+
+  OPML [xmlhdr opmlhdr head body outline endbody endopml] =
+    {{ scopeAdd ('counter', 0); }}
+    [[${xmlhdr}${opmlhdr}${head}${body}${outline}${endbody}${endopml}]]
+  opmlHeader [begin @hdr close nl] = [[]]
+  xmlHeader [begin @hdr close nl] = [[]]
+  head [begin @hdr close nl] = [[]]
+  body [begin nl] = [[]]
+  endBody [begin nl] = [[]]
+  endOPML [begin nl] = [[]]
+
+  Outline [o] = [[${o}]]
+  OutlineNoContent [begin t slashClose] = [[${t}\n]]
+  OutlineWithContent [begin t close @o slasho] = {{scopeAdd ("gobject", "id" + gen ())}} [[${t}\n${o}]]
+
+  headChar [c] = [[${c}]]
+  opmlHeaderChar [c] = [[${c}]]
+  xmlHeaderChar [c] = [[${c}]]
+  newline [c] = [[${c}]]
+
+  attr [a] = [[${a}]]
+  circleAttr [teqc str] = [[circle(${scopeGet ("gobject")}, ${str}).]]
+  colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
+  genericAttr [teq str] = [[${teq}${str}]]
+
+  string [q1 @cs q2] = [[${q1}${cs}${q2}]]
+  stringTail [@cs q2] = [[${cs}${q2}]]
+  notDQ [c] = [[${c}]]
+  dq [c] = [[]]
