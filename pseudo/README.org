@@ -1,18 +1,4 @@
-* using MindNode
-  on mac
-  to produce .md file
-
 * dev process
-** (1) started with data & types (kernel.drawio>>Data & Types)
-*** times
-**** started at 11am, May 7, 2021
-**** break 12:05pm
-**** resume 2:00pm
-**** break 2:30pm
-**** resume 5:00pm
-**** break 6:00pm     
-**** resume 10:50pm
-**** break :00pm     
 *** Template
 **** general
 ***** a Template is like a class
