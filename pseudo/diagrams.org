@@ -66,7 +66,7 @@ comp {
   }
 }
 
-* comp
+* comp "fill in empty runnable"
   "fill in empty runnable"
 ** circle "a"
    { text="my Composite Template", color=green }
@@ -126,8 +126,8 @@ comp {
 *** "m" -> "f"
 *** "f" -> "g"
     
-* comp 
-   { text="∀ children of my Composite Template" }
+* comp "∀ children of my Composite Template
+  { text="∀ children of my Composite Template" }
 ** circle "a"
    { color=green, text="my runnable" }
 ** circle "b"

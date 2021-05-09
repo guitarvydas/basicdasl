@@ -1,0 +1,21 @@
+OPML2FB {
+  OPML = xmlHeader opmlHeader head body Outline endBody endOPML
+  opmlHeader = "<opml" opmlHeaderChar* ">" newline
+  xmlHeader = "<?xml" xmlHeaderChar* "?>" newline
+  head = "<head>" headChar* "</head>" newline
+  body = "<body>" newline
+  endBody = "</body>" newline
+  endOPML = "</opml>" (newline | end)
+
+  Outline = OutlineNoContent | OutlineWithContent
+  OutlineNoContent = "<outline" "text=" string "/>"
+  OutlineWithContent = "<outline" "text=" string ">" Outline* "</outline>"
+
+  headChar = ~"</head>" any
+  opmlHeaderChar = ~">" any
+  xmlHeaderChar = ~"?>" any
+  newline = "\n"
+
+  string = "\"" notDQ* "\""
+  notDQ = ~"\"" any
+}

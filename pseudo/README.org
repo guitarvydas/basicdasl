@@ -1,3 +1,7 @@
+* using MindNode
+  on mac
+  to produce .md file
+
 * dev process
 ** (1) started with data & types (kernel.drawio>>Data & Types)
 *** times
@@ -109,3 +113,5 @@
 ***** 4 facts that describe what I see
 **** write "input d1 i2", "name i2 "my runnable", "explicit i2 nil", "external i2 nil"
 ***** 4 more facts
+
+      
