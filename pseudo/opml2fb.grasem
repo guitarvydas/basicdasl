@@ -83,9 +83,9 @@ OPML2FB {
 
   compObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
 
-  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
-  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
-  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
+  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[rect(${scopeGet ("gobject")}, ${id}).]]
+  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[cyl(${scopeGet ("gobject")}, ${id}).]]
+  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[line(${scopeGet ("gobject")}, ${id}).]]
 
   arrowObject [teq dq1 comp spc idsender @ws idsreceiver dq2] =
   {{ scopeAdd ("arrow", "a" + gen ()) }}
