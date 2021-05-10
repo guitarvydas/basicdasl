@@ -1,4 +1,3 @@
-=== part 4 ====
 
 In beginning to work on part 5 of this series of essays, I noticed a design bug.
 
@@ -21,38 +20,3 @@ arrowEnd(idXXX,[c_c_m]).
 This bug should be relatively easy to repair.  We need to visit the grasem/glue code for arrow and add another fact.
 
 [N.B. There is at least one other appeasement of human-readability - the use of PROLOG lists ([...]) in arrowEnd facts.  I don't think that we'll bother to fix this.  The pure form would be to unroll arrowEnd and make it into multiple facts, i.e. to express the Lists as multiple facts (somehting like beginArrowEnd, arrowEndNext, arrowEndEnd). PROLOG lets us "get away" with lists of the form [ ... ] and we will let this impurity stand, for now.  This is an interim project which doesn't need to be fixed yet (YAGNI)].
-
-
-=== part 5 ====
-
-Let's undo one of the human-input conveniences and normalize the factbase to contain only machine-readable codings.
-
-Currently, arrows contain references to graphical objects.  These references should actually be ids.  These reference are (human-readable) synonyms to (machine-readable) ids.
-
-For example, as in part 4, we have facts like:
-
-comp(id5, c).
-arrow(id40, a41).
-arrowBegin(a41, c_c).
-arrowEnd(a41, [c_e_m]).
-
-Firstly, we can create synonym facts, e.g.
-comp(id5, c).
-synonym(c, id5).
-
-Then, we use the synonym facts to modify all arrowBegin facts, e.g.
-arrowBegin(a41, c_c).
-aBegin(a41, idYYY).
-
-Then, we use the synonym facts to modify all arrowEnd facts, e.g.
-arrowEnd(a41, [c_e_m]).
-aEnd(a41, [idZZZ]).
-
-N.B. Currently, we leave all of the facts in the factbase.  There is no need to remove facts.  Removing facts at this stage -- without proof of needing to do so -- is premature optimization (and uneccessary brain clutter).
-
-We define gobject(ID).  See xxxxxx-xxxxx.
-
-Since we specify the synonym in gobject definitions, the query for synonyms is straight-forward
-synonym(ID,Synonym) :-
-    nonArrowGobject(ID,Synonym).
-[A 'nonArrowGobject' is any gobject except arrows.  See the code for further details.]
