@@ -37,7 +37,7 @@ aEnd(a41, [idZZZ]).
 
 N.B. Currently, we leave all of the facts in the factbase.  There is no need to remove facts.  Removing facts at this stage -- without proof of needing to do so -- is premature optimization (and uneccessary brain clutter).
 
-We define gobject(ID).  See xxxxxx-xxxxx.
+We define gobject(ID).  See [q.pl](https://github.com/guitarvydas/basicdasl/blob/master/pseudo/q.pl)
 
 Since we specify the synonym in gobject definitions, the query for synonyms is straight-forward
 synonym(ID,Synonym) :-
