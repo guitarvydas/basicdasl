@@ -17,12 +17,12 @@ OPML2FB {
   
   noise = "text=\"lines" stringTail
 
-  circleObject = "text=\"circle " stringTail
-  compObject = "text=\"comp " stringTail
-  rectObject = "text=\"rect " stringTail
-  cylinderObject = "text=\"cyl " stringTail
-  lineObject = "text=\"line " stringTail
-  arrowObject = "text=\"arrow " stringTail
+  circleObject = "text=" dq "circle" " " ubeginquote qident uendquote dq
+  compObject = "text=" dq "comp" " " ubeginquote qident uendquote dq
+  rectObject = "text=" dq "rect" " " ubeginquote qident uendquote dq
+  cylinderObject = "text=" dq "cyl" " " ubeginquote qident uendquote dq
+  lineObject = "text=" dq "line" " " ubeginquote qident uendquote dq
+  arrowObject = "text=" dq "arrow" " " qident ws+ receiverList dq
 
   colorAttr = "text=\"color=" stringTail
   strokeWidthAttr = "text=\"stroke-width=" stringTail
@@ -38,7 +38,23 @@ OPML2FB {
   stringTail = notDQ* dq
   dq = "\""
   notDQ = ~"\"" any
+  quote = dq
+
+  ubeginquote = "“"
+  uendquote = "”"
+
+  qident = qident_recursive | qident_flat
+  qident_flat = "a" .. "z" | "A" .. "Z"
+  qident_recursive = qident_flat "/" qident
+  
+  receiverList = receiver+
+  receiver = receiverMore | receiverSingle
+  receiverMore = receiverSingle ws+
+  receiverSingle = qident
+
+  ws = " "
 }
+
 
   OPML [xmlhdr opmlhdr head body outline endbody endopml] =
     {{ scopeAdd ('counter', 0); }}
@@ -63,15 +79,18 @@ OPML2FB {
   graphicalObject [o] = [[${o.trim ()}\n]]
   attribute [a] = [[${a.trim ()}\n]]
 
-  circleObject [teqc str] = [[circle(${scopeGet ("gobject")}, ${str}).]]
-  compObject [teqc str] = [[comp(${scopeGet ("gobject")}, ${str}).]]
-  rectObject [teqc str] = [[rect(${scopeGet ("gobject")}, ${str}).]]
-  cylinderObject [teqc str] = [[cylinder(${scopeGet ("gobject")}, ${str}).]]
-  lineObject [teqc str] = [[line(${scopeGet ("gobject")}, ${str}).]]
-  arrowObject [teqc str] =
+  circleObject [teq dq1 circle spc ubq id ueq dq2] = [[circle(${scopeGet ("gobject")}, ${id}).]]
+
+  compObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
+
+  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
+  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
+  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
+
+  arrowObject [teq dq1 comp spc idsender @ws idsreceiver dq2] =
   [[
-arrowBegin(${scopeGet ("gobject")}, ${abegin (str)}).
-arrowEnd(${scopeGet ("gobject")}, ${aend (str)}).]]
+arrowBegin(${scopeGet ("gobject")}, ${abegin (idsender)}).
+arrowEnd(${scopeGet ("gobject")}, ${aend (idsreceiver)}).]]
 
   colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
   strokeWidthAttr [teqc str] = [[strokeWidth(${scopeGet ("gobject")}, ${str}).]]
@@ -86,3 +105,15 @@ arrowEnd(${scopeGet ("gobject")}, ${aend (str)}).]]
   dq [c] = [[]]
 
   noise [a b] = [[]]
+
+  ubeginquote [c] = [[]]
+  uendquote [c] = [[]]
+
+  qident [id] = [[${id}]]
+  qident_flat [c] = [[${c}]]
+  qident_recursive [id slash qid] = [[${id}_${qid}]]
+
+  receiverList [@r] = [[${r}]]
+  receiver [r] = [[${r}]]
+  receiverMore [r @ws] = [[${r},]]
+  receiverSingle [id] = [[${id}]]
