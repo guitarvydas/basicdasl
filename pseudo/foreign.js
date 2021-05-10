@@ -12,10 +12,10 @@ function changeUnicodeQuotes (s) {
 }
 
 function abegin (s) {
-    return s[0];
+    return s;
 }
 
 function aend (s) {
-    return `[${changeUnicodeQuotes((s.substr(1)).trim ().replace (" ", ","))}]`;
+    return `[${changeUnicodeQuotes(s.trim ().replace (" ", ","))}]`;
 }
 
