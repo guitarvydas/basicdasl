@@ -88,9 +88,11 @@ OPML2FB {
   lineObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
 
   arrowObject [teq dq1 comp spc idsender @ws idsreceiver dq2] =
+  {{ scopeAdd ("arrow", "a" + gen ()) }}
   [[
-arrowBegin(${scopeGet ("gobject")}, ${abegin (idsender)}).
-arrowEnd(${scopeGet ("gobject")}, ${aend (idsreceiver)}).]]
+arrow(${scopeGet ("gobject")}, ${scopeGet ("arrow")}).
+arrowBegin(${scopeGet ("arrow")}, ${abegin (idsender)}).
+arrowEnd(${scopeGet ("arrow")}, ${aend (idsreceiver)}).]]
 
   colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
   strokeWidthAttr [teqc str] = [[strokeWidth(${scopeGet ("gobject")}, ${str}).]]

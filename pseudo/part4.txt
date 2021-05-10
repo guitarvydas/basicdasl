@@ -1,0 +1,35 @@
+=== part 4 ====
+
+In beginning to work on part 5 of this series of essays, I noticed a design bug.
+
+Arrows contain two parts (arrowBegin and arrowEnd) and should be written as pair referencing the containing composite component.
+
+For example
+  <outline text="comp “c”">
+  ...
+    <outline text="arrow c/c  c/e/m" />
+  ...
+
+should create a pair, referring to "comp c", and, should create a beginning and end for the pair, like...
+comp(id5, c).
+arrow(id5,idXXX).
+arrowBegin(idXXX,c_c).
+arrowEnd(idXXX,[c_c_m]).
+
+(In part 5, we will convert the synonyms "c_c" and "c_c_m" into ids.  This essay is only about fixing the design bug mentioned above).
+
+This bug should be relatively easy to repair.  We need to visit the grasem/glue code for arrow and add another fact.
+
+
+=== part 5 ====
+
+Let's undo one of the human-input conveniences and normalize the factbase to contain only machine-readable codings.
+
+Currently, arrows contain references to graphical objects.  These references should actually be ids.  These reference are (human-readable) synonyms to (machine-readable) ids.
+
+For example
+
+arrow
+
+arrowBegin(id40, c_a).
+
