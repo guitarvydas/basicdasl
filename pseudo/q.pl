@@ -43,3 +43,5 @@ printOneAEnd(AID,Rlist) :-
 
 printAllAEnd :-
     forall(arrowEnd(AID,_),printOneAEnd(AID,_)).
+
+printAll :- printAllABegin, printAllAEnd.
