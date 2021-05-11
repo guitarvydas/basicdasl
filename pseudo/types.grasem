@@ -1,0 +1,34 @@
+Types {
+  Types = TypeDef+
+  TypeDef = ClassTypeDef | SubClassDef | ExternalTypeDef | InternalTypeDef
+
+  ClassTypeDef = TypeName "=" "class"
+  SubClassDef = TypeName "<:" ClassName Extension?
+
+  ExternalTypeDef = TypeName "=" "foreign"
+ 
+  InternalTypeDef = TypeName "=" Type
+
+
+  Type = TupleBody | TypeCollection | TypeName
+  TypeCollection = collectionKeyword "(" TypeName ")"
+  Extension = TupleBody
+  TupleBody = "{" NameOrCollection NameOrCollection* "}"
+
+  NameOrCollection = TypeCollection | TypeName
+  TypeName = ident noise*
+  ClassName = ident noise*
+  
+  ident = identFirst identRest*
+
+  collectionKeyword = "queue" | "namespace" | "bag"
+  keyword = collectionKeyword | "class" | "foreign"
+
+  identFirst = ~keyword ~eow ("A" .. "Z" | "a" .. "z")
+  identRest = ~eow any
+  delimiter = "[" | "]" | "(" | ")" | "{" | "}" | "<" | ">" | noise
+  noise = "," | " " | ";"
+  nl = "\n"
+  eol = nl | end
+  eow = delimiter | eol
+}

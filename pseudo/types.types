@@ -1,0 +1,28 @@
+Template = name
+Basic_kind <: Template { name, inputs, outputs }
+Composite_kind <: Basic_kind { children, connections }
+Leaf_kind <: Basic_kind
+
+Runnable = name
+Basic_instance <: Runnable { input_events, output_events, template }
+Composite_instance <: Basic_instance { children_instances, connections_instances }
+Leaf_instance <: Basic_instance
+
+inputs = namespace(port)
+outputs = namespace(port)
+input_events = event_queue
+output_events = event_queue
+children_template = namespace(component)
+connections_template = bag(connection)
+children = namespace(component)
+connections = bag(connection)
+connection = {sender, bag(receiver)}
+port = name
+component = name
+sender = {component, port}
+receiver = {component, port}
+event_queue = queue(event)
+event = {tag, data}
+template = name
+
+name = foreign

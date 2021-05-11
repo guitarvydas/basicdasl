@@ -28,20 +28,20 @@ printABegin(ID) :-
     synonym(AID,Tag),
     format("aBegin(~w,~w).~n",[ID,AID]).
 
-printAllABegin :-
-    forall(arrowBegin(ID,_),printABegin(ID)).
+printAllABegin(Bag) :-
+    bagof(ID,printABegin(ID),Bag).
 
 aReplaceReceiverSynonyms([],[]).
 aReplaceReceiverSynonyms([Syn|Rest],[AID|Rlist]):-
     synonym(AID,Syn),
     aReplaceReceiverSynonyms(Rest,Rlist).
 
-printOneAEnd(AID,Rlist) :-
+printOneAEnd(AID) :-
     arrowEnd(AID,ReceiverSynonymList),
     aReplaceReceiverSynonyms(ReceiverSynonymList,Rlist),
     format("aEnd(~w,~w).~n",[AID,Rlist]).
 
-printAllAEnd :-
-    forall(arrowEnd(AID,_),printOneAEnd(AID,_)).
+printAllAEnd(Bag) :-
+    bagof(AID,printOneAEnd(AID),Bag).
 
 printAll :- printAllABegin, printAllAEnd.
