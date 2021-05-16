@@ -100,7 +100,7 @@ shape(${scopeGet ('gobject')}, "line").]]
   arrowObject [teq dq1 comp spc idsender @ws idsreceiver dq2] =
   {{ scopeAdd ("arrow", "a" + gen ()) }}
   [[
-arrow(${scopeGet ("gobject")}, ${scopeGet ("arrow")}).
+arrow(${scopeGet ("container")}, ${scopeGet ("arrow")}).
 arrowBegin(${scopeGet ("arrow")}, ${abegin (idsender)}).
 arrowEnd(${scopeGet ("arrow")}, ${aend (idsreceiver)}).
 shape(${scopeGet ('gobject')}, "arrow").]]

@@ -109,3 +109,48 @@ describeConnectionType(P) :-
 describeAllPorts:-
     setof(P,describePort(P),_).
 
+
+compositeComponent(C):-
+    comp(C,_),
+    contains(C,Sub),
+    comp(Sub,_).
+allCompositeComponents(Cs):-
+    setof(C,compositeComponent(C),Cs).
+missingComponent(C):-
+    comp(C,_),
+    allCompositeComponents(Composites),
+    \+ member(C,Composites).
+describeForeignComponent(C):-
+    missingComponent(C),
+    synonym(C,Syn),
+    format("foreign: ~w~n", [Syn]).
+describeForeignComponents:-
+    setof(C,describeForeignComponent(C),_).
+
+
+arrows(Component,Connections):-
+    setof(A,(arrow(Component,A),comp(Component,_)),Connections).
+describeArrows(Component):-
+    arrows(Component,List),
+    resolveArrowsWithSynonyms(List,BEList),
+    format("~w: ~w~n",[Component,BEList]).
+resolveArrows([],[]).
+resolveArrows([A|Rest],[[Begin,End]|Resolved]):-
+    format("resolveArrows 1 A=~w Rest=~w Resolved=~w~n", [A,Rest,Resolved]),
+    resolveArrows(Rest,Resolved),
+    aBegin(A,Begin),
+    aEnd(A,End),
+    format("resolveArrows 2 A=~w Begin=~w End=~w Rest=~w Resolved=~w~n", [A,Begin,End,Rest,Resolved]).
+resolveArrowsWithSynonyms([],[]).
+resolveArrowsWithSynonyms([A|Rest],[[Sender,ReceiverSynonymsList]|Resolved]):-
+    resolveArrowsWithSynonyms(Rest,Resolved),
+    aBegin(A,Begin),
+    aEnd(A,ReceiverList),
+    resolveReceiversWithSynonyms(ReceiverList,ReceiverSynonymsList),
+    synonym(Begin,Sender).
+resolveReceiversWithSynonyms([],[]).
+resolveReceiversWithSynonyms([First|Rest],[FirstSyn|LSyns]):-
+    resolveReceiversWithSynonyms(Rest,LSyns),
+    synonym(First,FirstSyn).
+describeArrows:-
+    setof(P,describeArrows(P),_).
