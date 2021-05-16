@@ -56,3 +56,8 @@ Since we specify the synonym in gobject definitions, the query for synonyms is s
 synonym(ID,Synonym) :-
     nonArrowGobject(ID,Synonym).
 [A 'nonArrowGobject' is any gobject except arrows.  See the code for further details.]
+
+Creating a new aBegin fact consists of a compound query - print out an aBegin fact for every arrowBegin fact, replacing the synonym... (again, details elided, see code):
+printAllABegin :-
+    forall(arrowBegin(ID,_),printABegin(ID)).
+
