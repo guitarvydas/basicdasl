@@ -18,3 +18,14 @@ swipl -q \
 sort _2.pl >_3.pl
 cat fb.pl _3.pl > _.pl
 cp _.pl fb.pl
+
+swipl -q \
+      -g 'consult(fb).' \
+      -g 'consult(q).' \
+      -g 'describeAllPorts.' \
+      -g 'halt.' \
+      > _4.pl
+
+sort _4.pl >_5.pl
+cat fb.pl _5.pl > _.pl
+cp _.pl fb.pl

@@ -1,0 +1,11 @@
+c: [c_a,c_b,c_c,c_d,c_e,c_f,c_g,c_h,c_i,c_j,c_k,c_l]
+c_e: [c_e_m,c_e_n]
+c_g: [c_g_o,c_g_p,c_g_q]
+c_i: [c_i_r,c_i_s]
+c_k: [c_h_v,c_k_t,c_k_u]
+e: [e_a,e_b,e_c,e_e,e_f,e_g,e_h,e_i,e_j]
+
+e_e: [e_e_k,e_e_l,e_e_m]
+e_g: [e_g_n,e_g_o,e_g_p]
+e_i: [e_i_q,e_i_r,e_i_s]
+z: [a,b,c,d,e,f,g]

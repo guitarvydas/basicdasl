@@ -57,7 +57,7 @@ OPML2FB {
 
 
   OPML [xmlhdr opmlhdr head body outline endbody endopml] =
-    {{ scopeAdd ('counter', 0); }}
+    {{ scopeAdd ('counter', 0); scopeAdd ('gobject', "id" + gen ()); }}
     [[${xmlhdr}${opmlhdr}${head}${body}${outline}${endbody}${endopml}]]
   opmlHeader [begin @hdr close nl] = [[]]
   xmlHeader [begin @hdr close nl] = [[]]
@@ -68,7 +68,13 @@ OPML2FB {
 
   Outline [o] = [[${o}]]
   OutlineNoContent [begin t slashClose] = [[${t}\n]]
-  OutlineWithContent [begin t close @o slasho] = {{scopeAdd ("gobject", "id" + gen ())}} [[${t}${o}]]
+  OutlineWithContent [begin t close @o slasho] =
+  {{
+    var container = scopeGet ("gobject");
+    scopeAdd ("container", container);
+    scopeAdd ("gobject", "id" + gen ());
+  }}
+  [[${t}${o}\ncontains(${scopeGet ('container')}, ${scopeGet ('gobject')}).\n]]
 
   headChar [c] = [[${c}]]
   opmlHeaderChar [c] = [[${c}]]
@@ -79,20 +85,25 @@ OPML2FB {
   graphicalObject [o] = [[${o.trim ()}\n]]
   attribute [a] = [[${a.trim ()}\n]]
 
-  circleObject [teq dq1 circle spc ubq id ueq dq2] = [[circle(${scopeGet ("gobject")}, ${id}).]]
+  circleObject [teq dq1 circle spc ubq id ueq dq2] =  [[circle(${scopeGet ("gobject")}, ${id}).\nshape(${scopeGet ('gobject')}, "circle").]]
 
-  compObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).]]
+  compObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).
+shape(${scopeGet ('gobject')}, "component").]]
 
-  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[rect(${scopeGet ("gobject")}, ${id}).]]
-  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[cyl(${scopeGet ("gobject")}, ${id}).]]
-  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[line(${scopeGet ("gobject")}, ${id}).]]
+  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[rect(${scopeGet ("gobject")}, ${id}).
+shape(${scopeGet ('gobject')}, "rect").]]
+  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[cyl(${scopeGet ("gobject")}, ${id}).
+shape(${scopeGet ('gobject')}, "cylinder").]]
+  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[line(${scopeGet ("gobject")}, ${id}).
+shape(${scopeGet ('gobject')}, "line").]]
 
   arrowObject [teq dq1 comp spc idsender @ws idsreceiver dq2] =
   {{ scopeAdd ("arrow", "a" + gen ()) }}
   [[
 arrow(${scopeGet ("gobject")}, ${scopeGet ("arrow")}).
 arrowBegin(${scopeGet ("arrow")}, ${abegin (idsender)}).
-arrowEnd(${scopeGet ("arrow")}, ${aend (idsreceiver)}).]]
+arrowEnd(${scopeGet ("arrow")}, ${aend (idsreceiver)}).
+shape(${scopeGet ('gobject')}, "arrow").]]
 
   colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
   strokeWidthAttr [teqc str] = [[strokeWidth(${scopeGet ("gobject")}, ${str}).]]
