@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <opml version="1.0">
 	<head>
-		<title>Diagrams 1 2</title>
-		<expansionState>0,26</expansionState>
+		<title>Diagrams 1 2 1</title>
+		<expansionState>0,9,26,48,72</expansionState>
 	</head>
 	<body>
 		<outline text="comp “z”">
@@ -80,7 +80,7 @@
 					<outline text="rect “c/k/u”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/h/v”">
+					<outline text="rect “c/k/v”">
 						<outline text="color=yellow" />
 					</outline>
 				</outline>
