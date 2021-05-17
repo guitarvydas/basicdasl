@@ -1,9 +1,11 @@
 #!/bin/bash
 set -e
+
+# create factbase for diagram 2. [complete runnable]
 echo >_.pl
 ../../grasem/run.bash opml2fb.grasem >_.js
 cat foreign.js _.js >_opml2fb.js
-node _opml2fb.js < diagrams.opml >> _.pl
+node _opml2fb.js < complete-runnable.opml >> _.pl
 
 sort _.pl | grep -v '^$' > fb.pl
 
@@ -28,4 +30,4 @@ swipl -q \
 
 sort _4.pl >_5.pl
 cat fb.pl _5.pl > _.pl
-cp _.pl fb.pl
+cp _.pl complete-runnable-fb.pl
