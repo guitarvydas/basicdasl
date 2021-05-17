@@ -14,6 +14,8 @@ We need to add 2 more layers to the diagram - "v" and "v/y".
 
 We prefix _all_ existing references with "v/y/z/" in the current set of diagrams (`diagrams.opml` and the `.cod` file).
 
+[In a non-bootstrap version we would not allow diagrams nested inside of diagrams (they would be drawn in separate diagrams), hence, the name-nesting, v/y/z/..., would not be needed]
+
 
 <script src="https://utteranc.es/client.js" 
         repo="guitarvydas/guitarvydas.github.io" 
