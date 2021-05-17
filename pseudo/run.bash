@@ -7,10 +7,10 @@ echo >_.pl
 cat foreign.js _.js >_opml2fb.js
 node _opml2fb.js < complete-runnable.opml >> _.pl
 
-sort _.pl | grep -v '^$' > fb.pl
+sort _.pl | grep -v '^$' > complete_runnable_fb.pl
 
 swipl -q \
-      -g 'consult(fb).' \
+      -g 'consult(complete_runnable_fb).' \
       -g 'consult(q).' \
       -g 'printAllABegin(_).' \
       -g 'printAllAEnd(_).' \
@@ -18,16 +18,16 @@ swipl -q \
       > _2.pl
 
 sort _2.pl >_3.pl
-cat fb.pl _3.pl > _.pl
-cp _.pl fb.pl
+cat complete_runnable_fb.pl _3.pl > _.pl
+cp _.pl complete_runnable_fb.pl
 
 swipl -q \
-      -g 'consult(fb).' \
+      -g 'consult(complete_runnable_fb).' \
       -g 'consult(q).' \
       -g 'describeAllPorts.' \
       -g 'halt.' \
       > _4.pl
 
 sort _4.pl >_5.pl
-cat fb.pl _5.pl > _.pl
-cp _.pl complete-runnable-fb.pl
+cat complete_runnable_fb.pl _5.pl > _.pl
+cp _.pl complete_runnable_fb.pl
