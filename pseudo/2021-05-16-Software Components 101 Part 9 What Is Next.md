@@ -259,6 +259,32 @@ It turns out that the .opml file contains a typo `c/h/v` instead of `c/k/v`.
 					</outline>
 ```
 
+Changing this line (and bringing `Diagrams 1 2 1.cod` up to date) results in:
+```
+?- consult(fb).
+true.
+
+?- consult(q).
+true.
+
+?- describeArrows.
+id55: [[e_c,[e_e_k]],[e_b,[e_e_l,e_g_o]],[e_e_m,[e_f]],[e_f,[e_g_n]],[e_g_p,[e_h]],[e_h,[e_i_q]],[e_a,[e_i_r]],[e_i_s,[e_j]],[e_j,[e_d]]]
+id6: [[c_c,[c_e_m]],[c_e_n,[c_f]],[c_f,[c_g_o]],[c_b,[c_g_p]],[c_g_q,[c_h]],[c_h,[c_i_r]],[c_i_s,[c_j]],[c_j,[c_k_t]],[c_a,[c_k_u]],[c_k_v,[c_l]],[c_l,[c_d]]]
+true.
+
+?- 
+```
+Which looks OK.
+
+## Completing the Diagrams
+
+What is still missing?
+
+`Diagrams.opml` contains only the two components "c" and "e".
+
+We will finish the full set of diagrams in Part 10.
+
+
 <script src="https://utteranc.es/client.js" 
         repo="guitarvydas/guitarvydas.github.io" 
         issue-term="pathname" 

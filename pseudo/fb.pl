@@ -181,7 +181,7 @@ rect(id30, c_i_r).
 rect(id31, c_i_s).
 rect(id36, c_k_t).
 rect(id37, c_k_u).
-rect(id38, c_h_v).
+rect(id38, c_k_v).
 rect(id63, e_e_k).
 rect(id64, e_e_l).
 rect(id65, e_e_m).
@@ -332,6 +332,7 @@ aBegin(a47,id26).
 aBegin(a48,id31).
 aBegin(a49,id32).
 aBegin(a50,id8).
+aBegin(a51,id38).
 aBegin(a52,id39).
 aBegin(a83,id59).
 aBegin(a84,id58).
