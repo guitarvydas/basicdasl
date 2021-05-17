@@ -13,7 +13,7 @@ OPML2FB {
 
   item = noise | graphicalObject | attribute 
   graphicalObject = lineObject | arrowObject | circleObject | compObject | rectObject | cylinderObject
-  attribute = colorAttr | strokeWidthAttr | textAttr | genericAttr
+  attribute = colorAttr | akaAttr | strokeWidthAttr | textAttr | genericAttr
   
   noise = "text=\"lines" stringTail
 
@@ -25,6 +25,7 @@ OPML2FB {
   arrowObject = "text=" dq "arrow" " " qident ws+ receiverList dq
 
   colorAttr = "text=\"color=" stringTail
+  akaAttr = "text=\"aka=" stringTail
   strokeWidthAttr = "text=\"stroke-width=" stringTail
   textAttr = "text=\"text=" stringTail
   genericAttr = "text=" string
@@ -106,6 +107,7 @@ arrowEnd(${scopeGet ("arrow")}, ${aend (idsreceiver)}).
 shape(${scopeGet ('gobject')}, "arrow").]]
 
   colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
+  akaAttr [teqc str] = [[aka(${scopeGet ("gobject")}, ${str}).]]
   strokeWidthAttr [teqc str] = [[strokeWidth(${scopeGet ("gobject")}, ${str}).]]
   textAttr [teqc str] =
     {{ scopeAdd("tobject", "tid" + gen ()) }}

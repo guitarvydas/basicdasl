@@ -2,7 +2,7 @@
 <opml version="1.0">
 	<head>
 		<title>engine</title>
-		<expansionState>0,17,46</expansionState>
+		<expansionState>0,9,12,17,46</expansionState>
 	</head>
 	<body>
 		<outline text="v">
@@ -29,7 +29,6 @@
 						<outline text="color=green" />
 					</outline>
 					<outline text="comp “v/x/y/z”">
-						<outline text="aka [complete runnable]" />
 						<outline text="rect “v/x/y/z/a”">
 							<outline text="color=green" />
 						</outline>

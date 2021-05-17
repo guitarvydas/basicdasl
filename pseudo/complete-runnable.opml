@@ -5,7 +5,7 @@
 		<expansionState>0,9,22,26,30,72,136</expansionState>
 	</head>
 	<body>
-		<outline text="comp “z”">
+	  <outline text="comp “z”">
 			<outline text="circle “z/a”">
 				<outline text="color=green" />
 				<outline text="stroke-width=3" />
