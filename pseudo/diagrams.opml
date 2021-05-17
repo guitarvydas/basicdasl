@@ -1,137 +1,137 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <opml version="1.0">
 	<head>
-		<title>Diagrams 1 2 1</title>
-		<expansionState>0,9,26,48,72</expansionState>
+		<title>Diagrams 1 2 1 1</title>
+		<expansionState>0,9,22,26,30,72,136</expansionState>
 	</head>
 	<body>
-		<outline text="comp “z”">
-			<outline text="circle “a”">
+		<outline text="comp “v/y/z”">
+			<outline text="circle “v/y/z/a”">
 				<outline text="color=green" />
 				<outline text="stroke-width=3" />
 				<outline text="text=“my Composite Template”" />
 			</outline>
-			<outline text="circle “b”">
+			<outline text="circle “v/y/z/b”">
 				<outline text="color=green" />
 				<outline text="stroke-width=1" />
 				<outline text="text=“my runnable”" />
 			</outline>
-			<outline text="comp “c”">
+			<outline text="comp “v/y/z/c”">
 				<outline text="text=”∀ children of my Composite Template”" />
-				<outline text="circle “c/a”">
+				<outline text="circle “v/y/z/c/a”">
 					<outline text="color=green" />
 					<outline text="text=“my runnable”" />
 				</outline>
-				<outline text="circle “c/b”">
+				<outline text="circle “v/y/z/c/b”">
 					<outline text="color=green" />
 					<outline text="text=“my Composite Template”" />
 				</outline>
-				<outline text="circle “c/c”">
+				<outline text="circle “v/y/z/c/c”">
 					<outline text="color=green" />
 					<outline text="text=“child”" />
 				</outline>
-				<outline text="circle “c/d”">
+				<outline text="circle “v/y/z/c/d”">
 					<outline text="color=yellow" />
 				</outline>
-				<outline text="comp “c/e”">
+				<outline text="comp “v/y/z/c/e”">
 					<outline text="text=“make instance”" />
-					<outline text="rect “c/e/m”">
+					<outline text="rect “v/y/z/c/e/m”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/e/n”">
+					<outline text="rect “v/y/z/c/e/n”">
 						<outline text="color=yellow" />
 					</outline>
 				</outline>
-				<outline text="cyl “c/f”">
+				<outline text="cyl “v/y/z/c/f”">
 					<outline text="text=“child instance”" />
 				</outline>
-				<outline text="comp “c/g”">
+				<outline text="comp “v/y/z/c/g”">
 					<outline text="text=”invent name”" />
-					<outline text="rect “c/g/o”">
+					<outline text="rect “v/y/z/c/g/o”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/g/p”">
+					<outline text="rect “v/y/z/c/g/p”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/g/q”">
+					<outline text="rect “v/y/z/c/g/q”">
 						<outline text="color=yellow" />
 					</outline>
 				</outline>
-				<outline text="cyl “c/h”">
+				<outline text="cyl “v/y/z/c/h”">
 					<outline text="text=”named child instance”" />
 				</outline>
-				<outline text="comp “c/i”">
+				<outline text="comp “v/y/z/c/i”">
 					<outline text="text=“recursively instantiate”" />
-					<outline text="rect “c/i/r”">
+					<outline text="rect “v/y/z/c/i/r”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/i/s”">
+					<outline text="rect “v/y/z/c/i/s”">
 						<outline text="color=yellow" />
 					</outline>
 				</outline>
-				<outline text="cyl “c/j”">
+				<outline text="cyl “v/y/z/c/j”">
 					<outline text="text=“filled child instance”" />
 				</outline>
-				<outline text="comp “c/k”">
+				<outline text="comp “v/y/z/c/k”">
 					<outline text="text=”insert child into children of my runnable”" />
-					<outline text="rect “c/k/t”">
+					<outline text="rect “v/y/z/c/k/t”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/k/u”">
+					<outline text="rect “v/y/z/c/k/u”">
 						<outline text="color=green" />
 					</outline>
-					<outline text="rect “c/k/v”">
+					<outline text="rect “v/y/z/c/k/v”">
 						<outline text="color=yellow" />
 					</outline>
 				</outline>
-				<outline text="cyl “c/l”">
+				<outline text="cyl “v/y/z/c/l”">
 					<outline text="text=“my runnable filled in with children”" />
 				</outline>
 				<outline text="lines">
-					<outline text="arrow c/c  c/e/m" />
-					<outline text="arrow c/e/n  c/f" />
-					<outline text="arrow c/f  c/g/o" />
-					<outline text="arrow c/b  c/g/p" />
-					<outline text="arrow c/g/q  c/h" />
-					<outline text="arrow c/h  c/i/r" />
-					<outline text="arrow c/i/s  c/j" />
-					<outline text="arrow c/j  c/k/t" />
-					<outline text="arrow c/a  c/k/u" />
-					<outline text="arrow c/k/v  c/l" />
-					<outline text="arrow c/l  c/d" />
+					<outline text="arrow v/y/z/c/c  v/y/z/c/e/m" />
+					<outline text="arrow v/y/z/c/e/n  v/y/z/c/f" />
+					<outline text="arrow v/y/z/c/f  v/y/z/c/g/o" />
+					<outline text="arrow v/y/z/c/b  v/y/z/c/g/p" />
+					<outline text="arrow v/y/z/c/g/q  v/y/z/c/h" />
+					<outline text="arrow v/y/z/c/h  v/y/z/c/i/r" />
+					<outline text="arrow v/y/z/c/i/s  v/y/z/c/j" />
+					<outline text="arrow v/y/z/c/j  v/y/z/c/k/t" />
+					<outline text="arrow v/y/z/c/a  v/y/z/c/k/u" />
+					<outline text="arrow v/y/z/c/k/v  v/y/z/c/l" />
+					<outline text="arrow v/y/z/c/l  v/y/z/c/d" />
 				</outline>
 			</outline>
-			<outline text="cyl “d”">
+			<outline text="cyl “v/y/z/d”">
 				<outline text="text=“my runnable filled in with children”" />
 			</outline>
-			<outline text="comp “e”">
+			<outline text="comp “v/y/z/e”">
 				<outline text="text=“∀ connections of my Composite Template”" />
-				<outline text="circle “e/a”">
+				<outline text="circle “v/y/z/e/a”">
 					<outline text="color=green" />
 					<outline text="stroke-width=1" />
 				</outline>
-				<outline text="circle “e/b”">
+				<outline text="circle “v/y/z/e/b”">
 					<outline text="color=green" />
 					<outline text="stroke-width=1" />
 				</outline>
-				<outline text="circle “e/c”">
+				<outline text="circle “v/y/z/e/c”">
 					<outline text="color=green" />
 					<outline text="stroke-width=1" />
 				</outline>
-				<outline text="circle “e/d”">
+				<outline text="circle “v/y/z/e/d”">
 					<outline text="color=yellow" />
 				</outline>
-				<outline text="comp “e/e”">
+				<outline text="comp “v/y/z/e/e”">
 					<outline text="text=”clone connection”" />
-					<outline text="rect “e/e/k”">
+					<outline text="rect “v/y/z/e/e/k”">
 						<outline text="color=green" />
 						<outline text="stroke-width=1" />
 					</outline>
-					<outline text="rect “e/e/l”">
+					<outline text="rect “v/y/z/e/e/l”">
 						<outline text="color=green" />
 						<outline text="stroke-width=1" />
 					</outline>
-					<outline text="rect “e/e/m”">
+					<outline text="rect “v/y/z/e/e/m”">
 						<outline text="color=yellow" />
 						<outline text="stroke-width=1" />
 					</outline>
@@ -139,62 +139,58 @@
 				<outline text="cyl “e/f”">
 					<outline text="text=“runnable connection with holes”" />
 				</outline>
-				<outline text="comp “e/g”">
+				<outline text="comp “v/y/z/e/g”">
 					<outline text="text=“fixup connection”" />
-					<outline text="rect “e/g/n”">
+					<outline text="rect “v/y/z/e/g/n”">
 						<outline text="color=green" />
 						<outline text="stroke-width=1" />
 					</outline>
-					<outline text="rect “e/g/o”">
+					<outline text="rect “v/y/z/e/g/o”">
 						<outline text="color=green" />
 						<outline text="stroke-width=1" />
 					</outline>
-					<outline text="rect “e/g/p”">
+					<outline text="rect “v/y/z/e/g/p”">
 						<outline text="color=yellow" />
 						<outline text="stroke-width=1" />
 					</outline>
 				</outline>
-				<outline text="cyl “e/h”">
+				<outline text="cyl “v/y/z/e/h”">
 					<outline text="text=“fixed up connection”" />
 				</outline>
-				<outline text="comp “e/i”">
+				<outline text="comp “v/y/z/e/i”">
 					<outline text="text=”insert connection into runnable”" />
-					<outline text="rect “e/i/q”">
+					<outline text="rect “v/y/z/e/i/q”">
 						<outline text="color=green" />
 						<outline text="stroke-width=1" />
 					</outline>
-					<outline text="rect “e/i/r”">
+					<outline text="rect “v/y/z/e/i/r”">
 						<outline text="color=green" />
 						<outline text="stroke-width=1" />
 					</outline>
-					<outline text="rect “e/i/s”">
+					<outline text="rect “v/y/z/e/i/s”">
 						<outline text="color=yellow" />
 						<outline text="stroke-width=1" />
 					</outline>
 				</outline>
-				<outline text="cyl “e/j”">
+				<outline text="cyl “v/y/z/e/j”">
 					<outline text="text=“final runnable”" />
 				</outline>
 				<outline text="lines">
-					<outline text="arrow e/c e/e/k" />
-					<outline text="arrow e/b e/e/l e/g/o" />
-					<outline text="arrow e/e/m e/f" />
-					<outline text="arrow e/f e/g/n" />
-					<outline text="arrow e/g/p e/h" />
-					<outline text="arrow e/h e/i/q" />
-					<outline text="arrow e/a e/i/r" />
-					<outline text="arrow e/i/s e/j" />
-					<outline text="arrow e/j e/d" />
+					<outline text="arrow v/y/z/e/c v/y/z/e/e/k" />
+					<outline text="arrow v/y/z/e/b v/y/z/e/e/l v/y/z/e/g/o" />
+					<outline text="arrow v/y/z/e/e/m v/y/z/e/f" />
+					<outline text="arrow v/y/z/e/f v/y/z/e/g/n" />
+					<outline text="arrow v/y/z/e/g/p v/y/z/e/h" />
+					<outline text="arrow v/y/z/e/h v/y/z/e/i/q" />
+					<outline text="arrow v/y/z/e/a v/y/z/e/i/r" />
+					<outline text="arrow v/y/z/e/i/s v/y/z/e/j" />
+					<outline text="arrow v/y/z/e/j v/y/z/e/d" />
 				</outline>
 			</outline>
-			<outline text="circle “d”">
-				<outline text="color=yellow" />
-				<outline text="stroke-width=1" />
-			</outline>
-			<outline text="cyl “f”">
+			<outline text="cyl “v/y/z/f”">
 				<outline text="text=“runnable”" />
 			</outline>
-			<outline text="circle “g”">
+			<outline text="circle “v/y/z/g”">
 				<outline text="color=yellow" />
 				<outline text="stroke-width=1" />
 			</outline>
