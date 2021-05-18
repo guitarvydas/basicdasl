@@ -165,7 +165,7 @@ cyl(id26, z_c_h).
 cyl(id32, z_c_j).
 cyl(id39, z_c_l).
 cyl(id53, z_d).
-cyl(id66, e_f).
+cyl(id66, z_e_f).
 cyl(id73, z_e_h).
 cyl(id80, z_e_j).
 cyl(id92, z_f).
@@ -332,6 +332,7 @@ aBegin(a52,id39).
 aBegin(a83,id59).
 aBegin(a84,id58).
 aBegin(a85,id65).
+aBegin(a86,id66).
 aBegin(a87,id72).
 aBegin(a88,id73).
 aBegin(a89,id57).
@@ -350,6 +351,7 @@ aEnd(a51,[id39]).
 aEnd(a52,[id14]).
 aEnd(a83,[id63]).
 aEnd(a84,[id64,id71]).
+aEnd(a85,[id66]).
 aEnd(a86,[id70]).
 aEnd(a87,[id73]).
 aEnd(a88,[id77]).

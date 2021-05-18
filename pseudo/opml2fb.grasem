@@ -8,14 +8,14 @@ OPML2FB {
   endOPML = "</opml>" (newline | end)
 
   Outline = OutlineNoContent | OutlineWithContent
-  OutlineNoContent = "<outline" item "/>"
-  OutlineWithContent = "<outline" item ">" Outline* "</outline>"
+  OutlineNoContent = "<outline" item+ "/>"
+  OutlineWithContent = "<outline" item+ ">" Outline* "</outline>"
 
   item = noise | graphicalObject | attribute 
   graphicalObject = lineObject | arrowObject | circleObject | compObject | rectObject | cylinderObject
   attribute = colorAttr | akaAttr | strokeWidthAttr | textAttr | genericAttr
   
-  noise = "text=\"lines" stringTail
+  noise = "text=\"lines" stringTail | "_status=\"" stringTail
 
   circleObject = "text=" dq "circle" " " ubeginquote qident uendquote dq
   compObject = "text=" dq "comp" " " ubeginquote qident uendquote dq
@@ -68,8 +68,8 @@ OPML2FB {
   endOPML [begin nl] = [[]]
 
   Outline [o] = [[${o}]]
-  OutlineNoContent [begin t slashClose] = [[${t}\n]]
-  OutlineWithContent [begin t close @o slasho] =
+  OutlineNoContent [begin @t slashClose] = [[${t}\n]]
+  OutlineWithContent [begin @t close @o slasho] =
   {{
     var container = scopeGet ("gobject");
     scopeAdd ("container", container);

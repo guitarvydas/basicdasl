@@ -46,7 +46,9 @@ nonArrowGobject(ID,Synonym) :- comp(ID,Synonym).
 nonArrowGobject(ID,Synonym) :- cyl(ID,Synonym).
 
 synonym(ID,Synonym) :-
-    nonArrowGobject(ID,Synonym).
+    nonArrowGobject(ID,Synonym),!.
+synonym(ID,ID):-
+    format(user_error,"*** INTERNAL ERROR: no synonym for ~w~n", ID).
 
 printABegin(ID) :-
     arrowBegin(ID,Tag),
@@ -155,27 +157,17 @@ describeForeignComponents:-
 
 arrows(Component,Connections):-
     setof(A,(arrow(Component,A),comp(Component,_)),Connections).
-describeArrows(Component):-
-    arrows(Component,List),
-    resolveArrowsWithSynonyms(List,BEList),
-    format("~w: ~w~n",[Component,BEList]).
-resolveArrows([],[]).
-resolveArrows([A|Rest],[[Begin,End]|Resolved]):-
-    format("resolveArrows 1 A=~w Rest=~w Resolved=~w~n", [A,Rest,Resolved]),
-    resolveArrows(Rest,Resolved),
-    aBegin(A,Begin),
-    aEnd(A,End),
-    format("resolveArrows 2 A=~w Begin=~w End=~w Rest=~w Resolved=~w~n", [A,Begin,End,Rest,Resolved]).
-resolveArrowsWithSynonyms([],[]).
-resolveArrowsWithSynonyms([A|Rest],[[Sender,ReceiverSynonymsList]|Resolved]):-
-    resolveArrowsWithSynonyms(Rest,Resolved),
-    aBegin(A,Begin),
-    aEnd(A,ReceiverList),
-    resolveReceiversWithSynonyms(ReceiverList,ReceiverSynonymsList),
-    synonym(Begin,Sender).
-resolveReceiversWithSynonyms([],[]).
-resolveReceiversWithSynonyms([First|Rest],[FirstSyn|LSyns]):-
-    resolveReceiversWithSynonyms(Rest,LSyns),
-    synonym(First,FirstSyn).
-describeArrows:-
-    setof(P,describeArrows(P),_).
+
+replaceWithSynonyms([],[]).
+replaceWithSynonyms([H|T],[SH|ST]) :-
+    atom(H),
+    synonym(H,SH),
+    replaceWithSynonyms(T,ST),!.
+replaceWithSynonyms([H|T],[SH|ST]) :-
+    replaceWithSynonyms(H,SH),
+    replaceWithSynonyms(T,ST),!.
+replaceWithSynonyms(L,L).
+
+describeConnections(ComponentSyn,Arrows):-
+    arrows(ComponentID,Arrows),
+    synonym(ComponentID,ComponentSyn).
