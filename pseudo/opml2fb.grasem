@@ -37,8 +37,8 @@ OPML2FB {
 
   string = dq notDQ* dq
   stringTail = notDQ* dq
-  dq = "\""
-  notDQ = ~"\"" any
+  dq = "\"" | "&quot;"
+  notDQ = ~dq any
   quote = dq
 
   ubeginquote = "“"
@@ -58,7 +58,7 @@ OPML2FB {
 
 
   OPML [xmlhdr opmlhdr head body outline endbody endopml] =
-    {{ scopeAdd ('counter', 0); scopeAdd ('gobject', "id" + gen ()); }}
+    {{ scopeAdd ('counter', 0); scopeAdd ('gobject', "id" + gen ()); scopeAdd ('line', 0); }}
     [[${xmlhdr}${opmlhdr}${head}${body}${outline}${endbody}${endopml}]]
   opmlHeader [begin @hdr close nl] = [[]]
   xmlHeader [begin @hdr close nl] = [[]]
@@ -80,7 +80,7 @@ OPML2FB {
   headChar [c] = [[${c}]]
   opmlHeaderChar [c] = [[${c}]]
   xmlHeaderChar [c] = [[${c}]]
-  newline [c] = [[${c}]]
+  newline [c] = {{ var line = scopeGet ('line'); scopeAdd ('line', line + 1); }} [[${c}]]
 
   item [i] = [[${i}]]
   graphicalObject [o] = [[${o.trim ()}\n]]
@@ -112,7 +112,7 @@ shape(${scopeGet ('gobject')}, "arrow").]]
   textAttr [teqc str] =
     {{ scopeAdd("tobject", "tid" + gen ()) }}
     [[str(${scopeGet ("tobject")}, ${changeUnicodeQuotes (str)}).\ntext(${scopeGet ("gobject")}, ${scopeGet ("tobject")}).]]
-  genericAttr [teq str] = [[${teq}${str}]]
+  genericAttr [teq str] = {{ throw `generic attribute /line=${scopeGet('line')}/ /${str}/`; }} [[${teq}${str}]]
 
   string [q1 @cs q2] = [[${q1}${changeUnicodeQuotes (cs)}${q2}]]
   stringTail [@cs q2] = [[${changeUnicodeQuotes (cs)}${q2}]]

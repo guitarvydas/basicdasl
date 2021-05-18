@@ -1,80 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <opml version="1.0">
-	<head>
-		<title>engine</title>
-		<expansionState>0,9,12,17,46</expansionState>
-	</head>
-	<body>
-		<outline text="v">
-			<outline text="circle “v/a”">
-				<outline text="color=green" />
-			</outline>
-			<outline text="comp “v/b”">
-				<outline text="rect v/b/a">
-					<outline text="color=green" />
-				</outline>
-				<outline text="rect v/b/b">
-					<outline text="color=yellow" />
-				</outline>
-			</outline>
-			<outline text="cyl “v/c&quot;" />
-			<outline text="comp v/x">
-				<outline text="rect “v/x/a”" />
-				<outline text="rect “v/x/b”" />
-				<outline text="comp “v/x/y”">
-					<outline text="rect “v/x/y/a”">
-						<outline text="color=green" />
-					</outline>
-					<outline text="rect “v/x/y/b”">
-						<outline text="color=green" />
-					</outline>
-					<outline text="comp “v/x/y/z”">
-						<outline text="rect “v/x/y/z/a”">
-							<outline text="color=green" />
-						</outline>
-						<outline text="rect “v/x/y/z/b”">
-							<outline text="color=green" />
-						</outline>
-						<outline text="rect “v/x/y/z/c”">
-							<outline text="color=yellow" />
-						</outline>
-					</outline>
-					<outline text="rect “v/x/y/c”">
-						<outline text="color=yellow" />
-					</outline>
-					<outline text="lines">
-						<outline text="line v/x/y/a z/y/z/a" />
-						<outline text="line v/x/y/b v/x/y/z/b" />
-						<outline text="line v/x/y/z/c/ v/x/y/c" />
-					</outline>
-				</outline>
-				<outline text="cyl “v/x/c”" />
-				<outline text="rect “v/x/d”">
-					<outline text="rect “v/x/d/a”">
-						<outline text="color=green" />
-					</outline>
-					<outline text="rect “v/x/d/b”">
-						<outline text="color=yellow" />
-					</outline>
-				</outline>
-				<outline text="rect “v/x/e”" />
-				<outline text="lines">
-					<outline text="line v/x/a v/x/y/a" />
-					<outline text="line v/x/b/ v/x/y/b" />
-					<outline text="line v/x/y/c v/x/c" />
-					<outline text="line v/x/c v/x/d/a/" />
-					<outline text="line v/x/d/b/ v/x/e" />
-				</outline>
-			</outline>
-			<outline text="circle “v/d”">
-				<outline text="color=yellow" />
-			</outline>
-			<outline text="lines">
-				<outline text="line v/a v/b/a v/x/b" />
-				<outline text="line v/b/b/ v/c" />
-				<outline text="line v/c v/x/b" />
-				<outline text="line v/x/b v/d" />
-			</outline>
-		</outline>
-	</body>
+  <head>
+    <title>engine</title>
+    <expansionState>0,1,5</expansionState>
+  </head>
+  <body>
+    <outline text="comp “v”">
+      <outline text="comp “v/x”">
+	<outline text="rect “v/x/e”" />
+      </outline>
+      <outline text="circle “v/d”">
+	<outline text="color=yellow" />
+      </outline>
+      <outline text="lines">
+	<outline text="arrow v/x/e v/d" />
+      </outline>
+    </outline>
+  </body>
 </opml>

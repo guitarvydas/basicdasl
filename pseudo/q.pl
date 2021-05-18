@@ -1,3 +1,28 @@
+% dynamic declarations to allow debuggging by paring-down
+:- dynamic rect/2.
+:- dynamic circle/2.
+:- dynamic comp/2.
+:- dynamic cyl/2.
+:- dynamic arrow/2.
+:- dynamic text/2.
+
+:- dynamic strokeWidth/2.
+:- dynamic color/2.
+:- dynamic str/2.
+
+:- dynamic port/2.
+:- dynamic arrowBegin/2.
+:- dynamic arrowEnd/2.
+:- dynamic aBegin/2.
+:- dynamic aEnd/2.
+:- dynamic contains/2.
+:- dynamic shape/2.
+:- dynamic connectionType/2.
+:- dynamic direction/2.
+:- dynamic location/2.
+
+
+
 gobject(ID) :- rect(ID,_).
 gobject(ID) :- circle(ID,_).
 gobject(ID) :- comp(ID,_).
