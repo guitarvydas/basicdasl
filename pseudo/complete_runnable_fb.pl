@@ -1,480 +1,530 @@
-arrow(id55, a83).
-arrow(id55, a84).
-arrow(id55, a85).
-arrow(id55, a86).
-arrow(id55, a87).
-arrow(id55, a88).
-arrow(id55, a89).
-arrow(id55, a90).
-arrow(id55, a91).
-arrow(id6, a42).
-arrow(id6, a43).
-arrow(id6, a44).
-arrow(id6, a45).
-arrow(id6, a46).
-arrow(id6, a47).
-arrow(id6, a48).
-arrow(id6, a49).
-arrow(id6, a50).
-arrow(id6, a51).
-arrow(id6, a52).
-arrowBegin(a42, z_c_c).
-arrowBegin(a43, z_c_e_n).
-arrowBegin(a44, z_c_f).
-arrowBegin(a45, z_c_b).
-arrowBegin(a46, z_c_g_q).
-arrowBegin(a47, z_c_h).
-arrowBegin(a48, z_c_i_s).
-arrowBegin(a49, z_c_j).
-arrowBegin(a50, z_c_a).
-arrowBegin(a51, z_c_k_v).
-arrowBegin(a52, z_c_l).
-arrowBegin(a83, z_e_c).
-arrowBegin(a84, z_e_b).
-arrowBegin(a85, z_e_e_m).
-arrowBegin(a86, z_e_f).
-arrowBegin(a87, z_e_g_p).
-arrowBegin(a88, z_e_h).
-arrowBegin(a89, z_e_a).
-arrowBegin(a90, z_e_i_s).
-arrowBegin(a91, z_e_j).
-arrowEnd(a42, [z_c_e_m]).
-arrowEnd(a43, [z_c_f]).
-arrowEnd(a44, [z_c_g_o]).
-arrowEnd(a45, [z_c_g_p]).
-arrowEnd(a46, [z_c_h]).
-arrowEnd(a47, [z_c_i_r]).
-arrowEnd(a48, [z_c_j]).
-arrowEnd(a49, [z_c_k_t]).
-arrowEnd(a50, [z_c_k_u]).
-arrowEnd(a51, [z_c_l]).
-arrowEnd(a52, [z_c_d]).
-arrowEnd(a83, [z_e_e_k]).
-arrowEnd(a84, [z_e_e_l,z_e_g_o]).
-arrowEnd(a85, [z_e_f]).
-arrowEnd(a86, [z_e_g_n]).
-arrowEnd(a87, [z_e_h]).
-arrowEnd(a88, [z_e_i_q]).
-arrowEnd(a89, [z_e_i_r]).
-arrowEnd(a90, [z_e_j]).
-arrowEnd(a91, [z_e_d]).
-circle(id10, z_c_b).
-circle(id12, z_c_c).
-circle(id14, z_c_d).
+arrow(id158, a160).
+arrow(id158, a162).
+arrow(id158, a164).
+arrow(id158, a166).
+arrow(id158, a168).
+arrow(id158, a170).
+arrow(id158, a172).
+arrow(id158, a174).
+arrow(id158, a176).
+arrow(id73, a75).
+arrow(id73, a77).
+arrow(id73, a79).
+arrow(id73, a81).
+arrow(id73, a83).
+arrow(id73, a85).
+arrow(id73, a87).
+arrow(id73, a89).
+arrow(id73, a91).
+arrow(id73, a93).
+arrow(id73, a95).
+arrowBegin(a160, z_e_c).
+arrowBegin(a162, z_e_b).
+arrowBegin(a164, z_e_e_m).
+arrowBegin(a166, z_e_f).
+arrowBegin(a168, z_e_g_p).
+arrowBegin(a170, z_e_h).
+arrowBegin(a172, z_e_a).
+arrowBegin(a174, z_e_i_s).
+arrowBegin(a176, z_e_j).
+arrowBegin(a75, z_c_c).
+arrowBegin(a77, z_c_e_n).
+arrowBegin(a79, z_c_f).
+arrowBegin(a81, z_c_b).
+arrowBegin(a83, z_c_g_q).
+arrowBegin(a85, z_c_h).
+arrowBegin(a87, z_c_i_s).
+arrowBegin(a89, z_c_j).
+arrowBegin(a91, z_c_a).
+arrowBegin(a93, z_c_k_v).
+arrowBegin(a95, z_c_l).
+arrowEnd(a160, [z_e_e_k]).
+arrowEnd(a162, [z_e_e_l,z_e_g_o]).
+arrowEnd(a164, [z_e_f]).
+arrowEnd(a166, [z_e_g_n]).
+arrowEnd(a168, [z_e_h]).
+arrowEnd(a170, [z_e_i_q]).
+arrowEnd(a172, [z_e_i_r]).
+arrowEnd(a174, [z_e_j]).
+arrowEnd(a176, [z_e_d]).
+arrowEnd(a75, [z_c_e_m]).
+arrowEnd(a77, [z_c_f]).
+arrowEnd(a79, [z_c_g_o]).
+arrowEnd(a81, [z_c_g_p]).
+arrowEnd(a83, [z_c_h]).
+arrowEnd(a85, [z_c_i_r]).
+arrowEnd(a87, [z_c_j]).
+arrowEnd(a89, [z_c_k_t]).
+arrowEnd(a91, [z_c_k_u]).
+arrowEnd(a93, [z_c_l]).
+arrowEnd(a95, [z_c_d]).
+circle(id102, z_e_a).
+circle(id105, z_e_b).
+circle(id108, z_e_c).
+circle(id111, z_e_d).
+circle(id15, z_c_a).
+circle(id180, z_g).
+circle(id19, z_c_b).
 circle(id2, z_a).
-circle(id4, z_b).
-circle(id57, z_e_a).
-circle(id58, z_e_b).
-circle(id59, z_e_c).
-circle(id60, z_e_d).
-circle(id8, z_c_a).
-circle(id94, z_g).
-color(id10, green).
-color(id12, green).
-color(id14, yellow).
-color(id17, green).
-color(id18, yellow).
-color(id2, green).
-color(id23, green).
+circle(id23, z_c_c).
+circle(id27, z_c_d).
+circle(id7, z_b).
+color(id103, green).
+color(id106, green).
+color(id109, green).
+color(id112, yellow).
+color(id117, green).
+color(id120, green).
+color(id123, yellow).
+color(id132, green).
+color(id135, green).
+color(id138, yellow).
+color(id147, green).
+color(id150, green).
+color(id153, yellow).
+color(id16, green).
+color(id181, yellow).
+color(id20, green).
 color(id24, green).
-color(id25, yellow).
-color(id30, green).
-color(id31, yellow).
-color(id36, green).
-color(id37, green).
-color(id38, yellow).
-color(id4, green).
-color(id57, green).
-color(id58, green).
-color(id59, green).
-color(id60, yellow).
-color(id63, green).
-color(id64, green).
-color(id65, yellow).
-color(id70, green).
-color(id71, green).
-color(id72, yellow).
-color(id77, green).
-color(id78, green).
-color(id79, yellow).
+color(id28, yellow).
+color(id3, green).
+color(id33, green).
+color(id35, yellow).
+color(id43, green).
+color(id45, green).
+color(id47, yellow).
+color(id55, green).
+color(id57, yellow).
+color(id65, green).
+color(id67, green).
+color(id69, yellow).
 color(id8, green).
-color(id94, yellow).
 comp(id1, z).
-comp(id15, z_c_e).
-comp(id21, z_c_g).
-comp(id28, z_c_i).
-comp(id34, z_c_k).
-comp(id55, z_e).
-comp(id6, z_c).
-comp(id61, z_e_e).
-comp(id68, z_e_g).
-comp(id75, z_e_i).
+comp(id113, z_e_e).
+comp(id12, z_c).
+comp(id128, z_e_g).
+comp(id143, z_e_i).
+comp(id29, z_c_e).
+comp(id39, z_c_g).
+comp(id51, z_c_i).
+comp(id61, z_c_k).
+comp(id99, z_e).
 contains(id0, id1).
+contains(id1, id12).
+contains(id1, id177).
+contains(id1, id180).
 contains(id1, id2).
-contains(id1, id4).
-contains(id1, id53).
-contains(id1, id55).
-contains(id1, id6).
-contains(id1, id92).
-contains(id1, id94).
+contains(id1, id7).
+contains(id1, id96).
+contains(id1, id99).
+contains(id102, id103).
+contains(id102, id104).
+contains(id105, id106).
+contains(id105, id107).
+contains(id108, id109).
+contains(id108, id110).
+contains(id111, id112).
+contains(id113, id114).
+contains(id113, id116).
+contains(id113, id119).
+contains(id113, id122).
+contains(id116, id117).
+contains(id116, id118).
+contains(id119, id120).
+contains(id119, id121).
+contains(id12, id13).
+contains(id12, id15).
+contains(id12, id19).
+contains(id12, id23).
+contains(id12, id27).
+contains(id12, id29).
+contains(id12, id36).
+contains(id12, id39).
+contains(id12, id48).
+contains(id12, id51).
+contains(id12, id58).
+contains(id12, id61).
+contains(id12, id70).
+contains(id12, id73).
+contains(id122, id123).
+contains(id122, id124).
+contains(id125, id126).
+contains(id128, id129).
+contains(id128, id131).
+contains(id128, id134).
+contains(id128, id137).
+contains(id131, id132).
+contains(id131, id133).
+contains(id134, id135).
+contains(id134, id136).
+contains(id137, id138).
+contains(id137, id139).
+contains(id140, id141).
+contains(id143, id144).
+contains(id143, id146).
+contains(id143, id149).
+contains(id143, id152).
+contains(id146, id147).
+contains(id146, id148).
+contains(id149, id150).
+contains(id149, id151).
+contains(id15, id16).
 contains(id15, id17).
-contains(id15, id18).
-contains(id21, id23).
-contains(id21, id24).
-contains(id21, id25).
-contains(id28, id30).
-contains(id28, id31).
-contains(id34, id36).
-contains(id34, id37).
-contains(id34, id38).
-contains(id55, id57).
-contains(id55, id58).
-contains(id55, id59).
-contains(id55, id60).
-contains(id55, id61).
-contains(id55, id66).
-contains(id55, id68).
-contains(id55, id73).
-contains(id55, id75).
-contains(id55, id80).
-contains(id55, id82).
-contains(id6, id10).
-contains(id6, id12).
-contains(id6, id14).
-contains(id6, id15).
-contains(id6, id19).
-contains(id6, id21).
-contains(id6, id26).
-contains(id6, id28).
-contains(id6, id32).
-contains(id6, id34).
-contains(id6, id39).
-contains(id6, id41).
-contains(id6, id8).
-contains(id61, id63).
+contains(id152, id153).
+contains(id152, id154).
+contains(id155, id156).
+contains(id158, id159).
+contains(id158, id161).
+contains(id158, id163).
+contains(id158, id165).
+contains(id158, id167).
+contains(id158, id169).
+contains(id158, id171).
+contains(id158, id173).
+contains(id158, id175).
+contains(id177, id178).
+contains(id180, id181).
+contains(id180, id182).
+contains(id19, id20).
+contains(id19, id21).
+contains(id2, id3).
+contains(id2, id4).
+contains(id2, id5).
+contains(id23, id24).
+contains(id23, id25).
+contains(id27, id28).
+contains(id29, id30).
+contains(id29, id32).
+contains(id29, id34).
+contains(id32, id33).
+contains(id34, id35).
+contains(id36, id37).
+contains(id39, id40).
+contains(id39, id42).
+contains(id39, id44).
+contains(id39, id46).
+contains(id42, id43).
+contains(id44, id45).
+contains(id46, id47).
+contains(id48, id49).
+contains(id51, id52).
+contains(id51, id54).
+contains(id51, id56).
+contains(id54, id55).
+contains(id56, id57).
+contains(id58, id59).
+contains(id61, id62).
 contains(id61, id64).
-contains(id61, id65).
-contains(id68, id70).
-contains(id68, id71).
-contains(id68, id72).
-contains(id75, id77).
-contains(id75, id78).
-contains(id75, id79).
-cyl(id19, z_c_f).
-cyl(id26, z_c_h).
-cyl(id32, z_c_j).
-cyl(id39, z_c_l).
-cyl(id53, z_d).
-cyl(id66, z_e_f).
-cyl(id73, z_e_h).
-cyl(id80, z_e_j).
-cyl(id92, z_f).
-rect(id17, z_c_e_m).
-rect(id18, z_c_e_n).
-rect(id23, z_c_g_o).
-rect(id24, z_c_g_p).
-rect(id25, z_c_g_q).
-rect(id30, z_c_i_r).
-rect(id31, z_c_i_s).
-rect(id36, z_c_k_t).
-rect(id37, z_c_k_u).
-rect(id38, z_c_k_v).
-rect(id63, z_e_e_k).
-rect(id64, z_e_e_l).
-rect(id65, z_e_e_m).
-rect(id70, z_e_g_n).
-rect(id71, z_e_g_o).
-rect(id72, z_e_g_p).
-rect(id77, z_e_i_q).
-rect(id78, z_e_i_r).
-rect(id79, z_e_i_s).
+contains(id61, id66).
+contains(id61, id68).
+contains(id64, id65).
+contains(id66, id67).
+contains(id68, id69).
+contains(id7, id10).
+contains(id7, id8).
+contains(id7, id9).
+contains(id70, id71).
+contains(id73, id74).
+contains(id73, id76).
+contains(id73, id78).
+contains(id73, id80).
+contains(id73, id82).
+contains(id73, id84).
+contains(id73, id86).
+contains(id73, id88).
+contains(id73, id90).
+contains(id73, id92).
+contains(id73, id94).
+contains(id96, id97).
+contains(id99, id100).
+contains(id99, id102).
+contains(id99, id105).
+contains(id99, id108).
+contains(id99, id111).
+contains(id99, id113).
+contains(id99, id125).
+contains(id99, id128).
+contains(id99, id140).
+contains(id99, id143).
+contains(id99, id155).
+contains(id99, id158).
+cyl(id125, z_e_f).
+cyl(id140, z_e_h).
+cyl(id155, z_e_j).
+cyl(id177, z_f).
+cyl(id36, z_c_f).
+cyl(id48, z_c_h).
+cyl(id58, z_c_j).
+cyl(id70, z_c_l).
+cyl(id96, z_d).
+rect(id116, z_e_e_k).
+rect(id119, z_e_e_l).
+rect(id122, z_e_e_m).
+rect(id131, z_e_g_n).
+rect(id134, z_e_g_o).
+rect(id137, z_e_g_p).
+rect(id146, z_e_i_q).
+rect(id149, z_e_i_r).
+rect(id152, z_e_i_s).
+rect(id32, z_c_e_m).
+rect(id34, z_c_e_n).
+rect(id42, z_c_g_o).
+rect(id44, z_c_g_p).
+rect(id46, z_c_g_q).
+rect(id54, z_c_i_r).
+rect(id56, z_c_i_s).
+rect(id64, z_c_k_t).
+rect(id66, z_c_k_u).
+rect(id68, z_c_k_v).
 shape(id1, "component").
-shape(id10, "circle").
-shape(id12, "circle").
-shape(id14, "circle").
-shape(id15, "component").
-shape(id17, "rect").
-shape(id18, "rect").
-shape(id19, "cylinder").
+shape(id102, "circle").
+shape(id105, "circle").
+shape(id108, "circle").
+shape(id111, "circle").
+shape(id113, "component").
+shape(id116, "rect").
+shape(id119, "rect").
+shape(id12, "component").
+shape(id122, "rect").
+shape(id125, "cylinder").
+shape(id128, "component").
+shape(id131, "rect").
+shape(id134, "rect").
+shape(id137, "rect").
+shape(id140, "cylinder").
+shape(id143, "component").
+shape(id146, "rect").
+shape(id149, "rect").
+shape(id15, "circle").
+shape(id152, "rect").
+shape(id155, "cylinder").
+shape(id159, "arrow").
+shape(id161, "arrow").
+shape(id163, "arrow").
+shape(id165, "arrow").
+shape(id167, "arrow").
+shape(id169, "arrow").
+shape(id171, "arrow").
+shape(id173, "arrow").
+shape(id175, "arrow").
+shape(id177, "cylinder").
+shape(id180, "circle").
+shape(id19, "circle").
 shape(id2, "circle").
-shape(id21, "component").
-shape(id23, "rect").
-shape(id24, "rect").
-shape(id25, "rect").
-shape(id26, "cylinder").
-shape(id28, "component").
-shape(id30, "rect").
-shape(id31, "rect").
-shape(id32, "cylinder").
-shape(id34, "component").
-shape(id36, "rect").
-shape(id37, "rect").
-shape(id38, "rect").
-shape(id39, "cylinder").
-shape(id4, "circle").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id41, "arrow").
-shape(id53, "cylinder").
-shape(id55, "component").
-shape(id57, "circle").
-shape(id58, "circle").
-shape(id59, "circle").
-shape(id6, "component").
-shape(id60, "circle").
+shape(id23, "circle").
+shape(id27, "circle").
+shape(id29, "component").
+shape(id32, "rect").
+shape(id34, "rect").
+shape(id36, "cylinder").
+shape(id39, "component").
+shape(id42, "rect").
+shape(id44, "rect").
+shape(id46, "rect").
+shape(id48, "cylinder").
+shape(id51, "component").
+shape(id54, "rect").
+shape(id56, "rect").
+shape(id58, "cylinder").
 shape(id61, "component").
-shape(id63, "rect").
 shape(id64, "rect").
-shape(id65, "rect").
-shape(id66, "cylinder").
-shape(id68, "component").
-shape(id70, "rect").
-shape(id71, "rect").
-shape(id72, "rect").
-shape(id73, "cylinder").
-shape(id75, "component").
-shape(id77, "rect").
-shape(id78, "rect").
-shape(id79, "rect").
-shape(id8, "circle").
-shape(id80, "cylinder").
+shape(id66, "rect").
+shape(id68, "rect").
+shape(id7, "circle").
+shape(id70, "cylinder").
+shape(id74, "arrow").
+shape(id76, "arrow").
+shape(id78, "arrow").
+shape(id80, "arrow").
 shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id82, "arrow").
-shape(id92, "cylinder").
-shape(id94, "circle").
-str(tid11, "my Composite Template").
-str(tid13, "child").
-str(tid16, "make instance").
-str(tid20, "child instance").
-str(tid22, "invent name").
-str(tid27, "named child instance").
-str(tid29, "recursively instantiate").
-str(tid3, "my Composite Template").
-str(tid33, "filled child instance").
-str(tid35, "insert child into children of my runnable").
-str(tid40, "my runnable filled in with children").
-str(tid5, "my runnable").
-str(tid54, "my runnable filled in with children").
-str(tid56, "∀ connections of my Composite Template").
-str(tid62, "clone connection").
-str(tid67, "runnable connection with holes").
-str(tid69, "fixup connection").
-str(tid7, "∀ children of my Composite Template").
-str(tid74, "fixed up connection").
-str(tid76, "insert connection into runnable").
-str(tid81, "final runnable").
-str(tid9, "my runnable").
-str(tid93, "runnable").
-strokeWidth(id2, 3).
-strokeWidth(id4, 1).
-strokeWidth(id57, 1).
-strokeWidth(id58, 1).
-strokeWidth(id59, 1).
-strokeWidth(id63, 1).
-strokeWidth(id64, 1).
-strokeWidth(id65, 1).
-strokeWidth(id70, 1).
-strokeWidth(id71, 1).
-strokeWidth(id72, 1).
-strokeWidth(id77, 1).
-strokeWidth(id78, 1).
-strokeWidth(id79, 1).
-strokeWidth(id94, 1).
+shape(id84, "arrow").
+shape(id86, "arrow").
+shape(id88, "arrow").
+shape(id90, "arrow").
+shape(id92, "arrow").
+shape(id94, "arrow").
+shape(id96, "cylinder").
+shape(id99, "component").
+str(tid101, "∀ connections of my Composite Template").
+str(tid11, "my runnable").
+str(tid115, "clone connection").
+str(tid127, "runnable connection with holes").
+str(tid130, "fixup connection").
+str(tid14, "∀ children of my Composite Template").
+str(tid142, "fixed up connection").
+str(tid145, "insert connection into runnable").
+str(tid157, "final runnable").
+str(tid179, "runnable").
+str(tid18, "my runnable").
+str(tid22, "my Composite Template").
+str(tid26, "child").
+str(tid31, "make instance").
+str(tid38, "child instance").
+str(tid41, "invent name").
+str(tid50, "named child instance").
+str(tid53, "recursively instantiate").
+str(tid6, "my Composite Template").
+str(tid60, "filled child instance").
+str(tid63, "insert child into children of my runnable").
+str(tid72, "my runnable filled in with children").
+str(tid98, "my runnable filled in with children").
+strokeWidth(id104, 1).
+strokeWidth(id107, 1).
+strokeWidth(id110, 1).
+strokeWidth(id118, 1).
+strokeWidth(id121, 1).
+strokeWidth(id124, 1).
+strokeWidth(id133, 1).
+strokeWidth(id136, 1).
+strokeWidth(id139, 1).
+strokeWidth(id148, 1).
+strokeWidth(id151, 1).
+strokeWidth(id154, 1).
+strokeWidth(id182, 1).
+strokeWidth(id4, 3).
+strokeWidth(id9, 1).
 text(id10, tid11).
-text(id12, tid13).
-text(id15, tid16).
-text(id19, tid20).
-text(id2, tid3).
+text(id100, tid101).
+text(id114, tid115).
+text(id126, tid127).
+text(id129, tid130).
+text(id13, tid14).
+text(id141, tid142).
+text(id144, tid145).
+text(id156, tid157).
+text(id17, tid18).
+text(id178, tid179).
 text(id21, tid22).
-text(id26, tid27).
-text(id28, tid29).
-text(id32, tid33).
-text(id34, tid35).
-text(id39, tid40).
-text(id4, tid5).
-text(id53, tid54).
-text(id55, tid56).
-text(id6, tid7).
-text(id61, tid62).
-text(id66, tid67).
-text(id68, tid69).
-text(id73, tid74).
-text(id75, tid76).
-text(id8, tid9).
-text(id80, tid81).
-text(id92, tid93).
-aBegin(a42,id12).
-aBegin(a43,id18).
-aBegin(a44,id19).
-aBegin(a45,id10).
-aBegin(a46,id25).
-aBegin(a47,id26).
-aBegin(a48,id31).
-aBegin(a49,id32).
-aBegin(a50,id8).
-aBegin(a51,id38).
-aBegin(a52,id39).
-aBegin(a83,id59).
-aBegin(a84,id58).
-aBegin(a85,id65).
-aBegin(a86,id66).
-aBegin(a87,id72).
-aBegin(a88,id73).
-aBegin(a89,id57).
-aBegin(a90,id79).
-aBegin(a91,id80).
-aEnd(a42,[id17]).
-aEnd(a43,[id19]).
-aEnd(a44,[id23]).
-aEnd(a45,[id24]).
-aEnd(a46,[id26]).
-aEnd(a47,[id30]).
-aEnd(a48,[id32]).
-aEnd(a49,[id36]).
-aEnd(a50,[id37]).
-aEnd(a51,[id39]).
-aEnd(a52,[id14]).
-aEnd(a83,[id63]).
-aEnd(a84,[id64,id71]).
-aEnd(a85,[id66]).
-aEnd(a86,[id70]).
-aEnd(a87,[id73]).
-aEnd(a88,[id77]).
-aEnd(a89,[id78]).
-aEnd(a90,[id80]).
-aEnd(a91,[id60]).
-connectionType(id10,explicit).
-connectionType(id12,explicit).
-connectionType(id14,explicit).
-connectionType(id17,explicit).
-connectionType(id18,explicit).
-connectionType(id2,implicit).
+text(id25, tid26).
+text(id30, tid31).
+text(id37, tid38).
+text(id40, tid41).
+text(id49, tid50).
+text(id5, tid6).
+text(id52, tid53).
+text(id59, tid60).
+text(id62, tid63).
+text(id71, tid72).
+text(id97, tid98).
+aBegin(a160,id108).
+aEnd(a160,[id116]).
+connectionType(id102,explicit).
+connectionType(id105,explicit).
+connectionType(id108,explicit).
+connectionType(id111,explicit).
+connectionType(id116,explicit).
+connectionType(id119,explicit).
+connectionType(id122,explicit).
+connectionType(id131,explicit).
+connectionType(id134,explicit).
+connectionType(id137,explicit).
+connectionType(id146,explicit).
+connectionType(id149,explicit).
+connectionType(id15,explicit).
+connectionType(id152,explicit).
+connectionType(id180,explicit).
+connectionType(id19,explicit).
+connectionType(id2,explicit).
 connectionType(id23,explicit).
-connectionType(id24,explicit).
-connectionType(id25,explicit).
-connectionType(id30,explicit).
-connectionType(id31,explicit).
-connectionType(id36,explicit).
-connectionType(id37,explicit).
-connectionType(id38,explicit).
-connectionType(id4,explicit).
-connectionType(id57,explicit).
-connectionType(id58,explicit).
-connectionType(id59,explicit).
-connectionType(id60,explicit).
-connectionType(id63,explicit).
+connectionType(id27,explicit).
+connectionType(id32,explicit).
+connectionType(id34,explicit).
+connectionType(id42,explicit).
+connectionType(id44,explicit).
+connectionType(id46,explicit).
+connectionType(id54,explicit).
+connectionType(id56,explicit).
 connectionType(id64,explicit).
-connectionType(id65,explicit).
-connectionType(id70,explicit).
-connectionType(id71,explicit).
-connectionType(id72,explicit).
-connectionType(id77,explicit).
-connectionType(id78,explicit).
-connectionType(id79,explicit).
-connectionType(id8,explicit).
-connectionType(id94,explicit).
-direction(id10,input).
-direction(id12,input).
-direction(id14,input).
-direction(id17,input).
-direction(id18,input).
+connectionType(id66,explicit).
+connectionType(id68,explicit).
+connectionType(id7,explicit).
+direction(id102,input).
+direction(id105,input).
+direction(id108,input).
+direction(id111,input).
+direction(id116,input).
+direction(id119,input).
+direction(id122,input).
+direction(id131,input).
+direction(id134,input).
+direction(id137,input).
+direction(id146,input).
+direction(id149,input).
+direction(id15,input).
+direction(id152,input).
+direction(id180,input).
+direction(id19,input).
 direction(id2,input).
 direction(id23,input).
-direction(id24,input).
-direction(id25,input).
-direction(id30,input).
-direction(id31,input).
-direction(id36,input).
-direction(id37,input).
-direction(id38,input).
-direction(id4,input).
-direction(id57,input).
-direction(id58,input).
-direction(id59,input).
-direction(id60,input).
-direction(id63,input).
+direction(id27,input).
+direction(id32,input).
+direction(id34,input).
+direction(id42,input).
+direction(id44,input).
+direction(id46,input).
+direction(id54,input).
+direction(id56,input).
 direction(id64,input).
-direction(id65,input).
-direction(id70,input).
-direction(id71,input).
-direction(id72,input).
-direction(id77,input).
-direction(id78,input).
-direction(id79,input).
-direction(id8,input).
-direction(id94,input).
-location(id10,external).
-location(id12,external).
-location(id14,external).
-location(id17,internal).
-location(id18,internal).
+direction(id66,input).
+direction(id68,input).
+direction(id7,input).
+location(id102,external).
+location(id105,external).
+location(id108,external).
+location(id111,external).
+location(id116,internal).
+location(id119,internal).
+location(id122,internal).
+location(id131,internal).
+location(id134,internal).
+location(id137,internal).
+location(id146,internal).
+location(id149,internal).
+location(id15,external).
+location(id152,internal).
+location(id180,external).
+location(id19,external).
 location(id2,external).
-location(id23,internal).
-location(id24,internal).
-location(id25,internal).
-location(id30,internal).
-location(id31,internal).
-location(id36,internal).
-location(id37,internal).
-location(id38,internal).
-location(id4,external).
-location(id57,external).
-location(id58,external).
-location(id59,external).
-location(id60,external).
-location(id63,internal).
+location(id23,external).
+location(id27,external).
+location(id32,internal).
+location(id34,internal).
+location(id42,internal).
+location(id44,internal).
+location(id46,internal).
+location(id54,internal).
+location(id56,internal).
 location(id64,internal).
-location(id65,internal).
-location(id70,internal).
-location(id71,internal).
-location(id72,internal).
-location(id77,internal).
-location(id78,internal).
-location(id79,internal).
-location(id8,external).
-location(id94,external).
-port(id10,nil).
-port(id12,nil).
-port(id14,nil).
-port(id17,nil).
-port(id18,nil).
+location(id66,internal).
+location(id68,internal).
+location(id7,external).
+port(id102,nil).
+port(id105,nil).
+port(id108,nil).
+port(id111,nil).
+port(id116,nil).
+port(id119,nil).
+port(id122,nil).
+port(id131,nil).
+port(id134,nil).
+port(id137,nil).
+port(id146,nil).
+port(id149,nil).
+port(id15,nil).
+port(id152,nil).
+port(id180,nil).
+port(id19,nil).
 port(id2,nil).
 port(id23,nil).
-port(id24,nil).
-port(id25,nil).
-port(id30,nil).
-port(id31,nil).
-port(id36,nil).
-port(id37,nil).
-port(id38,nil).
-port(id4,nil).
-port(id57,nil).
-port(id58,nil).
-port(id59,nil).
-port(id60,nil).
-port(id63,nil).
+port(id27,nil).
+port(id32,nil).
+port(id34,nil).
+port(id42,nil).
+port(id44,nil).
+port(id46,nil).
+port(id54,nil).
+port(id56,nil).
 port(id64,nil).
-port(id65,nil).
-port(id70,nil).
-port(id71,nil).
-port(id72,nil).
-port(id77,nil).
-port(id78,nil).
-port(id79,nil).
-port(id8,nil).
-port(id94,nil).
+port(id66,nil).
+port(id68,nil).
+port(id7,nil).
