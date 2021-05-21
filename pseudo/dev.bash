@@ -1,22 +1,18 @@
 #!/bin/bash
 set -e
+trap 'catch' ERR
 
-# create factbase for diagram 1. [engine]
-echo >_.pl
-../../grasem/run.bash opml2fb.grasem >_.js
-cat foreign.js _.js >_opml2fb.js
-node _opml2fb.js < engine.opml >> _.pl
-sort _.pl | grep -v '^$' > engine_fb.pl
+catch () {
+    echo '*** fatal error in run.bash'
+    exit 1
+}
 
-swipl -q \
-      -g 'consult(engine_fb).' \
-      -g 'consult(q).' \
-      -g 'describeAllPorts.' \
-      -g 'printAllABegin(_).' \
-      -g 'printAllAEnd(_).' \
-      -g 'halt.' \
-      > _4.pl
 
-sort _4.pl >_5.pl
-cat engine_fb.pl _5.pl > _.pl
-cp _.pl engine_fb.pl
+./run-diagram.bash engine
+
+./dev-describe.bash engine_fb
+
+
+echo
+
+

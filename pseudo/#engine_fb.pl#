@@ -1,0 +1,33 @@
+circle(id2, v_a).
+circle(id8, v_d).
+color(id3, green).
+color(id9, yellow).
+comp(id1, v).
+comp(id5, v_b).
+comp(id7, v_x).
+contains(id0, id1).
+contains(id1, id2).
+contains(id1, id5).
+contains(id1, id6).
+contains(id1, id7).
+contains(id1, id8).
+contains(id2, id3).
+
+contains(id2, id4).
+contains(id8, id9).
+cyl(id6, v_c).
+shape(id1, "component").
+shape(id2, "circle").
+shape(id5, "component").
+shape(id6, "cylinder").
+shape(id7, "component").
+shape(id8, "circle").
+strokeWidth(id4, 1).
+connectionType(id2,explicit).
+connectionType(id8,explicit).
+direction(id2,input).
+direction(id8,input).
+location(id2,external).
+location(id8,external).
+port(id2,nil).
+port(id8,nil).

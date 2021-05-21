@@ -1,0 +1,6 @@
+(defun main ()
+  (let ((command-line *posix-argv*))
+    (let ((fname (first command-line)))
+      (with-input-from-file (f fname :direction :input)
+	(let ((text (read)))
+	  (pprint text))))))

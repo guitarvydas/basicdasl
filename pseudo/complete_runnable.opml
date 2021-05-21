@@ -2,10 +2,10 @@
 <opml version="1.0">
 	<head>
 		<title>complete runnable 1</title>
-		<expansionState>0,9,22,26,30,72,136</expansionState>
+		<expansionState>0,1,9,22,26,30,72,85,136</expansionState>
 	</head>
 	<body>
-	  <outline text="comp “z”">
+		<outline _status="indeterminate" text="comp “z”">
 			<outline text="circle “z/a”">
 				<outline text="color=green" />
 				<outline text="stroke-width=3" />
@@ -104,7 +104,7 @@
 			<outline text="cyl “z/d”">
 				<outline text="text=“my runnable filled in with children”" />
 			</outline>
-			<outline text="comp “z/e”">
+			<outline _status="indeterminate" text="comp “z/e”">
 				<outline text="text=“∀ connections of my Composite Template”" />
 				<outline text="circle “z/e/a”">
 					<outline text="color=green" />
@@ -136,40 +136,40 @@
 						<outline text="stroke-width=1" />
 					</outline>
 				</outline>
-				<outline text="cyl “e/f”">
+				<outline text="cyl “z/e/f”">
 					<outline text="text=“runnable connection with holes”" />
 				</outline>
-				<outline text="comp “z/e/g”">
-					<outline text="text=“fixup connection”" />
-					<outline text="rect “z/e/g/n”">
-						<outline text="color=green" />
-						<outline text="stroke-width=1" />
+				<outline _status="checked" text="comp “z/e/g”">
+					<outline _status="checked" text="text=“fixup connection”" />
+					<outline _status="checked" text="rect “z/e/g/n”">
+						<outline _status="checked" text="color=green" />
+						<outline _status="checked" text="stroke-width=1" />
 					</outline>
-					<outline text="rect “z/e/g/o”">
-						<outline text="color=green" />
-						<outline text="stroke-width=1" />
+					<outline _status="checked" text="rect “z/e/g/o”">
+						<outline _status="checked" text="color=green" />
+						<outline _status="checked" text="stroke-width=1" />
 					</outline>
-					<outline text="rect “z/e/g/p”">
-						<outline text="color=yellow" />
-						<outline text="stroke-width=1" />
+					<outline _status="checked" text="rect “z/e/g/p”">
+						<outline _status="checked" text="color=yellow" />
+						<outline _status="checked" text="stroke-width=1" />
 					</outline>
 				</outline>
 				<outline text="cyl “z/e/h”">
 					<outline text="text=“fixed up connection”" />
 				</outline>
-				<outline text="comp “z/e/i”">
-					<outline text="text=”insert connection into runnable”" />
-					<outline text="rect “z/e/i/q”">
-						<outline text="color=green" />
-						<outline text="stroke-width=1" />
+				<outline _status="checked" text="comp “z/e/i”">
+					<outline _status="checked" text="text=”insert connection into runnable”" />
+					<outline _status="checked" text="rect “z/e/i/q”">
+						<outline _status="checked" text="color=green" />
+						<outline _status="checked" text="stroke-width=1" />
 					</outline>
-					<outline text="rect “z/e/i/r”">
-						<outline text="color=green" />
-						<outline text="stroke-width=1" />
+					<outline _status="checked" text="rect “z/e/i/r”">
+						<outline _status="checked" text="color=green" />
+						<outline _status="checked" text="stroke-width=1" />
 					</outline>
-					<outline text="rect “z/e/i/s”">
-						<outline text="color=yellow" />
-						<outline text="stroke-width=1" />
+					<outline _status="checked" text="rect “z/e/i/s”">
+						<outline _status="checked" text="color=yellow" />
+						<outline _status="checked" text="stroke-width=1" />
 					</outline>
 				</outline>
 				<outline text="cyl “z/e/j”">

@@ -1,14 +1,40 @@
+% dynamic declarations to allow debuggging by paring-down
+:- dynamic rect/2.
+:- dynamic circle/2.
+:- dynamic comp/2.
+:- dynamic cyl/2.
+:- dynamic arrow/2.
+:- dynamic text/2.
+
+:- dynamic strokeWidth/2.
+:- dynamic color/2.
+:- dynamic str/2.
+
+:- dynamic port/2.
+:- dynamic arrowBegin/2.
+:- dynamic arrowEnd/2.
+:- dynamic aBegin/2.
+:- dynamic aEnd/2.
+:- dynamic contains/2.
+:- dynamic shape/2.
+:- dynamic connectionType/2.
+:- dynamic direction/2.
+:- dynamic location/2.
+
+
+
 gobject(ID) :- rect(ID,_).
 gobject(ID) :- circle(ID,_).
 gobject(ID) :- comp(ID,_).
 gobject(ID) :- cyl(ID,_).
 gobject(ID) :- arrow(_,ID).
 
-gkind(ID,"rect") :- rect(ID,_).
-gkind(ID,"circle") :- circle(ID,_).
-gkind(ID,"comp") :- comp(ID,_).
-gkind(ID,"cyl") :- cyl(ID,_).
-gkind(ID,"arrow") :- arrow(_,ID).
+gkind(ID,"rect") :- rect(ID,_),!.
+gkind(ID,"circle") :- circle(ID,_),!.
+gkind(ID,"comp") :- comp(ID,_),!.
+gkind(ID,"cyl") :- cyl(ID,_),!.
+gkind(ID,"arrow") :- arrow(ID,_),!.
+gkind(_,"<unknown>").
 
 tag(ID,Tag) :- gkind(ID,"rect"),rect(ID,Tag).
 tag(ID,Tag) :- gkind(ID,"circle"),circle(ID,Tag).
@@ -21,13 +47,15 @@ nonArrowGobject(ID,Synonym) :- comp(ID,Synonym).
 nonArrowGobject(ID,Synonym) :- cyl(ID,Synonym).
 
 synonym(ID,Synonym) :-
-    nonArrowGobject(ID,Synonym).
+    nonArrowGobject(ID,Synonym),!.
+synonym(ID,ID):-
+    format(user_error,"*** INTERNAL ERROR: no synonym for ~w~n", ID).
 
 printABegin(ID) :-
     arrowBegin(ID,Tag),
     synonym(AID,Tag),
-    format("aBegin(~w,~w).~n",[ID,AID]).
-
+    format("aBegin(~w,~w).~n",[ID,AID]),!.
+printABegin(_).
 printAllABegin(Bag) :-
     bagof(ID,printABegin(ID),Bag).
 
@@ -39,13 +67,13 @@ aReplaceReceiverSynonyms([Syn|Rest],[AID|Rlist]):-
 printOneAEnd(AID) :-
     arrowEnd(AID,ReceiverSynonymList),
     aReplaceReceiverSynonyms(ReceiverSynonymList,Rlist),
-    format("aEnd(~w,~w).~n",[AID,Rlist]).
+    format("aEnd(~w,~w).~n",[AID,Rlist]),!.
+printOneAEnd(_).
 
 printAllAEnd(Bag) :-
     bagof(AID,printOneAEnd(AID),Bag).
 
 printAll :- printAllABegin, printAllAEnd.
-
 
 
 parent(P,C) :-
@@ -130,27 +158,46 @@ describeForeignComponents:-
 
 arrows(Component,Connections):-
     setof(A,(arrow(Component,A),comp(Component,_)),Connections).
-describeArrows(Component):-
-    arrows(Component,List),
-    resolveArrowsWithSynonyms(List,BEList),
-    format("~w: ~w~n",[Component,BEList]).
-resolveArrows([],[]).
-resolveArrows([A|Rest],[[Begin,End]|Resolved]):-
-    format("resolveArrows 1 A=~w Rest=~w Resolved=~w~n", [A,Rest,Resolved]),
-    resolveArrows(Rest,Resolved),
-    aBegin(A,Begin),
-    aEnd(A,End),
-    format("resolveArrows 2 A=~w Begin=~w End=~w Rest=~w Resolved=~w~n", [A,Begin,End,Rest,Resolved]).
-resolveArrowsWithSynonyms([],[]).
-resolveArrowsWithSynonyms([A|Rest],[[Sender,ReceiverSynonymsList]|Resolved]):-
-    resolveArrowsWithSynonyms(Rest,Resolved),
-    aBegin(A,Begin),
-    aEnd(A,ReceiverList),
-    resolveReceiversWithSynonyms(ReceiverList,ReceiverSynonymsList),
-    synonym(Begin,Sender).
-resolveReceiversWithSynonyms([],[]).
-resolveReceiversWithSynonyms([First|Rest],[FirstSyn|LSyns]):-
-    resolveReceiversWithSynonyms(Rest,LSyns),
-    synonym(First,FirstSyn).
-describeArrows:-
-    setof(P,describeArrows(P),_).
+
+replaceWithSynonyms([],[]).
+replaceWithSynonyms([H|T],[SH|ST]) :-
+    atom(H),
+    synonym(H,SH),
+    replaceWithSynonyms(T,ST),!.
+replaceWithSynonyms([H|T],[SH|ST]) :-
+    replaceWithSynonyms(H,SH),
+    replaceWithSynonyms(T,ST),!.
+replaceWithSynonyms(L,L).
+
+arrowsAsConnections([],[]).
+arrowsAsConnections([A|RestArrows],[[Sender,Receivers],RestConnections]):-
+    arrowsAsConnections(RestArrows,RestConnections),
+    arrow(_,A),
+    aBegin(A,Sender),
+    aEnd(A,Receivers).
+
+connections(ComponentID,Connections):-
+    arrows(ComponentID,Arrows),
+    arrowsAsConnections(Arrows,Connections).
+
+listOfConnections([ComponentID,Connections]):-
+    arrows(ComponentID,Arrows),
+    arrowsAsConnections(Arrows,Connections).
+    
+synonymIze([],[]).
+synonymIze([H|T],[SH|ST]) :-
+    atom(H),
+    synonym(H,SH),
+    synonymIze(T,ST).
+synonymIze([H|T],[SH|ST]) :-
+    synonymIze(H,SH),
+    synonymIze(T,ST).
+
+allConnections(SynL) :-
+    setof(L,listOfConnections(L),SetOfLists),
+    synonymIze(SetOfLists,SynL),!.
+allConnections(_).
+
+printConnections:-
+    allConnections(L),
+    write(L).
