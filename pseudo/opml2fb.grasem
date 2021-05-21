@@ -1,5 +1,5 @@
 OPML2FB {
-  OPML = xmlHeader opmlHeader head body Outline endBody endOPML
+  OPML = xmlHeader opmlHeader head body TopLevel endBody endOPML
   opmlHeader = "<opml" opmlHeaderChar* ">" newline
   xmlHeader = "<?xml" xmlHeaderChar* "?>" newline
   head = "<head>" headChar* "</head>" newline
@@ -7,59 +7,63 @@ OPML2FB {
   endBody = "</body>" newline
   endOPML = "</opml>" (newline | end)
 
-  Outline = OutlineNoContent | OutlineWithContent
-  OutlineNoContent = "<outline" item+ "/>"
-  OutlineWithContent = "<outline" item+ ">" Outline* "</outline>"
+  TopLevel = CompObjectContainer
 
-  item = noise | graphicalObject | attribute 
-  graphicalObject = lineObject | arrowObject | circleObject | compObject | rectObject | cylinderObject
-  attribute = colorAttr | akaAttr | strokeWidthAttr | textAttr | genericAttr
+  CompObjectContainer = "<outline" noise* "text=\"comp" synonym dq ">" ObjectOrAttribute* Connections "</outline>"
+  RectObjectContainer = "<outline" noise* "text=\"rect" synonym dq">" ObjectOrAttribute* Connections "</outline>"
+  Connections = "<outline" noise* "text=\"connections" ">" Arrow* dq "</outline>"
+
+  Object = CompObjectContainer | RectObjectContainer | CompObject | RectObject | CircleObject | CylObject
+   CompObject = "<outline" noise* "text=\"comp" synonym dq "/>" Attribute* "</outline>"
+   RectObject = "<outline" noise* "text=\"rect" synonym dq "/>" Attribute* "</outline>"
+   CircleObject = "<outline" noise* "text=\"circle" synonym dq "/>" Attribute* "</outline>"
+   CylObject = "<outline" noise* "text=\"cyl" synonym dq "/>" Attribute* "</outline>"
+
+  Arrow = "<outline" noise* "text=\"arrow" sender receiver* dq "/>"
+
+  Attribute = colorAttribute | strokeWidthAttribute | textAttribute | akaAttribute | genericAttribute
+   colorAttribute = "<outline" noise* "text=\"color=" ident dq
+   strokeWidthAttribute = "<outline" noise* "text=\"stroke-width=" number dq
+   textAttribute = "<outline" noise* "text=\"text=" characters dq
+   akaAttribute = "<outline" noise* "text=\"aka=" ident dq
+   genericAttribute = "<outline" noise* "text=" dq characters dq
+
+    receiver = qident ws*
+    sender = qident ws*
+
+  noise = "_status=" dq stuff dq 
+
+  synonym = qident
   
-  noise = "text=\"lines" stringTail | "_status=\"" stringTail
+      headChar = ~"</head>" any
+      opmlHeaderChar = ~">" any
+      xmlHeaderChar = ~"?>" any
+      newline = "\n"
 
-  circleObject = "text=" dq "circle" " " ubeginquote qident uendquote dq
-  compObject = "text=" dq "comp" " " ubeginquote qident uendquote dq
-  rectObject = "text=" dq "rect" " " ubeginquote qident uendquote dq
-  cylinderObject = "text=" dq "cyl" " " ubeginquote qident uendquote dq
-  lineObject = "text=" dq "line" " " ubeginquote qident uendquote dq
-  arrowObject = "text=" dq "arrow" " " qident ws+ receiverList dq
+      ident = ubeginquote flat_ident uendquote
+      number = ubeginquote int+ uendquote
+      characters = ubeginquote notUendquote* uendquote
 
-  colorAttr = "text=\"color=" stringTail
-  akaAttr = "text=\"aka=" stringTail
-  strokeWidthAttr = "text=\"stroke-width=" stringTail
-  textAttr = "text=\"text=" stringTail
-  genericAttr = "text=" string
+      notUendquote = ~uendquote any
+      int = "0" .. "9"
+      ubeginquote = "“"
+      uendquote = "”"
+
+      flat_ident = "a" .. "z" | "A" .. "Z"
+      qident = qident_recursive | flat_ident
+      qident_recursive = flat_ident "/" qident
   
-  headChar = ~"</head>" any
-  opmlHeaderChar = ~">" any
-  xmlHeaderChar = ~"?>" any
-  newline = "\n"
+      ws = " "
 
-  string = dq notDQ* dq
-  stringTail = notDQ* dq
-  dq = "\"" | "&quot;"
-  notDQ = ~dq any
-  quote = dq
-
-  ubeginquote = "“"
-  uendquote = "”"
-
-  qident = qident_recursive | qident_flat
-  qident_flat = "a" .. "z" | "A" .. "Z"
-  qident_recursive = qident_flat "/" qident
-  
-  receiverList = receiver+
-  receiver = receiverMore | receiverSingle
-  receiverMore = receiverSingle ws+
-  receiverSingle = qident
-
-  ws = " "
 }
 
-
   OPML [xmlhdr opmlhdr head body outline endbody endopml] =
-    {{ scopeAdd ('counter', 0); scopeAdd ('gobject', "id" + gen ()); scopeAdd ('line', 0); }}
-    [[${xmlhdr}${opmlhdr}${head}${body}${outline}${endbody}${endopml}]]
+    {{ 
+      resetCounter (); 
+      resetLineNumber (); 
+      newObject ();
+    }}
+    [[${xmlhdr}${opmlhdr}${head}${body}${outline}${endbody}${endopml}diagram(${getObject ()},nil)]]
   opmlHeader [begin @hdr close nl] = [[]]
   xmlHeader [begin @hdr close nl] = [[]]
   head [begin @hdr close nl] = [[]]
@@ -67,53 +71,41 @@ OPML2FB {
   endBody [begin nl] = [[]]
   endOPML [begin nl] = [[]]
 
-  Outline [o] = [[${o}]]
-  OutlineNoContent [begin @t slashClose] = [[${t}\n]]
-  OutlineWithContent [begin @t close @o slasho] = [[${t}${o}]]
+  TopLevel [x] = [[${x}]]
+
+  Container [head @objectOrAttribute tail] = {{ newContainer (); }} [[${objectOrAttribute}]]
+
+  ContainerHead [head @noise obj tail] = [[${obj}]]
+  ContainerTail [tail] = [[]]
+  Object [obj] = [[${obj}contains(${getContainer ()}, ${getObject ()}).\n${sideEffectNewObject()}]]
+  Leaf [head @noise obj tail] = [[${obj}]]
+  NonObjectContainer [head @noise @objOrAttr tail] = [[${objOrAttr}]]
+  ObjectOrAttribute [item] = [[${item}]]
+  Attribute [head @noise attr tail] = [[${attr}]]
+
+  noise [head tail] = [[]]
+  circleObject [teq dq1 circle spc ubq id ueq dq2] =  [[circle(${getObject ()}, ${id}).\nshape(${getObject ()}, "circle").]]
+
+  compObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${getObject ()}, ${id}).\nshape(${getObject ()}, "component").]]
+
+  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[rect(${getObject ()}, ${id}).\nshape(${getObject ()}, "rect").]]
+  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[cyl(${getObject ()}, ${id}).\nshape(${getObject ()}, "cylinder").]]
+  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[line(${getObject ()}, ${id}).\nshape(${getObject ()}, "line").]]
+
+  arrowObject [teq dq1 comp spc sender @ws receiverList dq2] = {{ newArrow (); }} [[arrow(${getContainer ()}, ${getArrow ()}).\nshape(${getObject ()}, "arrow").\n${sender}${receiverList}]]
+
+  colorAttr [teqc str] = [[color(${getObject ()}, ${str}).]]
+  akaAttr [teqc str] = [[aka(${getObject ()}, ${str}).]]
+  strokeWidthAttr [teqc str] = [[strokeWidth(${getObject ()}, ${str}).]]
+  textAttr [teqc str] =
+    {{ newTextObject (); scopeAdd("tobject", "tid" + gen ()) }}
+    [[str(${getTextObject ()}, ${changeUnicodeQuotes (str)}).\ntext(${getObject ()}, ${getTextObject ()}).]]
+  genericAttr [teq str] = {{ throw `generic attribute /line=${scopeGet('line')}/ /${str}/`; }} [[${teq}${str}]]
 
   headChar [c] = [[${c}]]
   opmlHeaderChar [c] = [[${c}]]
   xmlHeaderChar [c] = [[${c}]]
-  newline [c] = {{ var line = scopeGet ('line'); scopeAdd ('line', line + 1); }} [[${c}]]
-
-  item [i] = [[${i}]]
-  graphicalObject [o] =
-  {{
-    var container = scopeGet ("gobject");
-    scopeAdd ("container", container);
-    scopeAdd ("gobject", "id" + gen ());
-  }}
-  [[${o.trim ()}\ncontains(${scopeGet ('container')}, ${scopeGet ('gobject')}).\n]]
-  attribute [a] = [[${a.trim ()}\n]]
-  noise [n] = [[]]
-
-  circleObject [teq dq1 circle spc ubq id ueq dq2] =  [[circle(${scopeGet ("gobject")}, ${id}).\nshape(${scopeGet ('gobject')}, "circle").]]
-
-  compObject [teq dq1 comp spc ubq id ueq dq2] = [[comp(${scopeGet ("gobject")}, ${id}).
-shape(${scopeGet ('gobject')}, "component").]]
-
-  rectObject [teq dq1 comp spc ubq id ueq dq2] = [[rect(${scopeGet ("gobject")}, ${id}).
-shape(${scopeGet ('gobject')}, "rect").]]
-  cylinderObject [teq dq1 comp spc ubq id ueq dq2] = [[cyl(${scopeGet ("gobject")}, ${id}).
-shape(${scopeGet ('gobject')}, "cylinder").]]
-  lineObject [teq dq1 comp spc ubq id ueq dq2] = [[line(${scopeGet ("gobject")}, ${id}).
-shape(${scopeGet ('gobject')}, "line").]]
-
-  arrowObject [teq dq1 comp spc idsender @ws idsreceiver dq2] =
-  {{ scopeAdd ("arrow", "a" + gen ()) }}
-  [[
-arrow(${scopeGet ("container")}, ${scopeGet ("arrow")}).
-arrowBegin(${scopeGet ("arrow")}, ${abegin (idsender)}).
-arrowEnd(${scopeGet ("arrow")}, ${aend (idsreceiver)}).
-shape(${scopeGet ('gobject')}, "arrow").]]
-
-  colorAttr [teqc str] = [[color(${scopeGet ("gobject")}, ${str}).]]
-  akaAttr [teqc str] = [[aka(${scopeGet ("gobject")}, ${str}).]]
-  strokeWidthAttr [teqc str] = [[strokeWidth(${scopeGet ("gobject")}, ${str}).]]
-  textAttr [teqc str] =
-    {{ scopeAdd("tobject", "tid" + gen ()) }}
-    [[str(${scopeGet ("tobject")}, ${changeUnicodeQuotes (str)}).\ntext(${scopeGet ("gobject")}, ${scopeGet ("tobject")}).]]
-  genericAttr [teq str] = {{ throw `generic attribute /line=${scopeGet('line')}/ /${str}/`; }} [[${teq}${str}]]
+  newline [c] = {{ incLineNumber () }} [[${c}]]
 
   string [q1 @cs q2] = [[${q1}${changeUnicodeQuotes (cs)}${q2}]]
   stringTail [@cs q2] = [[${changeUnicodeQuotes (cs)}${q2}]]
@@ -132,4 +124,6 @@ shape(${scopeGet ('gobject')}, "arrow").]]
   receiverList [@r] = [[${r}]]
   receiver [r] = [[${r}]]
   receiverMore [r @ws] = [[${r},]]
-  receiverSingle [id] = [[${id}]]
+  receiverSingle [id] = [[aEnd(getArrow (), ${id})]]
+
+  send [id] = [[aBegin(getArrow (), ${id})]]

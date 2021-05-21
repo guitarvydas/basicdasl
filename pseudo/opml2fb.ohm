@@ -1,21 +1,69 @@
 OPML2FB {
-  OPML = xmlHeader opmlHeader head body Outline endBody endOPML
-  opmlHeader = "<opml" opmlHeaderChar* ">" newline
-  xmlHeader = "<?xml" xmlHeaderChar* "?>" newline
-  head = "<head>" headChar* "</head>" newline
-  body = "<body>" newline
-  endBody = "</body>" newline
-  endOPML = "</opml>" (newline | end)
+  oPML = xmlHeader opmlHeader head body topLevel endBody endOPML
+  opmlHeader = "<opml" opmlHeaderChar* ">" ws+
+  xmlHeader = "<?xml" xmlHeaderChar* "?>" ws+
+  head = "<head>" headChar* "</head>" ws+
+  body = "<body>" ws+
+  endBody = "</body>" ws+
+  endOPML = "</opml>" (ws | end)
 
-  Outline = OutlineNoContent | OutlineWithContent
-  OutlineNoContent = "<outline" "text=" string "/>"
-  OutlineWithContent = "<outline" "text=" string ">" Outline* "</outline>"
+  topLevel  = container
 
-  headChar = ~"</head>" any
-  opmlHeaderChar = ~">" any
-  xmlHeaderChar = ~"?>" any
-  newline = "\n"
+  container = outline noise* "text=" dq "container" delim synonym dq gt attribute* object+ endAttributedOutline
 
-  string = "\"" notDQ* "\""
-  notDQ = ~"\"" any
+  object = container | leaf
+
+  leaf = rectObject | linkObject | circleObject | cylObject
+
+  rectObject = outline noise* "text=" dq "rect" delim synonym dq gt attribute+ endAttributedOutline
+  circleObject = outline noise* "text=" dq "circle" delim synonym dq gt attribute+ endAttributedOutline
+  cylObject = outline noise* "text=" dq "cyl" delim synonym dq gt attribute+ endAttributedOutline
+  linkObject = outline noise* "text=" dq "link" delim synonym dq gt attribute+ rectObject+ endAttributedOutline
+
+  attribute = colorAttribute | strokeWidthAttribute | textAttribute | akaAttribute
+   colorAttribute = outline ws* noise* "text=\"color=" ident dq delim endNoAttributes
+   strokeWidthAttribute = outline ws* noise* "text=\"stroke-width=" number dq delim endNoAttributes
+   textAttribute = outline ws* noise* "text=\"text=" ubeginquote characters uendquote dq delim endNoAttributes
+   akaAttribute = outline ws* noise*  "text=\"aka="  ubeginquote characters uendquote dq delim endNoAttributes
+
+    receiver = qident ws*
+    sender = qident ws*
+
+  objectOrAttribute = object | attribute
+  containerOrSomeAttributes = container | someAttributes
+  someAttributes = attribute+
+
+    noise = "_status=" dq characters dq 
+    synonym = ubeginquote qident uendquote
+  
+    outline = "<outline" ws+
+    
+      headChar = ~"</head>" any
+      opmlHeaderChar = ~">" any
+      xmlHeaderChar = ~"?>" any
+      newline = "\n"
+
+      ident = flat_ident
+      number = int+
+      characters = notUendquote*
+
+      notUendquote = ~uendquote any
+      int = "0" .. "9"
+      ubeginquote = "“"
+      uendquote = "”"
+
+      flat_ident = ("a" .. "z" | "A" .. "Z")+
+      qident = qident_recursive | flat_ident
+      qident_recursive = flat_ident "/" qident
+
+      dq = "\""
+      ws = " " | "\n" | "\t"
+
+    gt = ">" ws*
+
+    delim = delimChar+
+    delimChar = " " | "\t"
+    endAttributedOutline = "</outline>" ws*
+    endNoAttributes = "/>" ws*
+
 }

@@ -1,0 +1,75 @@
+OPML2FB {
+  oPML = xmlHeader opmlHeader head body topLevel endBody endOPML
+  opmlHeader = "<opml" opmlHeaderChar* ">" ws+
+  xmlHeader = "<?xml" xmlHeaderChar* "?>" ws+
+  head = "<head>" headChar* "</head>" ws+
+  body = "<body>" ws+
+  endBody = "</body>" ws+
+  endOPML = "</opml>" (ws | end)
+
+  topLevel = compObjectContainer
+
+  compObjectContainer = outline noise* "text=" dq "comp" delim synonym dq ">" delim objectOrAttribute* connection* endAttributedOutline
+  rectObjectContainer = outline noise* "text=" dq "rect" delim synonym dq ">" objectOrAttribute* connection* endAttributedOutline
+  
+  connection = outline noise* "text=\"connections " ">" arrow* dq endAttributedOutline
+
+  object = compObjectContainer | rectObjectContainer | compObject | rectObject | circleObject | cylObject
+   compObject = compObjectWithAttributes | compObjectWithoutAttributes
+     compObjectWithAttributes = outline noise* "text=" dq "comp" delim synonym dq ">" attribute* endAttributedOutline
+     compObjectWithoutAttributes = outline noise* "text=" dq "comp" delim synonym dq endNoAttributes
+   rectObject = rectObjectWithAttributes | rectObjectWithoutAttributes   
+     rectObjectWithAttributes = outline noise* "text=" dq "rect" delim synonym dq ">" attribute* endAttributedOutline
+     rectObjectWithoutAttributes = outline noise* "text=" dq "rect" delim synonym dq endNoAttributes
+   circleObject = circleObjectWithAttributes | circleObjectWithoutAttributes   
+     circleObjectWithAttributes = outline noise* "text=" dq "circle" delim synonym dq ">" attribute* endAttributedOutline
+     circleObjectWithoutAttributes = outline noise* "text=" dq "circle" delim synonym dq endNoAttributes
+   cylObject = cylObjectWithAttributes | cylObjectWithoutAttributes   
+     cylObjectWithAttributes = outline noise* "text=" dq "cyl" delim synonym dq ">" attribute* endAttributedOutline
+     cylObjectWithoutAttributes = outline noise* "text=" dq "cyl" delim synonym dq endNoAttributes
+
+  arrow = outline noise* "text=\"arrow" sender receiver* dq endNoAttributes
+
+  attribute = colorAttribute | strokeWidthAttribute | textAttribute | akaAttribute | genericAttribute
+   colorAttribute = outline ws* noise* "text=\"color=" ident dq endNoAttributes
+   strokeWidthAttribute = outline ws* noise* "text=\"stroke-width=" number dq endNoAttributes
+   textAttribute = outline ws* noise* "text=\"text=" characters dq endNoAttributes
+   akaAttribute = outline ws* noise* "text=\"aka=" ident dq endNoAttributes
+   genericAttribute = outline ws* noise* "text=" dq characters dq endNoAttributes
+
+    receiver = qident ws*
+    sender = qident ws*
+
+  objectOrAttribute = object | attribute
+
+    noise = "_status=" dq characters dq 
+    synonym = ubeginquote qident uendquote
+  
+    outline = "<outline" ws+
+    
+      headChar = ~"</head>" any
+      opmlHeaderChar = ~">" any
+      xmlHeaderChar = ~"?>" any
+      newline = "\n"
+
+      ident = flat_ident
+      number = int+
+      characters = notUendquote*
+
+      notUendquote = ~uendquote any
+      int = "0" .. "9"
+      ubeginquote = "“"
+      uendquote = "”"
+
+      flat_ident = ("a" .. "z" | "A" .. "Z")+
+      qident = qident_recursive | flat_ident
+      qident_recursive = flat_ident "/" qident
+
+      dq = "\""
+      ws = " " | "\n" | "\t"
+
+    delim = (" " | "\t")+
+    endAttributedOutline = "</outline>" ws*
+    endNoAttributes = "/>" ws*
+
+}
