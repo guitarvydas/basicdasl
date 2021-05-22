@@ -1,0 +1,10 @@
+MD2CG {
+
+main = line+
+line = indent spc toEOL* newline+
+indent = "#"+
+toEOL = ~newline any
+
+newline = "\n"
+spc = " "
+}

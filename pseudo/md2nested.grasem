@@ -1,0 +1,17 @@
+MD2NESTED {
+
+main = line+
+line = indent spc toEOL* newline+
+indent = "#"+
+toEOL = ~newline any
+
+newline = "\n"
+spc = " "
+}
+
+main [@lines] = {{ resetPreviousIndentation (); }} [[${lines}${closebrace (0)}]]
+line [depth spc @chars @nl] = [[${openbrace (depth)}${chars}${closebrace (depth)}${shiftIndentation (depth)}\n]]
+indent [@octo] = [[${convertIndentationToNumber (octo)}]]
+toEOL [c] = [[${c}]]
+newline [c] = [[${c}]] 
+spc [c] = [[${c}]]

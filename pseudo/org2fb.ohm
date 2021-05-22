@@ -1,0 +1,5 @@
+ORG2FB {
+  object = rectObject | ellipseObject
+  rectObject = attribute* object* connection*
+  attribute = colorAttribute | shapeAttribute
+}
