@@ -1,0 +1,9 @@
+1: rect v/x/y/z
+2: shape rounded
+2: rect v/x/y/z/a
+3: color green
+2: rect v/x/y/z/b
+3: color green
+2: rect v/x/y/z/c
+3: color yellow
+

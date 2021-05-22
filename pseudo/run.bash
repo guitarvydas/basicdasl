@@ -7,16 +7,15 @@ catch () {
     exit 1
 }
 
-./run-diagram.bash complete_runnable
-
-./run-diagram.bash engine
-
-./describe.bash complete_runnable_fb
-./describe.bash engine_fb
-
-./combine-fbs.bash
+./run-block.bash v
+./run-block.bash v-x
+./run-block.bash v-x-y
+./run-block.bash v-x-y-z
 
 
-echo
-
-
+./run-block2lisp.bash v
+./run-block2lisp.bash v-x
+./run-block2lisp.bash v-x-y
+./run-block2lisp.bash v-x-y-z
+# v/x is the most complicated diagram
+cat v-x.lisp

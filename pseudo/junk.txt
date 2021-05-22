@@ -1,0 +1,6 @@
+main [@lines]
+line [block spc @chars @nl]
+indent [@octo]
+toEOL [c]
+newline [c]
+spc [c]

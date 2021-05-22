@@ -1,84 +1,75 @@
 'use strict';
 // empty
 
-function gen () {
-    var i = scopeGet ("counter");
-    scopeModify ("counter", i + 1);
-    return i.toString ();
+function resetBlock () {
+    scopeAdd ('block' , 0);
 }
 
-function changeUnicodeQuotes (s) {
-    return s.replace("”",'"').replace("“",'"');
+function convertIndentationToBlockNumber (octoString) {
+    return octoString.length;
 }
 
-function abegin (s) {
-    return s;
-}
-
-function aend (s) {
-    return `[${changeUnicodeQuotes(s.trim ().replace (" ", ","))}]`;
+function asNumber (s) {
+    return parseInt (s, 10);
 }
 
 
-function incDepth () {
-    var i = scopeGet ("depth");
-    scopeModify ("depth", i + 1);
-    return i + 1;
-}
-function decDepth () {
-    var i = scopeGet ("depth");
-    scopeModify ("depth", i - 1);
-    return i - 1;
+function emitopenparen (block) {
+    return emitOpen (block, "(");
 }
 
-function tab (depth) {
-    let i = depth;
-    while (i > 0) {
-	process.stderr.write ('  ');
-	i -= 1;
+function emitcloseparen (block) {
+    return emitClose (block, ")");
+}
+
+function emitopenbrace (block) {
+    return emitOpen (block, "{");
+}
+
+function emitclosebrace (block) {
+    return emitClose (block, "}\n");
+}
+
+function emitOpen (block, c) {
+    let prevblock = scopeGet ('block');
+    let s = '';
+    let b = asNumber (block);
+    if (b > prevblock) {
+	while (b > prevblock) {
+	    s = s + c;
+	    b -= 1;
+	}
+	return spaces (block) + s + '\n';
+    } else {
+	return '';
+    }
+    }
+
+function emitClose (block, c) {
+    let prevblock = scopeGet ('block');
+    let s = '';
+    let b = asNumber (block);
+    if (b < prevblock) {
+	while (b < prevblock) {
+	    s = s + c;
+	    b += 1;
+	}
+	return spaces (block) + s + '\n';
+    } else {
+	return '';
     }
 }
 
-function resetCounter () {
-    scopeAdd ('counter', 0);
-}
-
-function resetLineNumber () {
-    scopeAdd ('line', 0);
-}
-
-function incLineNumber () {
-    var n = scopeGet ('line');
-    scopeModify ('line', n + 1);
-}
-
-function sideEffectNewObject () {
-    scopeAdd ('Object', "id" + gen ());
+function shiftblock (block) {
+    scopeModify ('block', block);
     return "";
 }
 
-function getObject () {
-    return scopeGet ('object');
-}
-
-function newTextObject () {
-    scopeAdd('textobject', "tid" + gen ());
-}
-
-function getTextObject () {
-    return scopeGet('textobject');
-}
-
-function newContainer () {
-    var container = getObject ();
-    scopeAdd ('container', container);
-    newObject ();
-}    
-
-function newArrow () {
-    scopeAdd ("arrow", "a" + gen ());
-}
-
-function getArrow () {
-    return scopeGet ('arrow');
+function spaces (n) {
+    let s = '';
+    while (n > 0) {
+	s = s + ' ';
+	n -= 1;
+    }
+    return s;
 }
