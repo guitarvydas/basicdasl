@@ -1,0 +1,17 @@
+1: rect v/x/y
+2: shape rounded
+2: color DBDBDBFF
+2: rect v/x/y/a
+3: color green
+2: rect v/x/y/b
+3: color green
+2: rect v/x/y/z
+3: rect v/x/y/z/a
+4: color green
+3: rect v/x/y/z/b
+4: color green
+3: rect v/x/y/z/c
+4: color yellow
+2: rect v/x/y/c
+3: color yellow
+

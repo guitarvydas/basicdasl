@@ -3,16 +3,10 @@ set -e
 trap 'catch' ERR
 
 catch () {
-    echo '*** fatal error in run.bash'
+    echo '*** fatal error in dev.bash'
     exit 1
 }
 
-
-./run-diagram.bash engine
-
-./dev-describe.bash engine_fb
-
-
-echo
-
-
+./run-block.bash test
+./run-block2brace.bash test
+cat test.brace

@@ -8,10 +8,8 @@
 ## rect v/x/c
 ### color yellow
 ## rect v/x/y
-### group attributes
 #### shape rounded
 #### color DBDBDBFF
-### group objects
 #### rect v/x/y/a
 ##### color green
 #### rect v/x/y/b
@@ -25,7 +23,6 @@
 ###### color green
 ##### rect v/x/d/b
 ###### color yellow
-### group connections
 #### arrow v/x/a v/x/y/a
 #### arrow v/x/b v/x/y/b
 #### arrow v/x/y/c v/x/c

@@ -1,3 +1,9 @@
+function gen () {
+    var i = scopeGet ("counter");
+    scopeModify ("counter", i + 1);
+    return i.toString ();
+}
+
 function closeb (depth, c) {
     let previous = scopeGet ('previousIndentation');
     let s = '';
