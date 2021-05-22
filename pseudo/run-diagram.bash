@@ -12,7 +12,7 @@ catch () {
 # create factbase for diagram 2. [${target}]
 echo >_.pl
 ../../grasem/run.bash opml2fb.grasem >_.js
-cat foreign.js _.js >_opml2fb.js
+cat _.js foreign.js >_opml2fb.js
 node _opml2fb.js < ${target}.opml >> _.pl
 
 sort _.pl | grep -v '^$' > ${target}_fb.pl
