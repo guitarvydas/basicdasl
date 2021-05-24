@@ -1,0 +1,49 @@
+  topLevel [@ws begin rect end] = [[${ws}${begin}${rect}${end}]]
+
+
+  nestedAttributesOrObjects [begin @aorobj end] = [[${begin}${aorobj}${end}]]
+  attributeOrObject [aorobj] = [[${aorobj}]]
+
+  object [obj] = [[${obj}]]
+  rect [rect syn @nested @ws] = [[${rect}${syn}${nested}${ws}]]
+  circle [circle syn @nested @ws] = [[${circle}${syn}${nested}${ws}]]
+  ellipse [ellipse syn @nested @ws] = [[${ellipse}${syn}${nested}${ws}]]
+  arrow [arrow sender receiver @ws] = [[${arrow}${sender}${receiver}${ws}]]
+
+  attribute [attr] = [[${attr}]]
+  shapeAttribute [shape @ws1 rounded @ws2] = [[${shape}${ws1}${n}${ws2}]]
+  colorAttribute [color @ws1 color @ws] = [[${color}${ws1}${n}${ws2}]]
+  strokeWidthAttribute [sw @ws1 n @ws2] = [[${sw}${ws1}${n}${ws2}]]
+
+  sender [ident @ws] = [[${ident}${ws}]]
+  receiver [ident @ws] = [[${ident}${ws}]]
+
+  synonym [ident @ws] = [[${ident}${ws}]]
+
+    /* mid-level */
+    tRECT [t @ws] = [[${t}${ws}]]
+    tCIRCLE [t @ws] = [[${t}${ws}]]
+    tELLIPSE [t @ws] = [[${t}${ws}]]
+    tARROW [t @ws] = [[${t}${ws}]]
+
+    tBEGIN [t @ws] = [[${t}${ws}]]
+    tEND [t @ws] = [[${t}${ws}]]
+
+      /* low-level */
+      color [cl] = [[${cl}]]
+
+      keyword [kw] = [[${kw}]]
+
+      flat_ident [@cs] = [[${cs}]]
+      qualident [ident] = [[${ident}]]
+      qualident_recursive [ident] = [[${ident}]]
+
+      number [num] = [[${num}]]
+      dig [digit] = [[${digit}]]
+      rgba [h1 h2 h3 h4] = [[${h1}${h2}${h3}${h4}]]
+      hex [h1 h2] = [[${h1}${h2}]]
+      hd [c] = [[${c}]]
+ 
+      ws [c] = [[${c}]]
+      newline [c] = [[${c}]]
+

@@ -6,7 +6,11 @@ catch () {
     echo '*** fatal error in dev.bash'
     exit 1
 }
+target=$1
+./run-block.bash ${target}
+./run-block2brace.bash ${target}
+./run-brace2fb.bash ${target}
+./run-fb2pl.bash ${target}
 
-./run-block.bash test
-./run-block2brace.bash test
-cat test.brace
+./run-qr.bash ${target}
+

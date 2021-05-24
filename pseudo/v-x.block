@@ -8,24 +8,24 @@
 2: rect v/x/c
 3: color yellow
 2: rect v/x/y
+3: shape rounded
+3: color DBDBDBFF
+3: rect v/x/y/a
+4: color green
+3: rect v/x/y/b
+4: color green
+3: rect v/x/y/c
+4: color yellow
+3: ellipse v/x/c
+3: rect v/x/d
 4: shape rounded
-4: color DBDBDBFF
-4: rect v/x/y/a
+4: rect v/x/d/a
 5: color green
-4: rect v/x/y/b
-5: color green
-4: rect v/x/y/c
+4: rect v/x/d/b
 5: color yellow
-4: ellipse v/x/c
-4: rect v/x/d
-5: shape rounded
-5: rect v/x/d/a
-6: color green
-5: rect v/x/d/b
-6: color yellow
-4: arrow v/x/a v/x/y/a
-4: arrow v/x/b v/x/y/b
-4: arrow v/x/y/c v/x/c
-4: arrow v/x/c v/x/d/a
-4: arrow v/x/d/b v/x/e
+3: arrow v/x/a v/x/y/a
+3: arrow v/x/b v/x/y/b
+3: arrow v/x/y/c v/x/c
+3: arrow v/x/c v/x/d/a
+3: arrow v/x/d/b v/x/e
 

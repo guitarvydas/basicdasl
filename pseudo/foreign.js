@@ -73,3 +73,38 @@ function spaces (n) {
     }
     return s;
 }
+
+function editSlashes (s) {
+    return s.replace(/\//g,'_');
+}
+
+function pushNewObject () {
+    let parent = scopeGet ('object');
+    let prefix = scopeGet ('prefix');
+    let newID = prefix + "_" + gen ();
+    scopeAdd ('parent', parent);
+    scopeAdd ('object', newID);
+}
+
+
+function id () {
+    return scopeGet ('object');
+}
+
+function parent () {
+    return scopeGet ('parent');
+}
+
+function initialize (name) {
+    scopeAdd ('prefix', name);
+    scopeAdd ('counter', 0);
+    let newID = name + "_" + gen ();
+    scopeAdd ('parent', "id0");
+    scopeAdd ('object', newID);
+}
+
+function gen () {
+    var i = scopeGet ("counter");
+    scopeModify ("counter", i + 1);
+    return i.toString ();
+}

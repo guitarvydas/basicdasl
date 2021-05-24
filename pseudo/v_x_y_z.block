@@ -8,5 +8,6 @@
 3: text "v/x/y/z/b"
 2: rect v/x/y/z/c
 3: color yellow
-3: text "complete runnable"
+3: text "v/x/y/z/c"
+2: text "complete runnable"
 

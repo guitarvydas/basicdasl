@@ -1,0 +1,25 @@
+rect(id0, nil).
+synonym(id0, "v_x_y_z").
+rounded(id0,nil).
+contains(id0, id1).
+rect(id1, nil).
+synonym(id1, "v_x_y_z_a").
+color(id1, "green").
+contains(id1, id2).
+text(id2, nil).
+str(id2, "v/x/y/z/a").
+contains(id0, id3).
+rect(id3, nil).
+synonym(id3, "v_x_y_z_b").
+color(id3, "green").
+contains(id3, id4).
+text(id4, nil).
+str(id4, "v/x/y/z/b").
+contains(id0, id5).
+rect(id5, nil).
+synonym(id5, "v_x_y_z_c").
+color(id5, "yellow").
+contains(id5, id6).
+text(id6, nil).
+str(id6, "complete runnable").
+

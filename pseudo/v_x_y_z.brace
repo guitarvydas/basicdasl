@@ -17,8 +17,10 @@
   rect v/x/y/z/c
    {
    color yellow
-   text "complete runnable"
-}
+   text "v/x/y/z/c"
+  }
+
+  text "complete runnable"
 }
 }
 

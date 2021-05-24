@@ -1,0 +1,35 @@
+* port
+  rectangle that does not contain other objects
+  rectangle that can contain color, text, strokeWidth
+  or, circle
+
+* external port
+  port
+  circle
+  
+* internal port
+  port
+  rect
+
+* input port
+  color=green
+
+* output port
+  color=yellow or color=red
+
+* explicit port
+
+* implicit port
+
+* component
+  rounded rectangle that includes only ports, arrows, attributes
+  or, ellipse
+
+* link component
+  component that only contains attributes, text, ports
+** foreign or link?
+   link components are components that are not implemented on the given diagram
+   link components can be (1) implemented by other diagrams, or, (2) directly implemented in the base language
+
+* composite component
+  component that contains other objects

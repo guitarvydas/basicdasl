@@ -4,21 +4,23 @@
 2: circle v/a
 2: circle v/d
 2: rect v/b
+3: text "make empty runnable"
 3: shape rounded
 3: rect v/b/a
 4: color green
 3: rect v/b/b
 4: color green
-3: ellipse v/c
-3: rect v/x
-4: color E3E3E3FF
-4: shape rounded
-4: rect v/x/a
-5: color green
-4: rect v/x/b
-5: color green
-4: rect v/x/c
-5: color yellow
+2: ellipse v/c
+3: text "empty runnable"
+2: rect v/x
+3: color E3E3E3FF
+3: shape rounded
+3: rect v/x/a
+4: color green
+3: rect v/x/b
+4: color green
+3: rect v/x/c
+4: color yellow
 2: arrow v/a v/x/a
 2: arrow v/a v/b/a
 2: arrow v/b/b v/c
