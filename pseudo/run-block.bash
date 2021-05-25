@@ -3,7 +3,7 @@ set -e
 trap 'catch' ERR
 target=$1
 catch () {
-    echo '*** fatal error in run-blocks.bash'
+    echo '*** fatal error in run-block.bash'
     exit 1
 }
 

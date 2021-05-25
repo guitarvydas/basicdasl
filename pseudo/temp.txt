@@ -1,0 +1,28 @@
+v
+component IDs [v_0,v_3,v_7,v_9]
+components    [v,v_b,v_c,v_x]
+ports [v_a,v_x_a,v_x_b,v_x_c,v_d,v_b_a,v_b_b]
+links [v_b,v_x]
+arrows [[[v_a,v_b_a]],[[v_a,v_x_a]],[[v_b_b,v_c]],[[v_c,v_x_b]],[[v_x_c,v_d]]]
+
+v_x
+component IDs [v_x_0,v_x_10,v_x_4,v_x_8]
+components    [v_x,v_x_d,v_x_y,v_x_c]
+ports [v_x_a,v_x_d_a,v_x_d_b,v_x_b,v_x_c,v_x_y_a,v_x_y_b,v_x_y_c]
+links [v_x_d,v_x_y]
+arrows [[[v_x_a,v_x_y_a]],[[v_x_b,v_x_y_b]],[[v_x_c,v_x_d_a]],[[v_x_d_b,v_x_e]],[[v_x_y_c,v_x_c]]]
+
+v_x_y
+component IDs [v_x_y_0,v_x_y_4]
+components    [v_x_y,v_x_y_z]
+ports [v_x_y_a,v_x_y_b,v_x_y_z_a,v_x_y_z_b,v_x_y_z_c,v_x_y_c]
+links [v_x_y_z]
+arrows [[[v_x_y_a,v_x_y_z_a]],[[v_x_y_b,v_x_y_z_b]],[[v_x_y_z_c,v_x_y_c]]]
+
+v_x_y_z
+component IDs [v_x_y_z_0]
+components    [v_x_y_z]
+ports [v_x_y_z_a,v_x_y_z_b,v_x_y_z_c]
+links [v_x_y_z]
+(no arrows)
+
