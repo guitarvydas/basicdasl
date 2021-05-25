@@ -1,0 +1,33 @@
+1: rect c2
+2: shape rounded
+2: color E3E3E3FF
+2: rect c2/a
+3: color green
+2: rect c2/b
+3: color green
+2: rect c2/c
+3: color yellow
+2: rect c2/y
+3: shape rounded
+3: color DBDBDBFF
+3: rect c2/y/a
+4: color green
+3: rect c2/y/b
+4: color green
+3: rect c2/y/c
+4: color yellow
+2: ellipse c2/c
+3: text "completed runnable"
+2: rect c2/d
+3: shape rounded
+3: text "make it runnable"
+3: rect c2/d/a
+4: color green
+3: rect c2/d/b
+4: color yellow
+2: arrow c2/a c2/y/a
+2: arrow c2/b c2/y/b
+2: arrow c2/y/c c2/c
+2: arrow c2/c c2/d/a
+2: arrow c2/d/b c2/e
+

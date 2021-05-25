@@ -38,8 +38,9 @@ BRACES2FB {
 
       keyword = color
 
-      flat_ident = ~keyword flat_ident_char+ 
-      flat_ident_char = "a" .. "z"
+      flat_ident = ~keyword flat_ident_first_char flat_ident_more_char* 
+      flat_ident_first_char = "a" .. "z"
+      flat_ident_more_char = flat_ident_first_char | dig
       qualident = qualident_recursive | flat_ident
       qualident_recursive = flat_ident "/" qualident
 
@@ -93,8 +94,9 @@ BRACES2FB {
 
       keyword [kw] = [[${kw}]]
 
-      flat_ident [@cs] = [[${cs}]]
-      flat_ident_char [c] = [[${c}]]
+      flat_ident [c @cs] = [[${c}${cs}]]
+      flat_ident_first_char [c] = [[${c}]]
+      flat_ident_more_char [c] = [[${c}]]
       qualident [ident] = [[${editSlashes (ident)}]]
       qualident_recursive [flatident slash recursiveident] = [[${flatident}${slash}${recursiveident}]]
 

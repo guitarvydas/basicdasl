@@ -1,33 +1,33 @@
-1: rect v/x
-2: shape rounded
-2: color E3E3E3FF
-2: rect v/x/a
-3: color green
-2: rect v/x/b
-3: color green
-2: rect v/x/c
-3: color yellow
-2: rect v/x/y
+2: rect v/x
 3: shape rounded
-3: color DBDBDBFF
-3: rect v/x/y/a
+3: color E3E3E3FF
+3: rect v/x/a
 4: color green
-3: rect v/x/y/b
+3: rect v/x/b
 4: color green
-3: rect v/x/y/c
+3: rect v/x/c
 4: color yellow
-2: ellipse v/x/c
-3: text "completed runnable"
-2: rect v/x/d
-3: shape rounded
-3: text "make it runnable"
-3: rect v/x/d/a
-4: color green
-3: rect v/x/d/b
-4: color yellow
-2: arrow v/x/a v/x/y/a
-2: arrow v/x/b v/x/y/b
-2: arrow v/x/y/c v/x/c
-2: arrow v/x/c v/x/d/a
-2: arrow v/x/d/b v/x/e
+3: rect v/x/y
+4: shape rounded
+4: color DBDBDBFF
+4: rect v/x/y/a
+5: color green
+4: rect v/x/y/b
+5: color green
+4: rect v/x/y/c
+5: color yellow
+3: ellipse v/x/c
+4: text "completed runnable"
+3: rect v/x/d
+4: shape rounded
+4: text "make it runnable"
+4: rect v/x/d/a
+5: color green
+4: rect v/x/d/b
+5: color yellow
+3: arrow v/x/a v/x/y/a
+3: arrow v/x/b v/x/y/b
+3: arrow v/x/y/c v/x/c
+3: arrow v/x/c v/x/d/a
+3: arrow v/x/d/b v/x/e
 
