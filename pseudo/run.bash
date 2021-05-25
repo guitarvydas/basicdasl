@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 set -e
 trap 'catch' ERR
 
@@ -34,13 +32,9 @@ catch () {
 ./run-brace2fb.bash v_x_y_z
 
 ./run-fb2pl.bash v
-./run-qr.bash v
 ./run-fb2pl.bash v_x
-./run-qr.bash v_x
 ./run-fb2pl.bash v_x_y
-./run-qr.bash v_x_y
 ./run-fb2pl.bash v_x_y_z
-./run-qr.bash v_x_y_z
 
 # v/x is the most complicated diagram
 # cat v_x.pl

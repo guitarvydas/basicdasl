@@ -7,6 +7,4 @@ catch () {
     exit 1
 }
 
-../../grasem/run.bash md2block.grasem >_.js
-cat _.js foreign.js >_md2block.js
 node _md2block.js < ${target}.md > ${target}.block

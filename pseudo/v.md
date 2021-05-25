@@ -12,15 +12,6 @@
 #### color green
 ## ellipse v/c
 ### text "empty runnable"
-## rect v/x
-### color E3E3E3FF
-### shape rounded
-### rect v/x/a
-#### color green
-### rect v/x/b
-#### color green
-### rect v/x/c
-#### color yellow
 ## arrow v/a v/x/a
 ## arrow v/a v/b/a
 ## arrow v/b/b v/c
