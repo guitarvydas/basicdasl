@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -x
+
 set -e
 trap 'catch' ERR
 
@@ -6,6 +9,8 @@ catch () {
     echo '*** fatal error in run.bash'
     exit 1
 }
+
+./build_grasem.bash
 
 ./run-block.bash v
 ./run-block.bash v_x
