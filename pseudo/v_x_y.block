@@ -1,0 +1,22 @@
+1: rect v/x/y
+2: text "complete runnable"
+2: shape rounded
+2: color DBDBDBFF
+2: rect v/x/y/a
+3: color green
+2: rect v/x/y/b
+3: color green
+2: rect v/x/y/z
+3: shape rounded
+3: rect v/x/y/z/a
+4: color green
+3: rect v/x/y/z/b
+4: color green
+3: rect v/x/y/z/c
+4: color yellow
+2: rect v/x/y/c
+3: color yellow
+2: arrow v/x/y/a v/x/y/z/a
+2: arrow v/x/y/b v/x/y/z/b
+2: arrow v/x/y/z/c v/x/y/c
+
