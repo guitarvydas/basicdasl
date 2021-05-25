@@ -11,6 +11,6 @@ target=$1
 ./run-block2brace.bash ${target}
 ./run-brace2fb.bash ${target}
 ./run-fb2pl.bash ${target}
-
-./run-qr.bash ${target}
+cat ${target}.pl
+#./run-qr.bash ${target}
 

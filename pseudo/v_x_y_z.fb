@@ -1,28 +1,28 @@
-rect(v_x_y_z_0, nil).
-synonym(v_x_y_z_0, "v_x_y_z").
-rounded(v_x_y_z_0,nil).
-contains(v_x_y_z_0, v_x_y_z_1).
-rect(v_x_y_z_1, nil).
-synonym(v_x_y_z_1, "v_x_y_z_a").
-color(v_x_y_z_1, "green").
-contains(v_x_y_z_1, v_x_y_z_2).
-text(v_x_y_z_2, nil).
-str(v_x_y_z_2, "v/x/y/z/a").
-contains(v_x_y_z_0, v_x_y_z_3).
-rect(v_x_y_z_3, nil).
-synonym(v_x_y_z_3, "v_x_y_z_b").
-color(v_x_y_z_3, "green").
-contains(v_x_y_z_3, v_x_y_z_4).
-text(v_x_y_z_4, nil).
-str(v_x_y_z_4, "v/x/y/z/b").
-contains(v_x_y_z_0, v_x_y_z_5).
-rect(v_x_y_z_5, nil).
-synonym(v_x_y_z_5, "v_x_y_z_c").
-color(v_x_y_z_5, "yellow").
-contains(v_x_y_z_5, v_x_y_z_6).
-text(v_x_y_z_6, nil).
-str(v_x_y_z_6, "v/x/y/z/c").
-contains(v_x_y_z_0, v_x_y_z_7).
-text(v_x_y_z_7, nil).
-str(v_x_y_z_7, "complete runnable").
+rect v_x_y_z_0 nil
+synonym v_x_y_z_0 v_x_y_z
+rounded v_x_y_z_0 nil
+contains v_x_y_z_0 v_x_y_z_1
+rect v_x_y_z_1  nil
+synonym v_x_y_z_1 v_x_y_z_a
+color v_x_y_z_1 green
+contains v_x_y_z_1 v_x_y_z_2
+text v_x_y_z_2 nil
+str v_x_y_z_2 "v/x/y/z/a"
+contains v_x_y_z_0 v_x_y_z_3
+rect v_x_y_z_3  nil
+synonym v_x_y_z_3 v_x_y_z_b
+color v_x_y_z_3 green
+contains v_x_y_z_3 v_x_y_z_4
+text v_x_y_z_4 nil
+str v_x_y_z_4 "v/x/y/z/b"
+contains v_x_y_z_0 v_x_y_z_5
+rect v_x_y_z_5  nil
+synonym v_x_y_z_5 v_x_y_z_c
+color v_x_y_z_5 yellow
+contains v_x_y_z_5 v_x_y_z_6
+text v_x_y_z_6 nil
+str v_x_y_z_6 "v/x/y/z/c"
+contains v_x_y_z_0 v_x_y_z_7
+text v_x_y_z_7 nil
+str v_x_y_z_7 "complete runnable"
 

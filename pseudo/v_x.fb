@@ -1,75 +1,75 @@
-rect(v_x_0, nil).
-synonym(v_x_0, "v_x").
-rounded(v_x_0,nil).
-color(v_x_0, "E3E3E3FF").
-contains(v_x_0, v_x_1).
-rect(v_x_1, nil).
-synonym(v_x_1, "v_x_a").
-color(v_x_1, "green").
-contains(v_x_0, v_x_2).
-rect(v_x_2, nil).
-synonym(v_x_2, "v_x_b").
-color(v_x_2, "green").
-contains(v_x_0, v_x_3).
-rect(v_x_3, nil).
-synonym(v_x_3, "v_x_c").
-color(v_x_3, "yellow").
-contains(v_x_0, v_x_4).
-rect(v_x_4, nil).
-synonym(v_x_4, "v_x_y").
-rounded(v_x_4,nil).
-color(v_x_4, "DBDBDBFF").
-contains(v_x_4, v_x_5).
-rect(v_x_5, nil).
-synonym(v_x_5, "v_x_y_a").
-color(v_x_5, "green").
-contains(v_x_4, v_x_6).
-rect(v_x_6, nil).
-synonym(v_x_6, "v_x_y_b").
-color(v_x_6, "green").
-contains(v_x_4, v_x_7).
-rect(v_x_7, nil).
-synonym(v_x_7, "v_x_y_c").
-color(v_x_7, "yellow").
-contains(v_x_0, v_x_8).
-ellipse(v_x_8, nil).
-synonym(v_x_8, "v_x_c").
-contains(v_x_8, v_x_9).
-text(v_x_9, nil).
-str(v_x_9, "completed runnable").
-contains(v_x_0, v_x_10).
-rect(v_x_10, nil).
-synonym(v_x_10, "v_x_d").
-rounded(v_x_10,nil).
-contains(v_x_10, v_x_11).
-text(v_x_11, nil).
-str(v_x_11, "make it runnable").
-contains(v_x_10, v_x_12).
-rect(v_x_12, nil).
-synonym(v_x_12, "v_x_d_a").
-color(v_x_12, "green").
-contains(v_x_10, v_x_13).
-rect(v_x_13, nil).
-synonym(v_x_13, "v_x_d_b").
-color(v_x_13, "yellow").
-contains(v_x_0, v_x_14).
-arrow(v_x_14, nil).
-sendersynonym(v_x_14, "v_x_a").
-receiversynonym(v_x_14, "v_x_y_a").
-contains(v_x_0, v_x_15).
-arrow(v_x_15, nil).
-sendersynonym(v_x_15, "v_x_b").
-receiversynonym(v_x_15, "v_x_y_b").
-contains(v_x_0, v_x_16).
-arrow(v_x_16, nil).
-sendersynonym(v_x_16, "v_x_y_c").
-receiversynonym(v_x_16, "v_x_c").
-contains(v_x_0, v_x_17).
-arrow(v_x_17, nil).
-sendersynonym(v_x_17, "v_x_c").
-receiversynonym(v_x_17, "v_x_d_a").
-contains(v_x_0, v_x_18).
-arrow(v_x_18, nil).
-sendersynonym(v_x_18, "v_x_d_b").
-receiversynonym(v_x_18, "v_x_e").
+rect v_x_0 nil
+synonym v_x_0 v_x
+rounded v_x_0 nil
+color v_x_0 E3E3E3FF
+contains v_x_0 v_x_1
+rect v_x_1  nil
+synonym v_x_1 v_x_a
+color v_x_1 green
+contains v_x_0 v_x_2
+rect v_x_2  nil
+synonym v_x_2 v_x_b
+color v_x_2 green
+contains v_x_0 v_x_3
+rect v_x_3  nil
+synonym v_x_3 v_x_c
+color v_x_3 yellow
+contains v_x_0 v_x_4
+rect v_x_4  nil
+synonym v_x_4 v_x_y
+rounded v_x_4 nil
+color v_x_4 DBDBDBFF
+contains v_x_4 v_x_5
+rect v_x_5  nil
+synonym v_x_5 v_x_y_a
+color v_x_5 green
+contains v_x_4 v_x_6
+rect v_x_6  nil
+synonym v_x_6 v_x_y_b
+color v_x_6 green
+contains v_x_4 v_x_7
+rect v_x_7  nil
+synonym v_x_7 v_x_y_c
+color v_x_7 yellow
+contains v_x_0 v_x_8
+ellipse v_x_8 nil
+synonym v_x_8 v_x_c
+contains v_x_8 v_x_9
+text v_x_9 nil
+str v_x_9 "completed runnable"
+contains v_x_0 v_x_10
+rect v_x_10  nil
+synonym v_x_10 v_x_d
+rounded v_x_10 nil
+contains v_x_10 v_x_11
+text v_x_11 nil
+str v_x_11 "make it runnable"
+contains v_x_10 v_x_12
+rect v_x_12  nil
+synonym v_x_12 v_x_d_a
+color v_x_12 green
+contains v_x_10 v_x_13
+rect v_x_13  nil
+synonym v_x_13 v_x_d_b
+color v_x_13 yellow
+contains v_x_0 v_x_14
+arrow v_x_14 nil
+sendersynonym v_x_14 v_x_a
+receiversynonym v_x_14 v_x_y_a
+contains v_x_0 v_x_15
+arrow v_x_15 nil
+sendersynonym v_x_15 v_x_b
+receiversynonym v_x_15 v_x_y_b
+contains v_x_0 v_x_16
+arrow v_x_16 nil
+sendersynonym v_x_16 v_x_y_c
+receiversynonym v_x_16 v_x_c
+contains v_x_0 v_x_17
+arrow v_x_17 nil
+sendersynonym v_x_17 v_x_c
+receiversynonym v_x_17 v_x_d_a
+contains v_x_0 v_x_18
+arrow v_x_18 nil
+sendersynonym v_x_18 v_x_d_b
+receiversynonym v_x_18 v_x_e
 
