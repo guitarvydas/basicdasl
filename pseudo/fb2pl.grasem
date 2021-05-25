@@ -1,0 +1,73 @@
+FB2PL {
+ facts = ws* fact+
+ fact = relation subject object ws*
+ relation = qualident ws*
+ subject = qualident ws*
+ object = color | idobj | strobj | intobj | nothing
+ idobj = qualident ws*
+ strobj = string ws*
+ intobj = number ws*
+ color = kwcolor ws*
+ nothing = kwnil ws*
+ 
+       /* low-level */
+      kwcolor = rgba | "green" | "yellow" | "red"
+
+      keyword = kwcolor | kwnil
+      
+      kwnil = "nil"
+
+      flat_ident = ~keyword flat_ident_char+ 
+      flat_ident_char = ("a" .. "z") | "_" | dig
+      qualident = qualident_recursive | flat_ident
+      qualident_recursive = flat_ident "/" qualident
+
+      number = dig+
+      dig = "0" .. "9"
+      rgba = hex hex hex hex
+      hex = hd hd
+      hd = dig | "A" .. "F"
+
+      string = dq notDQ* dq
+      dq = "\""
+      notDQ = ~dq any
+      ws = " " | "\t" | newline
+      newline = "\n"
+
+}
+
+
+ facts [@ws @fs] = [[${fs}]]
+ fact [rel sub obj @ws] = [[${rel}(${sub},${obj}).\n]]
+ 
+ relation [qid @ws] = [[${qid}]]
+ subject  [qid @ws] = [[${qid}]]
+ object [item] = [[${item}]]
+ idobj [x @ws] = [[${x}]]
+ strobj [x @ws] = [[${x}]]
+ intobj [x @ws] = [[${x}]]
+ color [x @ws] = [[${x}]]
+ nothing[x @ws]  = [[${x}]]
+ 
+
+keyword [kw] = [[${kw}]]
+kwnil [kw] = [[${kw}]]
+kwcolor [kw] = [["${kw}"]]
+
+      flat_ident [@cs] = [[${cs}]]
+      flat_ident_char [c] = [[${c}]]
+      qualident [ident] = [[${editSlashes (ident)}]]
+      qualident_recursive [flatident slash recursiveident] = [[${flatident}${slash}${recursiveident}]]
+
+      number [num] = [[${num}]]
+      dig [digit] = [[${digit}]]
+      rgba [h1 h2 h3 h4] = [[${h1}${h2}${h3}${h4}]]
+      hex [h1 h2] = [[${h1}${h2}]]
+      hd [c] = [[${c}]]
+ 
+      string [q1 @cs q2] = [[${q1}${cs}${q2}]]
+      dq [c] = [[${c}]]
+      notDQ [c] = [[${c}]]
+
+      ws [c] = [[${c}]]
+      newline [c] = [[${c}]]

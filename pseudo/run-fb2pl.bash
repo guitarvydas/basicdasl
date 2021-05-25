@@ -7,5 +7,8 @@ catch () {
     exit 1
 }
 
-sort ${target}.fb >${target}.pl
+../../grasem/run.bash fb2pl.grasem >_.js
+cat _.js foreign.js >_fb2pl.js
+node _fb2pl.js < ${target}.fb > ${target}._pl
+sort ${target}._pl >${target}.pl
 

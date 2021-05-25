@@ -1,0 +1,37 @@
+FB2PL {
+ facts = fact+
+ fact = relation subject object ws*
+ relation = qualident ws*
+ subject = qualident ws*
+ object = color | idobj | strobj | intobj | nothing
+ idobj = qualident ws*
+ strobj = string ws*
+ intobj = number ws*
+ color = kwcolor ws*
+ nothing = kwnil ws*
+ 
+       /* low-level */
+      kwcolor = rgba | "green" | "yellow" | "red"
+
+      keyword = kwcolor | kwnil
+      
+      kwnil = "nil"
+
+      flat_ident = ~keyword flat_ident_char+ 
+      flat_ident_char = ("a" .. "z") | "_" | dig
+      qualident = qualident_recursive | flat_ident
+      qualident_recursive = flat_ident "/" qualident
+
+      number = dig+
+      dig = "0" .. "9"
+      rgba = hex hex hex hex
+      hex = hd hd
+      hd = dig | "A" .. "F"
+
+      string = dq notDQ* dq
+      dq = "\""
+      notDQ = ~dq any
+      ws = " " | "\t" | newline
+      newline = "\n"
+
+}
