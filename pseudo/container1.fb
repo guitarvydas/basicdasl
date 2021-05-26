@@ -1,0 +1,21 @@
+rect container1_0 nil
+synonym container1_0 container1
+rounded container1_0 nil
+contains container1_0 container1_1
+circle container1_1 nil
+synonym container1_1 x
+contains container1_0 container1_2
+circle container1_2 nil
+synonym container1_2 y
+contains container1_0 container1_3
+rect container1_3  nil
+synonym container1_3 hello
+contains container1_3 container1_4
+rect container1_4  nil
+synonym container1_4 hello_r
+color container1_4 green
+contains container1_3 container1_5
+rect container1_5  nil
+synonym container1_5 hello_s
+color container1_5 yellow
+

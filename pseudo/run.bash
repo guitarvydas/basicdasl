@@ -10,31 +10,20 @@ catch () {
 
 ./build_grasem.bash
 
-./run-block.bash v
-./run-block.bash c2
-./run-block.bash c3
-./run-block.bash c4
+./run-block.bash layer0
+./run-block.bash container1
 
 
-./run-block2lisp.bash v
-./run-block2lisp.bash c2
-./run-block2lisp.bash c3
-./run-block2lisp.bash c4
+./run-block2lisp.bash layer0
+./run-block2lisp.bash container1
 
-./run-block2brace.bash v
-./run-block2brace.bash c2
-./run-block2brace.bash c3
-./run-block2brace.bash c4
+./run-block2brace.bash layer0
+./run-block2brace.bash container1
 
-./run-brace2fb.bash v
-./run-brace2fb.bash c2
-./run-brace2fb.bash c3
-./run-brace2fb.bash c4
+./run-brace2fb.bash layer0
+./run-brace2fb.bash container1
 
-./run-fb2pl.bash v
-./run-fb2pl.bash c2
-./run-fb2pl.bash c3
-./run-fb2pl.bash c4
+./run-fb2pl.bash layer0
+./run-fb2pl.bash container1
 
-# v/x is the most complicated diagram
-# cat v_x.pl
+# cat layer0.pl
