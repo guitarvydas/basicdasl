@@ -26,4 +26,5 @@ catch () {
 ./run-fb2pl.bash layer0
 ./run-fb2pl.bash container1
 
-# cat layer0.pl
+./run-qr.bash layer0
+./run-qr.bash container1

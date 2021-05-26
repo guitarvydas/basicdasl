@@ -6,6 +6,7 @@ circle x
 circle y
 rect hello
    (
+shape rounded
 rect hello/r
     (
 color green

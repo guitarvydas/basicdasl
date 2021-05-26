@@ -2,6 +2,7 @@
 :- dynamic ellipse/2.
 :- dynamic circle/2.
 :- dynamic arrow/2.
+:- dynamic text/2.
 :- dynamic str/2.
 :- dynamic contains/2.
 :- dynamic synonym/2.

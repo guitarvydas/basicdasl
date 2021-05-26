@@ -13,6 +13,7 @@ rect(container1_3,nil).
 rect(container1_4,nil).
 rect(container1_5,nil).
 rounded(container1_0,nil).
+rounded(container1_3,nil).
 synonym(container1_0,container1).
 synonym(container1_1,x).
 synonym(container1_2,y).

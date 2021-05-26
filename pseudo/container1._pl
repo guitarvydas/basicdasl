@@ -10,6 +10,7 @@ synonym(container1_2,y).
 contains(container1_0,container1_3).
 rect(container1_3,nil).
 synonym(container1_3,hello).
+rounded(container1_3,nil).
 contains(container1_3,container1_4).
 rect(container1_4,nil).
 synonym(container1_4,hello_r).

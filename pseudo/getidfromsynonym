@@ -1,0 +1,7 @@
+#!/bin/bash
+# usage: getidfromsynonym <file (w/o .pl extension)> <synonym>
+# e.g. getidfromsynonym layer0 layer1
+swipl \
+	-g "consult($1)." \
+	-g "synonym(ID,$2),format(\""~w~n\"", [ID])." \
+	-g "halt."

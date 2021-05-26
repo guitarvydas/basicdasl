@@ -3,6 +3,7 @@
 2: circle x
 2: circle y
 2: rect hello
+3: shape rounded
 3: rect hello/r
 4: color green
 3: rect hello/s
