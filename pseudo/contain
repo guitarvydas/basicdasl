@@ -1,0 +1,2 @@
+#!/bin/bash
+echo contains $1 $2

@@ -14,5 +14,8 @@ color green
 rect hello/s
     (
 color yellow
-))))
+  ))
+arrow x hello/r
+arrow hello/s y
+))
 

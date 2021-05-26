@@ -1,4 +1,6 @@
 
+arrow(container1_6,nil).
+arrow(container1_7,nil).
 circle(container1_1,nil).
 circle(container1_2,nil).
 color(container1_4,"green").
@@ -6,14 +8,20 @@ color(container1_5,"yellow").
 contains(container1_0,container1_1).
 contains(container1_0,container1_2).
 contains(container1_0,container1_3).
+contains(container1_0,container1_6).
+contains(container1_0,container1_7).
 contains(container1_3,container1_4).
 contains(container1_3,container1_5).
+receiversynonym(container1_6,hello_r).
+receiversynonym(container1_7,y).
 rect(container1_0,nil).
 rect(container1_3,nil).
 rect(container1_4,nil).
 rect(container1_5,nil).
 rounded(container1_0,nil).
 rounded(container1_3,nil).
+sendersynonym(container1_6,x).
+sendersynonym(container1_7,hello_s).
 synonym(container1_0,container1).
 synonym(container1_1,x).
 synonym(container1_2,y).

@@ -30,7 +30,14 @@ mergedas...
 #!/bin/bash
 # usage: mergedas container1 layer0 temp
 cat $1.pl $2.pl >temp
-sed -E -e 's/container1_0/layer0_3/g' <temp | sed -E -e '/^$/d' | sort >$3.pl
+sed -E -e '/contains/s/container1_0/layer0_3/g' <temp | sed -E -e '/^$/d' | sort >$3.pl
+
+rewritearrow...
+#!/bin/bash
+# usage: `rewritearrow layer1/a hello/r temp.pl`
+# usage: `rewritearrow layer1/b hello/s temp.pl`
+sed -E -e "s/$1/$2/g" <$3 >temp
+mv temp $3
 
 done...
 ./run-qr.bash temp

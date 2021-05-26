@@ -19,4 +19,12 @@ contains container1_3 container1_5
 rect container1_5  nil
 synonym container1_5 hello_s
 color container1_5 yellow
+contains container1_0 container1_6
+arrow container1_6 nil
+sendersynonym container1_6 x
+receiversynonym container1_6 hello_r
+contains container1_0 container1_7
+arrow container1_7 nil
+sendersynonym container1_7 hello_s
+receiversynonym container1_7 y
 
