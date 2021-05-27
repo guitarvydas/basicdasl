@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 set -e
 trap 'catch' ERR
 
@@ -8,7 +7,7 @@ catch () {
     exit 1
 }
 
-./build_grasem.bash
+#./build_grasem.bash
 
 ./run-block.bash layer0
 ./run-block.bash container1
@@ -31,9 +30,13 @@ fb2=container1.fb
 linkid=`./getidfromsynonym layer0 layer1`
 topid=`./getidfromsynonym layer0 layer0`
 subid=`./getidfromsynonym container1 container1`
-cat ${fb1} ${fb2} >temp
-./orphan ${linkid} >>temp
-./contains ${topid} ${subid} >>temp
+cat ${fb1} ${fb2} >temp.fb
+./orphan ${linkid} >>temp.fb
+./contains ${topid} ${subid} >>temp.fb
+
+./run-fb2pl.bash temp
+./run-qr_L2.bash temp
+echo "TODO: rewrite arrows"
 
 # topid=container1_0
 # # usage: mergedas container1 layer0 ${linkid} ${mergeid} ${linkname} temp

@@ -1,4 +1,3 @@
-
 arrow(container1_6,nil).
 arrow(container1_7,nil).
 circle(container1_1,nil).

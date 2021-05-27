@@ -8,5 +8,5 @@ catch () {
 }
 
 node _fb2pl.js < ${target}.fb > ${target}._pl
-sort ${target}._pl >${target}.pl
+sort ${target}._pl | sed -E -e '/^$/d' >${target}.pl
 
