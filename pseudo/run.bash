@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 trap 'catch' ERR
 
@@ -10,31 +9,28 @@ catch () {
 
 ./build_grasem.bash
 
-./run-block.bash v
-./run-block.bash v_x
-./run-block.bash v_x_y
-./run-block.bash v_x_y_z
+./block layer0
+./block container1
+
+./block2brace layer0
+./block2brace container1
+
+./brace2fb layer0
+./brace2fb container1
+
+./fb2pl layer0
+./fb2pl container1
 
 
-./run-block2lisp.bash v
-./run-block2lisp.bash v_x
-./run-block2lisp.bash v_x_y
-./run-block2lisp.bash v_x_y_z
+fb1=layer0.fb
+fb2=container1.fb
+linkid=`./getidfromsynonym layer0 layer1`
+topid=`./getidfromsynonym layer0 layer0`
+subid=`./getidfromsynonym container1 container1`
+cat ${fb1} ${fb2} >temp.fb
+./orphan ${linkid} >>temp.fb
+./contains ${topid} ${subid} >>temp.fb
 
-./run-block2brace.bash v
-./run-block2brace.bash v_x
-./run-block2brace.bash v_x_y
-./run-block2brace.bash v_x_y_z
-
-./run-brace2fb.bash v
-./run-brace2fb.bash v_x
-./run-brace2fb.bash v_x_y
-./run-brace2fb.bash v_x_y_z
-
-./run-fb2pl.bash v
-./run-fb2pl.bash v_x
-./run-fb2pl.bash v_x_y
-./run-fb2pl.bash v_x_y_z
-
-# v/x is the most complicated diagram
-# cat v_x.pl
+./fb2pl temp
+./qr_L2 temp
+echo "TODO: rewrite arrows"

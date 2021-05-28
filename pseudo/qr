@@ -1,0 +1,24 @@
+#!/usr/bin/env swipl -q
+:- initialization(main,main).
+:- include(r_L2).
+
+main(_):-
+    consult(user),
+%    setof([ID,S],syn(ID,S),SBag),        format("     synonyms: ~w~n", [SBag]),
+%    setof(ID,component(ID),IDBag),       format("   components: ~w~n", [IDBag]),
+    setof(SLink,(link(Link),synonym(Link,SLink)),LBag),format("unresolved components: ~w~n", [LBag]),
+%    setof(A,arrow(A,nil),ABag),          format("       arrows: ~w~n", [ABag]),
+%    setof(OS,orphanSender(OS),OSBag),    format("orphaned senders: ~w~n", [OSBag]),
+%    setof(OR,orphanReceiver(OR),ORBag),    format("orphaned receivers: ~w~n", [ORBag]).
+true.
+
+syn(ID,S) :-
+    component(ID),
+    synonym(ID,S).
+
+activeArrow(A):-
+    arrow(A,nil),
+    sender(A,Sender),
+    receiver(A,Receiver),
+    \+ orphanSender(Sender),
+    \+ orphanReceiver(Receiver).

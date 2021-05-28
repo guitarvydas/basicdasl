@@ -108,3 +108,7 @@ function gen () {
     scopeModify ("counter", i + 1);
     return i.toString ();
 }
+
+function arrowid () {
+    return scopeGet ('object') + "_a";
+}

@@ -2,6 +2,7 @@
 :- dynamic ellipse/2.
 :- dynamic circle/2.
 :- dynamic arrow/2.
+:- dynamic text/2.
 :- dynamic str/2.
 :- dynamic contains/2.
 :- dynamic synonym/2.
@@ -12,6 +13,9 @@
 :- dynamic rounded/2.
 :- dynamic strokeWidth/2.
 
+:- dynamic orphan/2.
+:- dynamic orphanSender/1.
+:- dynamic orphanReceiver/1.
 
 % layer high
 %     port is a rect or circle
@@ -60,9 +64,11 @@ implicitPort(ID):-
     
 component(ID):-
     rect(ID,nil),
-    rounded(ID,nil).
+    rounded(ID,nil),
+    notOrphaned(ID).
 component(ID):-
-    ellipse(ID,nil).
+    ellipse(ID,nil),
+    notOrphaned(ID).
 composite(ID) :-
     component(ID),
     contains(ID,Other),
@@ -113,4 +119,16 @@ arrows(ID,Bag):-
     composite(ID),
     arrow(AID,nil),
     contains(ID,AID),
-    setof([S,R], (sendersynonym(AID,S), receiversynonym(AID,R)),Bag).
+    setof([S,R], (sender(AID,_,S), receiver(AID,_,R)),Bag).
+
+notOrphaned(ID):-
+    \+ orphan(ID,nil).
+
+sender(ArrowID,SenderID,SenderSynonym):-
+    arrow(ArrowID,_),
+    sendersynonym(ArrowID,SenderSynonym),
+    synonym(SenderID,SenderSynonym).
+receiver(ArrowID,ReceiverID,ReceiverSynonym):-
+    arrow(ArrowID,_),
+    receiversynonym(ArrowID,ReceiverSynonym),
+    synonym(ReceiverID,ReceiverSynonym).

@@ -38,8 +38,9 @@ BRACES2FB {
 
       keyword = color
 
-      flat_ident = ~keyword flat_ident_char+ 
-      flat_ident_char = "a" .. "z"
+      flat_ident = ~keyword flat_ident_first_char flat_ident_more_char* 
+      flat_ident_first_char = "a" .. "z"
+      flat_ident_more_char = flat_ident_first_char | dig
       qualident = qualident_recursive | flat_ident
       qualident_recursive = flat_ident "/" qualident
 
@@ -68,7 +69,7 @@ BRACES2FB {
   circle [circle syn @nested @ws] = [[circle ${id ()} nil\nsynonym ${id ()} ${syn}\n${nested}]]
   ellipse [ellipse syn @nested @ws] = [[ellipse ${id ()} nil\nsynonym ${id ()} ${syn}\n${nested}]]
   text [text str @ws] = [[text ${id ()} nil\nstr ${id ()} ${str}\n]]
-  arrow [arrow sender @ws1 receiver @ws2] = [[arrow ${id ()} nil\nsendersynonym ${id ()} ${sender}\nreceiversynonym ${id ()} ${receiver}\n]]
+  arrow [arrow sender @ws1 receiver @ws2] = [[arrow ${arrowid ()} nil\nsendersynonym ${arrowid ()} ${sender}\nreceiversynonym ${arrowid ()} ${receiver}\n]]
 
   attribute [attr] = [[${attr}]]
   shapeAttribute [shape @ws1 rounded @ws2] = [[rounded ${id ()} nil\n]]
@@ -93,8 +94,9 @@ BRACES2FB {
 
       keyword [kw] = [[${kw}]]
 
-      flat_ident [@cs] = [[${cs}]]
-      flat_ident_char [c] = [[${c}]]
+      flat_ident [c @cs] = [[${c}${cs}]]
+      flat_ident_first_char [c] = [[${c}]]
+      flat_ident_more_char [c] = [[${c}]]
       qualident [ident] = [[${editSlashes (ident)}]]
       qualident_recursive [flatident slash recursiveident] = [[${flatident}${slash}${recursiveident}]]
 

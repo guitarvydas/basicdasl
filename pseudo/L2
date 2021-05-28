@@ -1,0 +1,11 @@
+#/bin/xh
+(
+
+cat layer0.pl			;
+cat container1.pl		;
+./senderIDs layer0		;
+./senderIDs container1		;
+./receiverIDs layer0		;
+./receiverIDs container1
+
+) > fb.pl

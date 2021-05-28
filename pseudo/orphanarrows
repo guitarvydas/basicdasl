@@ -1,0 +1,16 @@
+#!/usr/bin/env swipl -q
+:- initialization(main,main).
+:- include(r_L2).
+
+main([PortIDOnOrphanedLink]):-
+    consult(user),
+    portOnArrow(ArrowID,PortIDOnOrphanedLink),
+    format("orphanArrow(~w,nil).~n", [ArrowID]).
+
+portOnArrow(ArrowID,PortID):-
+    arrow(ArrowID,nil),
+    sender(ArrowID,PortID,_).
+portOnArrow(ArrowID,PortID):-
+    arrow(ArrowID,nil),
+    receiver(ArrowID,PortID,_).
+    
