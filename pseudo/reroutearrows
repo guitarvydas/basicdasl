@@ -1,6 +1,6 @@
 #!/usr/bin/env swipl -q
 :- initialization(main,main).
-:- include(r_L2).
+:- include(r).
 
 % make old arrow an orphan
 % create a new arrow to merged port
