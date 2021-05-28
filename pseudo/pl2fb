@@ -1,0 +1,4 @@
+#!/bin/bash
+# convert a .pl file to a .fb file (,.() become spaces)
+sed -E -e 's/,/ /g' -e 's/\(/ /g' -e 's/\)/ /g' -e 's/\./ /g' <$1.pl >$1.fb
+

@@ -1,0 +1,6 @@
+#!/bin/bash
+# usage: `rewritearrow layer1_a hello_r temp.pl`
+# usage: `rewritearrow layer1_b hello_s temp.pl`
+sed -E -e "/sendersynonym/s/$1/$2/g" \
+       -e "/receiversynonym/s/$1/$2/g" <$3 >temp
+mv temp $3

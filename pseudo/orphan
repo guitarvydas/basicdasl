@@ -1,0 +1,6 @@
+#!/usr/bin/env swipl
+% usage: getidfromsynonym <file (w/o .pl extension)> <synonym>
+% e.g. getidfromsynonym layer0 layer1
+:- initialization(main,main).
+main([ID]):-
+    format("orphan(~w,nil).~n", [ID]).

@@ -1,0 +1,14 @@
+#!/usr/bin/env swipl -q
+:- initialization(main,main).
+:- include(r_L2).
+
+main(_):-
+    consult(user),
+    emitReceiverIDs.
+
+emitReceiverIDs :-
+    bagof(ReceiverID,emitReceiver(ReceiverID),_).
+
+emitReceiver(ReceiverID) :-
+    receiver(ArrowID,ReceiverID,_),
+    format("receiver(~w,~w).~n", [ArrowID, ReceiverID]).

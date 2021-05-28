@@ -1,0 +1,14 @@
+#!/bin/bash
+# usage: mergedas container1 layer0 ${linkid} ${mergeid} ${linkname} temp
+
+fb1=$1
+fb2=$2
+linkid=$3
+mergeid=$4
+linkname=$5
+fbresult=$6
+
+cat ${fb1}.fb ${fb2}.fb >temp
+sed -E -e "/contains/s/${linkid}/${mergeid}/g" <temp \
+    | sed -E -e "0a/orphan(${linkname},nil)./"b
+    | sed -E -e '/^$/d' | sort >${fbresult}.fb

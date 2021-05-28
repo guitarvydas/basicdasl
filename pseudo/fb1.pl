@@ -30,11 +30,8 @@ contains(layer0_0,layer0_7).
 contains(layer0_3,layer0_4).
 contains(layer0_3,layer0_5).
 orphan(layer0_3,nil).
-orphanReceiver(layer0_4).
-orphanSender(layer0_5).
 receiver(container1_6_a,container1_4).
 receiver(container1_7_a,container1_2).
-receiver(layer0_6_a,container1_1).
 receiver(layer0_6_a,layer0_4).
 receiver(layer0_7_a,layer0_2).
 receiversynonym(container1_6_a,hello_r).
@@ -56,7 +53,6 @@ rounded(layer0_3,nil).
 sender(container1_6_a,container1_1).
 sender(container1_7_a,container1_5).
 sender(layer0_6_a,layer0_1).
-sender(layer0_7_a,container1_2).
 sender(layer0_7_a,layer0_5).
 sendersynonym(container1_6_a,x).
 sendersynonym(container1_7_a,hello_s).

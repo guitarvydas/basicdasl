@@ -1,0 +1,15 @@
+1: rect layer0
+2: shape rounded
+2: circle in
+3: color green
+2: circle out
+3: color yellow
+2: rect layer1
+3: shape rounded
+3: rect layer1/a
+4: color green
+3: rect layer1/b
+4: color yellow
+2: arrow in layer1/a
+2: arrow layer1/b out
+
