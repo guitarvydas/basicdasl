@@ -21,6 +21,7 @@ contains(container1_0,container1_6).
 contains(container1_0,container1_7).
 contains(container1_3,container1_4).
 contains(container1_3,container1_5).
+contains(layer0_0,container1_0).
 contains(layer0_0,layer0_1).
 contains(layer0_0,layer0_2).
 contains(layer0_0,layer0_3).
@@ -28,6 +29,7 @@ contains(layer0_0,layer0_6).
 contains(layer0_0,layer0_7).
 contains(layer0_3,layer0_4).
 contains(layer0_3,layer0_5).
+orphan(layer0_3,nil).
 receiver(container1_6_a,container1_4).
 receiver(container1_7_a,container1_2).
 receiver(layer0_6_a,layer0_4).

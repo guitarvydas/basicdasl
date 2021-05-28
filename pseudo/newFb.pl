@@ -1,0 +1,14 @@
+sender(container1_6,container1_1).
+sender(container1_7,container1_5).
+sender(container1_6,container1_1).
+sender(container1_7,container1_5).
+sender(container1_6,container1_1).
+sender(container1_7,container1_5).
+sender(container1_6,container1_1).
+sender(container1_7,container1_5).
+sender(container1_6_a_,container1_1).
+sender(container1_7_a_,container1_5).
+sender(container1_6_a_,container1_1).
+sender(container1_7_a_,container1_5).
+sender(container1_6_a,container1_1).
+sender(container1_7_a,container1_5).

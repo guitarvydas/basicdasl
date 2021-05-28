@@ -1,0 +1,20 @@
+#!/usr/bin/env swipl -q
+:- initialization(main,main).
+:- include(r_L2).
+
+% make old arrow an orphan
+% create a new arrow to merged port
+main([PortIDOnOrphanedLink,MergedPort]):-
+    consult(user),
+    setof(A,rerouteArrow(A,PortIDOnOrphanedLink,MergedPort),_).
+
+rerouteArrow(ArrowID,OldPortID,NewPortID):-
+    arrow(ArrowID,nil),
+    sender(ArrowID,OldPortID,_),
+    format("orphanSender(~w).~n", [OldPortID]),
+    format("sender(~w,~w).~n", [ArrowID,NewPortID]).
+rerouteArrow(ArrowID,OldPortID,NewPortID):-
+    arrow(ArrowID,nil),
+    receiver(ArrowID,OldPortID,_),
+    format("orphanReceiver(~w).~n", [OldPortID]),
+    format("receiver(~w,~w).~n", [ArrowID,NewPortID]).

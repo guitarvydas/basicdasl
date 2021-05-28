@@ -1,7 +1,9 @@
 1: rect container1
 2: shape rounded
 2: circle x
+3: color green
 2: circle y
+3: color yellow
 2: rect hello
 3: shape rounded
 3: rect hello/r

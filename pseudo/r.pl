@@ -14,6 +14,8 @@
 :- dynamic strokeWidth/2.
 
 :- dynamic orphan/2.
+:- dynamic orphanSender/1.
+:- dynamic orphanReceiver/1.
 
 % layer high
 %     port is a rect or circle
@@ -117,7 +119,16 @@ arrows(ID,Bag):-
     composite(ID),
     arrow(AID,nil),
     contains(ID,AID),
-    setof([S,R], (sendersynonym(AID,S), receiversynonym(AID,R)),Bag).
+    setof([S,R], (sender(AID,_,S), receiver(AID,_,R)),Bag).
 
 notOrphaned(ID):-
     \+ orphan(ID,nil).
+
+sender(ArrowID,SenderID,SenderSynonym):-
+    arrow(ArrowID,_),
+    sendersynonym(ArrowID,SenderSynonym),
+    synonym(SenderID,SenderSynonym).
+receiver(ArrowID,ReceiverID,ReceiverSynonym):-
+    arrow(ArrowID,_),
+    receiversynonym(ArrowID,ReceiverSynonym),
+    synonym(ReceiverID,ReceiverSynonym).
