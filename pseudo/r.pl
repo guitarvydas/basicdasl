@@ -113,14 +113,6 @@ firstChar(S,C):-
 
 second([_,B],B).
 
-% layer debug
-arrows(ID,["-","-"]) :- link(ID).
-arrows(ID,Bag):-
-    composite(ID),
-    arrow(AID,nil),
-    contains(ID,AID),
-    setof([S,R], (sender(AID,_,S), receiver(AID,_,R)),Bag).
-
 notOrphaned(ID):-
     \+ orphan(ID,nil).
 

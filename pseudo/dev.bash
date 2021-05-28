@@ -62,4 +62,4 @@ yport=`./getIDFromLayer container1 y`
 ### result is in fb.pl
 
 
-qr <fb.pl
+# qr <fb.pl

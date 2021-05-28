@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+
+PATH='./':$PATH
 trap 'catch' ERR
 
 catch () {
@@ -7,9 +9,9 @@ catch () {
     exit 1
 }
 
-set -x
+(
 
-./build_grasem.bash
+  cat layer0.pl
+  cat container1.pl
 
-./input.bash
-./output.bash
+) | prologify.bash

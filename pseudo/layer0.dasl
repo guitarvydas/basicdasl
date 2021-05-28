@@ -1,0 +1,53 @@
+/* as DASL
+
+=== signature
+[layer0] < (in) > (out)
+[layer1] < (layer1/a) >(layer1/b)
+=== components
+[layer0] [[layer1]]
+[layer1] link
+=== connections
+./x/1 [./](in) ->{ ( [./c/1](layer1/a) }
+./x/2 [./c/1](layer1/b) -> { [./](out) }
+=== synonyms
+in ./i/1
+out ./o/1
+layer1/a ./c/1/i/1
+layer1/b ./c/1/o/1
+layer1 ./c/1
+layer0 ./
+
+*/
+
+/* substitutions
+=== signature
+[./] < (./i/1) > (./o/1)
+[./c/1] < (./o/1) >(./o/1)
+=== components
+[./] [[./c/1]]
+[./c/1] ?
+=== connections
+./x/1 [./](./c/1/i/1) -> { ( [./c/1](./c/i/1/1) }
+./x/2 [./c/1](./c/o/1) -> { [./](./o/1/1) }
+
+*/
+
+/*
+transpiled to .md...
+
+# rect layer0
+## shape rounded
+## circle in
+### color green
+## circle out
+### color yellow
+## rect layer1
+### shape rounded
+### rect layer1/a
+#### color green
+### rect layer1/b
+#### color yellow
+## arrow in layer1/a
+## arrow layer1/b out
+
+*/
